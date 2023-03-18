@@ -1,5 +1,5 @@
-import settings from "../../images/settings.svg";
 import "./index.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => (
   <nav className="Navbar" role="navigation" aria-label="Top Navigation">
@@ -10,7 +10,7 @@ const Navbar = () => (
       aria-label="Search"
     />
     <button id="Navbar__settings-icon-button" aria-label="Settings">
-      <img id="Navbar__settings-icon" src={settings} alt="settings-icon" />
+      <FontAwesomeIcon icon="cog" />
     </button>
   </nav>
 );

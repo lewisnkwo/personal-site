@@ -10,8 +10,8 @@
 
   input[type="search"] {
     @include input;
-    background: transparent url("../../images/search.svg") no-repeat 13.88px
-      center;
+    // background: transparent url("../../images/search.svg") no-repeat 13.88px
+    //   center;
     background-size: 16.25px;
     padding: 8px 12px 8px 40px;
     font-size: 17px;

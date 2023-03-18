@@ -1,5 +1,7 @@
 import { SidebarItem as SidebarItemT } from "../../../types";
 import "./index.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconName } from "@fortawesome/fontawesome-common-types";
 
 interface Props extends SidebarItemT {
   tabIndex: number;
@@ -12,7 +14,7 @@ const SidebarItem = ({ icon, title, tabIndex }: Props) => (
     aria-label={title}
     tabIndex={tabIndex + 1}
   >
-    <img className="SidebarItem__icon" src={icon} alt={title} />
+    <FontAwesomeIcon icon={icon as IconName} />
     <span className="SidebarItem__title">{title}</span>
   </div>
 );

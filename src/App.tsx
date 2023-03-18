@@ -1,13 +1,18 @@
 import "./App.scss";
-import Sidebar from "./components/sidebar";
-import Home from "./images/home.svg";
-import Blog from "./images/blog.svg";
-import Community from "./images/community.svg";
-import Contest from "./images/contest.svg";
-import About from "./images/about.svg";
-import Contact from "./images/contact.svg";
 import Navbar from "./components/navbar";
 import Main from "./components/main";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faHouse,
+  faCode,
+  faPlane,
+  faDumbbell,
+  faHashtag,
+  faMessage,
+} from "@fortawesome/free-solid-svg-icons";
+import Sidebar from "./components/sidebar";
+
+library.add(faHouse, faCode, faPlane, faDumbbell, faHashtag, faMessage);
 
 function App() {
   return (
@@ -15,27 +20,27 @@ function App() {
       <Sidebar
         items={[
           {
-            icon: Home,
+            icon: "house",
             title: "Home",
           },
           {
-            icon: Blog,
-            title: "Blog",
+            icon: "code",
+            title: "Developer",
           },
           {
-            icon: Community,
-            title: "Community",
+            icon: "plane",
+            title: "Travel",
           },
           {
-            icon: Contest,
-            title: "Contest",
+            icon: "dumbbell",
+            title: "Fitness",
           },
           {
-            icon: About,
+            icon: "hashtag",
             title: "About",
           },
           {
-            icon: Contact,
+            icon: "message",
             title: "Contact",
           },
         ]}
