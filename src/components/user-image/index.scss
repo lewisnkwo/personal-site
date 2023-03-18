@@ -1,0 +1,39 @@
+@use "../../variables" as *;
+
+.UserImage--small {
+  @include user-image;
+  width: 56px;
+  height: 56px;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.UserImage--medium {
+  @include user-image;
+  width: 64px;
+  height: 64px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.UserImage--large {
+  @include user-image;
+  width: 96px;
+  height: 96px;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.UserImage__image {
+  width: 100%;
+  height: auto;
+  border-radius: $border-radius;
+}
+
+.UserImage__initials {
+  width: 29px;
+  height: 28px;
+  font-weight: 600;
+  color: $text-primary;
+  @include flex;
+}

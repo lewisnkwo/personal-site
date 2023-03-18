@@ -1,0 +1,36 @@
+@use "../../variables" as *;
+
+.Sidebar {
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 100%;
+  border-right: $border-container;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.Sidebar__top {
+  @include flex(column);
+}
+
+.Sidebar__items {
+  margin-top: 40px;
+}
+
+.Sidebar__name {
+  @include text-user-name;
+  margin-top: 16px;
+}
+
+.Sidebar__role {
+  @include text-user-role;
+  margin-top: 4px;
+}
+
+@media only screen and (max-width: 480px) {
+  .Sidebar {
+    display: none;
+  }
+}

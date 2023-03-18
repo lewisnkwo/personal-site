@@ -1,0 +1,35 @@
+@use "../../../variables" as *;
+
+.UserItem,
+.UserItem--selected {
+  @include flex(row, flex-start);
+  @include psuedo;
+  padding: 12px;
+  border-radius: $border-radius;
+  margin-bottom: 24px;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:last-child(-n + 2) {
+    margin-bottom: 0px;
+  }
+}
+
+.UserItem--selected {
+  background-color: #fff;
+  box-shadow: inset 0px 0px 0px 2px $border-primary;
+}
+
+.UserItem__info {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.UserItem__name {
+  @include text-user-name;
+}
+
+.UserItem__role {
+  @include text-user-role;
+}

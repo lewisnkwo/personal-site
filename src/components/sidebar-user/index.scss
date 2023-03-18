@@ -1,0 +1,61 @@
+@use "../../variables" as *;
+
+.SidebarUser {
+  right: -440px;
+  width: 440px;
+  border-left: $border-container;
+  height: 100%;
+  background: #ffffff;
+  position: relative;
+  animation: slide-right 0.2s ease-in-out forwards;
+}
+
+@keyframes slide-right {
+  0% {
+    right: -440px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+.SidebarUser__top {
+  @include flex(column);
+  padding: 48px;
+  background: #f2f2f2;
+  border-bottom: $border-container;
+}
+
+.SidebarUser__info {
+  @include flex(column);
+}
+
+.SidebarUser__items {
+  padding: 0px 40px;
+}
+
+.SidebarUser__name {
+  @include text-user-name;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-top: 16px;
+}
+
+.SidebarUser__role {
+  @include text-secondary;
+  margin-top: 8px;
+}
+
+@media only screen and (max-width: 480px) {
+  .SidebarUser {
+    display: initial;
+    width: 100%;
+    border-left: none;
+    position: initial;
+  }
+
+  .SidebarUser__items {
+    padding-bottom: 40px;
+  }
+}
