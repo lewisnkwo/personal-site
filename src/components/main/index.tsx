@@ -1,46 +1,30 @@
 import UserItem from "./user-item";
 import "./index.scss";
 import { useEffect, useState, useRef } from "react";
-import { toUserList } from "../../utils";
-import SidebarUser from "../sidebar-user";
-import { UserListItem } from "../../types";
+import { toPost } from "../../utils";
+import SidebarDetail from "../sidebar-detail";
+import { Post } from "../../types";
+import fakePosts from "../../fakeposts";
 
 const Main = () => {
-  const [users, setUsers] = useState<UserListItem[] | undefined>(undefined);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const posts = toPost(fakePosts);
 
-  const [selectedUser, setSelectedUser] = useState<UserListItem | undefined>(
-    undefined
-  );
+  const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
 
-  const sidebarUserRef = useRef<HTMLDivElement | null>(null);
+  const sidebarPostRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setError(false);
-    setLoading(true);
-
-    fetch(
-      "https://randomuser.me/api/?results=10&inc=name,email,cell,location,picture"
-    )
-      .then((response) => response.json())
-      .then(({ results }) => setUsers(toUserList(results)))
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
-    if (sidebarUserRef?.current) {
-      sidebarUserRef.current.scrollIntoView({
+    if (sidebarPostRef?.current) {
+      sidebarPostRef.current.scrollIntoView({
         behavior: "smooth",
         block: "end",
         inline: "nearest",
       });
     }
-  }, [selectedUser]);
+  }, [selectedPost]);
 
   return (
-    <main className={`Main${selectedUser ? "-with-sidebar" : ""}`}>
+    <main className={`Main${selectedPost ? "-with-sidebar" : ""}`}>
       <div className="Main__left">
         <section>
           <span className="Main__heading">Users</span>
@@ -56,29 +40,22 @@ const Main = () => {
           </div>
         </section>
         <section className="Main__user-list">
-          {loading && <span className="loading">Loading users...</span>}
-          {error && (
-            <span className="error">
-              Oops! An error occurred while loading the users. Please refresh
-              and try again.
-            </span>
-          )}
-          {users?.map((u, i) => (
+          {posts.map((p, i) => (
             <UserItem
               key={i}
-              {...u}
+              {...p}
               onSelect={() =>
-                setSelectedUser(selectedUser === u ? undefined : u)
+                setSelectedPost(selectedPost === p ? undefined : p)
               }
-              isSelected={selectedUser?.name === u.name}
+              isSelected={selectedPost?.title === p.title}
               tabIndex={i}
             />
           ))}
         </section>
       </div>
-      {selectedUser && (
-        <div ref={window.innerWidth <= 480 ? sidebarUserRef : null}>
-          <SidebarUser {...selectedUser} />
+      {selectedPost && (
+        <div ref={window.innerWidth <= 480 ? sidebarPostRef : null}>
+          <SidebarDetail {...selectedPost} />
         </div>
       )}
     </main>

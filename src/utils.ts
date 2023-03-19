@@ -1,12 +1,11 @@
-import { RandomUserModel, UserListItem } from "./types";
+import { Post, PostModel } from "./types";
 
-export const userListTabIndex = 8;
+export const postListTabIndex = 8;
 
-export const toUserList = (users: RandomUserModel[]): UserListItem[] =>
-  users.map((user) => ({
-    name: `${user.name.first} ${user.name.last}`,
-    city: user.location.city,
-    phone: user.cell,
-    email: user.email,
-    picture: user.picture.large,
+export const toPost = (posts: PostModel[]): Post[] =>
+  posts.map((post) => ({
+    ...post,
+    author: {
+      name: `${post.author.name.first} ${post.author.name.last}`,
+    },
   }));

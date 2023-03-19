@@ -1,5 +1,5 @@
 import { SidebarItem } from "../../types";
-import UserImage from "../user-image";
+import UserImage from "../post-image";
 import Item from "./sidebar-item";
 import "./index.scss";
 import author from "../../images/lewisnkwo.jpg";

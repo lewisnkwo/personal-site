@@ -30,7 +30,7 @@
   display: block;
 }
 
-.Main__select-users {
+.Main__select-posts {
   @include flex(row, flex-start);
   @include text-secondary;
 
@@ -47,7 +47,7 @@
   margin-top: 24px;
 }
 
-.Main__user-list {
+.Main__post-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 40px;
@@ -59,7 +59,7 @@
     padding: 20px;
   }
 
-  .Main__user-list {
+  .Main__post-list {
     column-gap: 0px;
   }
 

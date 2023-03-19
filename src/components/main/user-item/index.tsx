@@ -1,28 +1,35 @@
-import { UserListItem } from "../../../types";
-import { userListTabIndex } from "../../../utils";
-import UserImage from "../../user-image";
+import { Post } from "../../../types";
+import { postListTabIndex } from "../../../utils";
+import UserImage from "../../post-image";
 import "./index.scss";
 
-export interface Props extends UserListItem {
+export interface Props extends Post {
   onSelect: () => void;
   isSelected: boolean;
   tabIndex: number;
 }
 
-const UserItem = ({ name, picture, onSelect, isSelected, tabIndex }: Props) => (
+const PostItem = ({
+  title,
+  subtitle,
+  image,
+  onSelect,
+  isSelected,
+  tabIndex,
+}: Props) => (
   <div
     className={`UserItem${isSelected ? "--selected" : ""}`}
     onClick={onSelect}
     role="button"
-    aria-label={`${name} - Developer`}
-    tabIndex={tabIndex + userListTabIndex}
+    aria-label={title}
+    tabIndex={tabIndex + postListTabIndex}
   >
-    <UserImage image={picture} name={name} size="small" />
+    {image && <UserImage image={image} name={title} size="small" />}
     <div className="UserItem__info">
-      <span className="UserItem__name">{name}</span>
-      <span className="UserItem__role">Developer</span>
+      <span className="UserItem__name">{title}</span>
+      <span className="UserItem__role">{subtitle}</span>
     </div>
   </div>
 );
 
-export default UserItem;
+export default PostItem;
