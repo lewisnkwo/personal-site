@@ -1,27 +1,5 @@
 import { RandomUserModel, UserListItem } from "./types";
-import { createInitials, toUserList } from "./utils";
-
-describe("createInitials", () => {
-  it("should return empty string for empty input", () => {
-    expect(createInitials("")).toBe("");
-  });
-
-  it("should remove extra whitespaces around the name", () => {
-    expect(createInitials("  Lewis Nkwo    ")).toBe("LN");
-  });
-
-  it("should remove extra whitespaces in-between names", () => {
-    expect(createInitials("  Lewis   Nkwo    ")).toBe("LN");
-  });
-
-  it("should return the initials for a user name", () => {
-    expect(createInitials("Lewis Nkwo")).toBe("LN");
-  });
-
-  it("should return a maximum of 4 initials", () => {
-    expect(createInitials("Lewis Nkwo Another Name Here")).toBe("LNAN");
-  });
-});
+import { toUserList } from "./utils";
 
 describe("toUserList", () => {
   const users: RandomUserModel[] = [

@@ -9,10 +9,11 @@ import {
   faDumbbell,
   faHashtag,
   faMessage,
+  faCog,
 } from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "./components/sidebar";
 
-library.add(faHouse, faCode, faPlane, faDumbbell, faHashtag, faMessage);
+library.add(faHouse, faCode, faPlane, faDumbbell, faHashtag, faMessage, faCog);
 
 function App() {
   return (

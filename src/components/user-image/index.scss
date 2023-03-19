@@ -29,11 +29,3 @@
   height: auto;
   border-radius: $border-radius;
 }
-
-.UserImage__initials {
-  width: 29px;
-  height: 28px;
-  font-weight: 600;
-  color: $text-primary;
-  @include flex;
-}

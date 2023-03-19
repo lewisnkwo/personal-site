@@ -2,6 +2,7 @@ import { SidebarItem } from "../../types";
 import UserImage from "../user-image";
 import Item from "./sidebar-item";
 import "./index.scss";
+import author from "../../images/lewisnkwo.jpg";
 
 interface Props {
   items: SidebarItem[];
@@ -10,7 +11,7 @@ interface Props {
 const Sidebar = ({ items }: Props) => (
   <div className="Sidebar" role="navigation" aria-label="Side Navigation">
     <div className="Sidebar__top">
-      <UserImage image={null} name="Lewis Nkwo" size="medium" />
+      <UserImage image={author} name="Lewis Nkwo" size="medium" />
       <span className="Sidebar__name">Lewis Nkwo</span>
       <span className="Sidebar__role">Frontend Engineer</span>
     </div>
