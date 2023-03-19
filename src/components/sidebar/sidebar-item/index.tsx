@@ -14,7 +14,9 @@ const SidebarItem = ({ icon, title, tabIndex }: Props) => (
     aria-label={title}
     tabIndex={tabIndex + 1}
   >
-    <FontAwesomeIcon icon={icon as IconName} />
+    <div className="SidebarItem__icon-container">
+      <FontAwesomeIcon icon={icon as IconName} />
+    </div>
     <span className="SidebarItem__title">{title}</span>
   </div>
 );

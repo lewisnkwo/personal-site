@@ -16,7 +16,12 @@
 
 .SidebarItem__icon {
   width: 15px;
-  height: 15.41px;
+  height: auto;
+}
+
+.SidebarItem__icon-container {
+  width: 25px;
+  height: auto;
 }
 
 .SidebarItem__title {
