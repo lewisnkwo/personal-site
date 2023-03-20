@@ -6,6 +6,7 @@ export interface SidebarItem {
 export type Size = "small" | "medium" | "large";
 
 export interface PostModel {
+  id: number;
   title: string;
   subtitle: string;
   author: {
@@ -21,6 +22,7 @@ export interface PostModel {
 }
 
 export interface Post {
+  id: number;
   title: string;
   subtitle: string;
   author: {

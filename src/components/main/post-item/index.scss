@@ -1,7 +1,7 @@
 @use "../../../variables" as *;
 
-.UserItem,
-.UserItem--selected {
+.PostItem,
+.PostItem--selected {
   @include flex(row, flex-start);
   @include psuedo;
   padding: 12px;
@@ -15,21 +15,21 @@
   }
 }
 
-.UserItem--selected {
+.PostItem--selected {
   background-color: #fff;
   box-shadow: inset 0px 0px 0px 2px $border-primary;
 }
 
-.UserItem__info {
+.PostItem__info {
   margin-left: 12px;
   display: flex;
   flex-direction: column;
 }
 
-.UserItem__name {
-  @include text-user-name;
+.PostItem__title {
+  @include text-post-title;
 }
 
-.UserItem__role {
-  @include text-user-role;
+.PostItem__subtitle {
+  @include text-post-subtitle;
 }

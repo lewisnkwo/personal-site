@@ -2,6 +2,7 @@ import { PostModel } from "./types";
 
 const posts: PostModel[] = [
   {
+    id: 1,
     title: "Why React?",
     subtitle: "Choosing how to build your website",
     author: {
@@ -16,6 +17,7 @@ const posts: PostModel[] = [
     image: undefined,
   },
   {
+    id: 2,
     title: "Why React?",
     subtitle: "Choosing how to build your website",
     author: {
@@ -30,6 +32,7 @@ const posts: PostModel[] = [
     image: undefined,
   },
   {
+    id: 3,
     title: "Why React?",
     subtitle: "Choosing how to build your website",
     author: {
@@ -44,6 +47,7 @@ const posts: PostModel[] = [
     image: undefined,
   },
   {
+    id: 4,
     title: "Why React?",
     subtitle: "Choosing how to build your website",
     author: {

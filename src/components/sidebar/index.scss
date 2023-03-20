@@ -20,12 +20,12 @@
 }
 
 .Sidebar__name {
-  @include text-user-name;
+  @include text-post-title;
   margin-top: 16px;
 }
 
 .Sidebar__role {
-  @include text-user-role;
+  @include text-post-subtitle;
   margin-top: 4px;
 }
 

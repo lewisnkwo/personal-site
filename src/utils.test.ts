@@ -1,94 +1,68 @@
-import { RandomUserModel, UserListItem } from "./types";
-import { toUserList } from "./utils";
+import { Post, PostModel } from "./types";
+import { toPost } from "./utils";
 
-describe("toUserList", () => {
-  const users: RandomUserModel[] = [
-    {
-      name: {
-        title: "Mrs",
-        first: "Brandy",
-        last: "Diaz",
-      },
-      location: {
-        street: {
-          number: 5724,
-          name: "Nowlin Rd",
-        },
-        city: "Maitland",
-        state: "Tasmania",
-        country: "Australia",
-        postcode: 8045,
-        coordinates: {
-          latitude: "-87.9765",
-          longitude: "141.2248",
-        },
-        timezone: {
-          offset: "+11:00",
-          description: "Magadan, Solomon Islands, New Caledonia",
-        },
-      },
-      email: "brandy.diaz@example.com",
-      cell: "0443-466-871",
-      picture: {
-        large: "https://randomuser.me/api/portraits/women/1.jpg",
-        medium: "https://randomuser.me/api/portraits/med/women/1.jpg",
-        thumbnail: "https://randomuser.me/api/portraits/thumb/women/1.jpg",
-      },
-    },
-    {
-      name: {
-        title: "Mr",
-        first: "Mathias",
-        last: "Johansen",
-      },
-      location: {
-        street: {
-          number: 6038,
-          name: "Skelagervej",
-        },
-        city: "Stoevring",
-        state: "Danmark",
-        country: "Denmark",
-        postcode: 43646,
-        coordinates: {
-          latitude: "14.8078",
-          longitude: "108.8698",
-        },
-        timezone: {
-          offset: "+11:00",
-          description: "Magadan, Solomon Islands, New Caledonia",
-        },
-      },
-      email: "mathias.johansen@example.com",
-      cell: "95899754",
-      picture: {
-        large: "https://randomuser.me/api/portraits/women/82.jpg",
-        medium: "https://randomuser.me/api/portraits/med/women/82.jpg",
-        thumbnail: "https://randomuser.me/api/portraits/thumb/women/82.jpg",
-      },
-    },
-  ];
-
-  it("should transform the model data into props for UserItem", () => {
-    const expected: UserListItem[] = [
+describe("toPost", () => {
+  it("should convert PostModels to Posts", () => {
+    const posts: PostModel[] = [
       {
-        name: "Brandy Diaz",
-        city: "Maitland",
-        phone: "0443-466-871",
-        email: "brandy.diaz@example.com",
-        picture: "https://randomuser.me/api/portraits/women/1.jpg",
+        id: 1,
+        title: "Title 1",
+        subtitle: "Subtitle 1",
+        author: {
+          name: {
+            first: "John",
+            last: "Doe",
+          },
+        },
+        category: "Category 1",
+        email: "johndoe@example.com",
+        date: "2022-03-20",
+        image: undefined,
       },
       {
-        name: "Mathias Johansen",
-        city: "Stoevring",
-        phone: "95899754",
-        email: "mathias.johansen@example.com",
-        picture: "https://randomuser.me/api/portraits/women/82.jpg",
+        id: 2,
+        title: "Title 2",
+        subtitle: "Subtitle 2",
+        author: {
+          name: {
+            first: "Jane",
+            last: "Doe",
+          },
+        },
+        category: "Category 2",
+        email: "janedoe@example.com",
+        date: "2022-03-21",
+        image: undefined,
       },
     ];
 
-    const result = toUserList(users);
+    const expected: Post[] = [
+      {
+        id: 1,
+        title: "Title 1",
+        subtitle: "Subtitle 1",
+        author: {
+          name: "John Doe",
+        },
+        category: "Category 1",
+        email: "johndoe@example.com",
+        date: "2022-03-20",
+        image: undefined,
+      },
+      {
+        id: 2,
+        title: "Title 2",
+        subtitle: "Subtitle 2",
+        author: {
+          name: "Jane Doe",
+        },
+        category: "Category 2",
+        email: "janedoe@example.com",
+        date: "2022-03-21",
+        image: undefined,
+      },
+    ];
 
-    expect(result).toEqual(expected);
+    expect(toPost(posts)).toEqual(expected);
   });
 });

@@ -32,14 +32,14 @@ $border-radius: 8px;
   color: $text-secondary;
 }
 
-@mixin text-post-name {
+@mixin text-post-title {
   font-size: 17px;
   line-height: 24px;
   color: $text-primary;
   font-weight: 500;
 }
 
-@mixin text-post-role {
+@mixin text-post-subtitle {
   font-size: 15px;
   line-height: 20px;
   color: $text-secondary;
