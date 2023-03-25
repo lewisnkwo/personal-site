@@ -5,7 +5,8 @@
   border-bottom: $border-container;
   padding: 14px 29.25px;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 
   input[type="search"] {
@@ -23,17 +24,17 @@
   input[type="search"]::placeholder {
     color: #acacac;
   }
-}
 
-#Navbar__settings-icon-button {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  width: 17.51px;
-  height: 16.73px;
-}
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    width: 17.51px;
+    height: 16.73px;
+  }
 
-#Navbar__settings-icon {
-  width: 17.51px;
-  height: 16.73px;
+  svg {
+    width: 17.51px;
+    height: 16.73px;
+  }
 }

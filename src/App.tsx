@@ -10,6 +10,7 @@ import {
   faHashtag,
   faMessage,
   faCog,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedinIn,
@@ -28,6 +29,7 @@ library.add(
   faCog,
   faLinkedinIn,
   faGithub,
+  faBars,
   fab
 );
 

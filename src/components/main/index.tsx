@@ -27,7 +27,7 @@ const Main = () => {
     <main className={`Main${selectedPost ? "-with-sidebar" : ""}`}>
       <div className="Main__left">
         <section>
-          <span className="Main__heading">Users</span>
+          <span className="Main__heading">Latest posts</span>
           <span className="Main__description">Latest posts</span>
           <div className="Main__select-posts">
             Choice of posts:
