@@ -17,10 +17,9 @@ const PostItem = ({
   isSelected,
   tabIndex,
 }: Props) => (
-  <div
+  <button
     className={`PostItem${isSelected ? "--selected" : ""}`}
     onClick={onSelect}
-    role="button"
     aria-label={title}
     tabIndex={tabIndex + postListTabIndex}
   >
@@ -29,7 +28,7 @@ const PostItem = ({
       <span className="PostItem__title">{title}</span>
       <span className="PostItem__subtitle">{subtitle}</span>
     </div>
-  </div>
+  </button>
 );
 
 export default PostItem;

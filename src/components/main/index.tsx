@@ -29,8 +29,8 @@ const Main = () => {
         <section>
           <span className="Main__heading">Users</span>
           <span className="Main__description">Latest posts</span>
-          <div className="Main__select-users">
-            Select a group of users
+          <div className="Main__select-posts">
+            Choice of posts:
             <select name="users" defaultValue="developers">
               <option value="developers">Developers</option>
             </select>
@@ -42,7 +42,7 @@ const Main = () => {
               key={i}
               {...p}
               onSelect={() =>
-                setSelectedPost(selectedPost === p ? undefined : p)
+                setSelectedPost(selectedPost?.id === p.id ? undefined : p)
               }
               isSelected={selectedPost?.id === p.id}
               tabIndex={i}

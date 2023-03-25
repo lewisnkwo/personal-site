@@ -1,15 +1,15 @@
 @use "../../../variables" as *;
 
-.SidebarUser__item {
+.SidebarDetail__item {
   margin-top: 40px;
 }
 
-.SidebarUser__item-name {
+.SidebarDetail__item-name {
   @include sidebar-item-value;
   color: $text-secondary;
 }
 
-.SidebarUser__item-value {
+.SidebarDetail__item-value {
   @include text-primary;
   margin-top: 4px;
 }

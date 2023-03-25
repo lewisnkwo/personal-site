@@ -18,7 +18,7 @@ const posts: PostModel[] = [
   },
   {
     id: 2,
-    title: "Why React?",
+    title: "Why Angular?",
     subtitle: "Choosing how to build your website",
     author: {
       name: {
@@ -27,36 +27,6 @@ const posts: PostModel[] = [
       },
     },
     category: "General",
-    email: "nkwolewis@gmail.com",
-    date: "Yesterday",
-    image: undefined,
-  },
-  {
-    id: 3,
-    title: "Why React?",
-    subtitle: "Choosing how to build your website",
-    author: {
-      name: {
-        first: "Lewis",
-        last: "Nkwo",
-      },
-    },
-    category: "A11y",
-    email: "nkwolewis@gmail.com",
-    date: "Yesterday",
-    image: undefined,
-  },
-  {
-    id: 4,
-    title: "Why React?",
-    subtitle: "Choosing how to build your website",
-    author: {
-      name: {
-        first: "Lewis",
-        last: "Nkwo",
-      },
-    },
-    category: "Peformance",
     email: "nkwolewis@gmail.com",
     date: "Yesterday",
     image: undefined,

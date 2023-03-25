@@ -11,9 +11,25 @@ import {
   faMessage,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLinkedinIn,
+  faGithub,
+  fab,
+} from "@fortawesome/free-brands-svg-icons";
 import Sidebar from "./components/sidebar";
 
-library.add(faHouse, faCode, faPlane, faDumbbell, faHashtag, faMessage, faCog);
+library.add(
+  faHouse,
+  faCode,
+  faPlane,
+  faDumbbell,
+  faHashtag,
+  faMessage,
+  faCog,
+  faLinkedinIn,
+  faGithub,
+  fab
+);
 
 function App() {
   return (
@@ -41,8 +57,12 @@ function App() {
             title: "About",
           },
           {
-            icon: "message",
-            title: "Contact",
+            icon: "linkedin-in",
+            title: "LinkedIn",
+          },
+          {
+            icon: "github",
+            title: "Github",
           },
         ]}
       />

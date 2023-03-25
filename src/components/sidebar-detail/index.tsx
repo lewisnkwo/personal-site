@@ -12,7 +12,7 @@ const SidebarDetail = ({ title, subtitle, image, author }: Props) => (
         <span className="SidebarDetail__subtitle">{subtitle}</span>
       </div>
     </section>
-    <section>
+    <section className="SidebarDetail__items">
       <SidebarDetailItem label="Author" value={author.name} />
     </section>
   </div>
