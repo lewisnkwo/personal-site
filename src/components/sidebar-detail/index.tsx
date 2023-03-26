@@ -1,4 +1,4 @@
-import Image from "../post-image";
+import Image from "../image";
 import SidebarDetailItem from "./post-item";
 import "./index.scss";
 import { Post as Props } from "../../types";

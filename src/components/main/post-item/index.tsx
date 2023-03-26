@@ -1,6 +1,6 @@
 import { Post } from "../../../types";
 import { postListTabIndex } from "../../../utils";
-import PostImage from "../../post-image";
+import Image from "../../image";
 import "./index.scss";
 
 export interface Props extends Post {
@@ -23,7 +23,7 @@ const PostItem = ({
     aria-label={title}
     tabIndex={tabIndex + postListTabIndex}
   >
-    {image && <PostImage image={image} name={title} size="small" />}
+    {image && <Image image={image} name={title} size="small" />}
     <div className="PostItem__info">
       <span className="PostItem__title">{title}</span>
       <span className="PostItem__subtitle">{subtitle}</span>

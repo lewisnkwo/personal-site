@@ -1,5 +1,5 @@
 import { SidebarItem } from "../../types";
-import UserImage from "../post-image";
+import UserImage from "../image";
 import Item from "./sidebar-item";
 import "./index.scss";
 import author from "../../images/lewisnkwo.jpg";
@@ -22,7 +22,7 @@ const Sidebar = ({ items, isMenuOpen, onMenuClose }: Props) => (
       <div className="Sidebar__top">
         <UserImage image={author} name="Lewis Nkwo" size="medium" />
         <span className="Sidebar__name">Lewis Nkwo</span>
-        <span className="Sidebar__role">Frontend Engineer</span>
+        <span className="Sidebar__role">Frontend Software Engineer</span>
       </div>
       <nav className="Sidebar__items" aria-label="Side Navigation">
         {items.map(({ icon, title }, i) => (
