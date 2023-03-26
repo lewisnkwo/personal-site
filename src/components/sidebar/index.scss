@@ -25,11 +25,11 @@
 }
 
 .Sidebar__role {
-  @include text-post-subtitle;
+  @include text-secondary-small;
   margin-top: 4px;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
   .Sidebar {
     display: none;
   }
