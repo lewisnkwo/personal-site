@@ -2,14 +2,14 @@ import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { isMobile } from "../../utils";
 
-const Navbar = () => (
-  <nav className="Navbar" role="navigation" aria-label="Top Navigation">
+const Header = () => (
+  <header>
     {isMobile && (
       <button aria-label="Menu">
         <FontAwesomeIcon icon="bars" />
       </button>
     )}
-    <div>
+    <>
       <input
         type="search"
         placeholder="Search"
@@ -19,8 +19,8 @@ const Navbar = () => (
       <button aria-label="Settings">
         <FontAwesomeIcon icon="cog" />
       </button>
-    </div>
-  </nav>
+    </>
+  </header>
 );
 
-export default Navbar;
+export default Header;
