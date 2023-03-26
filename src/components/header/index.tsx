@@ -2,10 +2,14 @@ import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { isMobile } from "../../utils";
 
-const Header = () => (
+interface Props {
+  onMenuClick: () => void;
+}
+
+const Header = ({ onMenuClick }: Props) => (
   <header>
     {isMobile && (
-      <button aria-label="Menu">
+      <button aria-label="Menu" onClick={onMenuClick}>
         <FontAwesomeIcon icon="bars" />
       </button>
     )}

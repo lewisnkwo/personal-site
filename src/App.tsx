@@ -19,6 +19,7 @@ import {
 import Sidebar from "./components/sidebar";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { useState } from "react";
 
 library.add(
   faHouse,
@@ -34,46 +35,52 @@ library.add(
   fab
 );
 
-const App = () => (
-  <div className="App">
-    <Sidebar
-      items={[
-        {
-          icon: "house",
-          title: "Home",
-        },
-        {
-          icon: "code",
-          title: "Blog",
-        },
-        {
-          icon: "plane",
-          title: "Travel",
-        },
-        {
-          icon: "dumbbell",
-          title: "Fitness",
-        },
-        {
-          icon: "hashtag",
-          title: "About",
-        },
-        {
-          icon: "linkedin-in",
-          title: "LinkedIn",
-        },
-        {
-          icon: "github",
-          title: "Github",
-        },
-      ]}
-    />
-    <div className="App-right">
-      <Header />
-      <Main />
-      <Footer />
+const App = () => {
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+
+  return (
+    <div className="App">
+      <Sidebar
+        isMenuOpen={openMenu}
+        items={[
+          {
+            icon: "house",
+            title: "Home",
+          },
+          {
+            icon: "code",
+            title: "Blog",
+          },
+          {
+            icon: "plane",
+            title: "Travel",
+          },
+          {
+            icon: "dumbbell",
+            title: "Health",
+          },
+          {
+            icon: "hashtag",
+            title: "About",
+          },
+          {
+            icon: "linkedin-in",
+            title: "LinkedIn",
+          },
+          {
+            icon: "github",
+            title: "Github",
+          },
+        ]}
+        onMenuClose={() => setOpenMenu(false)}
+      />
+      <div className="App-right">
+        <Header onMenuClick={() => setOpenMenu(true)} />
+        <Main />
+        <Footer />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default App;
