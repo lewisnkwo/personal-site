@@ -1,11 +1,14 @@
 import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { isMobile } from "../../utils";
 
 const Navbar = () => (
   <nav className="Navbar" role="navigation" aria-label="Top Navigation">
-    <button aria-label="Menu">
-      <FontAwesomeIcon icon="bars" />
-    </button>
+    {isMobile && (
+      <button aria-label="Menu">
+        <FontAwesomeIcon icon="bars" />
+      </button>
+    )}
     <div>
       <input
         type="search"

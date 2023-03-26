@@ -1,5 +1,5 @@
 import Image from "../post-image";
-import SidebarDetailItem from "./user-item";
+import SidebarDetailItem from "./post-item";
 import "./index.scss";
 import { Post as Props } from "../../types";
 

@@ -44,7 +44,7 @@ function App() {
           },
           {
             icon: "code",
-            title: "Developer",
+            title: "Blog",
           },
           {
             icon: "plane",

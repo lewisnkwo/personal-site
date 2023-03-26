@@ -9,3 +9,5 @@ export const toPost = (posts: PostModel[]): Post[] =>
       name: `${post.author.name.first} ${post.author.name.last}`,
     },
   }));
+
+export const isMobile = window.innerWidth <= 768;

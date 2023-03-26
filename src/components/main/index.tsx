@@ -1,7 +1,7 @@
 import PostItem from "./post-item";
 import "./index.scss";
 import { useEffect, useState, useRef } from "react";
-import { toPost } from "../../utils";
+import { isMobile, toPost } from "../../utils";
 import SidebarDetail from "../sidebar-detail";
 import { Post } from "../../types";
 import fakePosts from "../../fakeposts";
@@ -51,7 +51,7 @@ const Main = () => {
         </section>
       </div>
       {selectedPost && (
-        <div ref={window.innerWidth <= 480 ? sidebarPostRef : null}>
+        <div ref={isMobile ? sidebarPostRef : null}>
           <SidebarDetail {...selectedPost} />
         </div>
       )}

@@ -6,7 +6,7 @@
   padding: 14px 29.25px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
   input[type="search"] {
@@ -36,5 +36,11 @@
   svg {
     width: 17.51px;
     height: 16.73px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Navbar {
+    justify-content: space-between;
   }
 }
