@@ -3,15 +3,22 @@ import UserImage from "../post-image";
 import Item from "./sidebar-item";
 import "./index.scss";
 import author from "../../images/lewisnkwo.jpg";
+
 interface Props {
   items: SidebarItem[];
-  isMenuOpen: boolean;
+  isMenuOpen: boolean | undefined;
   onMenuClose: () => void;
 }
 
 const Sidebar = ({ items, isMenuOpen, onMenuClose }: Props) => (
   <>
-    <div className={`Sidebar${isMenuOpen ? "--open" : "--close"}`}>
+    <div
+      className={`${
+        isMenuOpen !== undefined
+          ? `Sidebar${isMenuOpen ? "--open" : "--close"}`
+          : `Sidebar`
+      }`}
+    >
       <div className="Sidebar__top">
         <UserImage image={author} name="Lewis Nkwo" size="medium" />
         <span className="Sidebar__name">Lewis Nkwo</span>

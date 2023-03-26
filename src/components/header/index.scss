@@ -33,6 +33,10 @@ header {
     height: auto;
   }
 
+  #menu-button {
+    display: none;
+  }
+
   svg {
     width: 18px;
     height: auto;
@@ -42,5 +46,9 @@ header {
 @media only screen and (max-width: 768px) {
   header {
     justify-content: space-between;
+
+    #menu-button {
+      display: initial;
+    }
   }
 }

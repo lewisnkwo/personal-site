@@ -1,6 +1,5 @@
 import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { isMobile } from "../../utils";
 
 interface Props {
   onMenuClick: () => void;
@@ -8,11 +7,9 @@ interface Props {
 
 const Header = ({ onMenuClick }: Props) => (
   <header>
-    {isMobile && (
-      <button aria-label="Menu" onClick={onMenuClick}>
-        <FontAwesomeIcon icon="bars" />
-      </button>
-    )}
+    <button id="menu-button" aria-label="Menu" onClick={onMenuClick}>
+      <FontAwesomeIcon icon="bars" />
+    </button>
     <>
       <input
         type="search"

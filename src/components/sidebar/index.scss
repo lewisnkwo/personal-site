@@ -8,7 +8,6 @@
   height: 100%;
   border-right: $border-container;
   background: #ffffff;
-  box-sizing: border-box;
 }
 
 .Sidebar__top {
@@ -39,7 +38,7 @@
     border-right: $border-container;
     background: #fff;
     height: 100%;
-    left: 0px;
+    left: -280px;
     z-index: 2;
   }
 
@@ -50,6 +49,8 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    background: #9f9f9f;
+    opacity: 0.3;
   }
 
   .Sidebar--open {

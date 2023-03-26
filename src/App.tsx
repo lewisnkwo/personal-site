@@ -36,7 +36,7 @@ library.add(
 );
 
 const App = () => {
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
 
   return (
     <div className="App">
