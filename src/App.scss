@@ -1,5 +1,9 @@
 @use "./variables" as *;
 
+* {
+  box-sizing: border-box;
+}
+
 .App {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -13,10 +17,6 @@
 
 .loading {
   font-style: italic;
-}
-
-.App-right {
-  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 480px) {

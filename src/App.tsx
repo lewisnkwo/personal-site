@@ -18,6 +18,7 @@ import {
   fab,
 } from "@fortawesome/free-brands-svg-icons";
 import Sidebar from "./components/sidebar";
+import Footer from "./components/footer";
 
 library.add(
   faHouse,
@@ -72,6 +73,7 @@ function App() {
         <Navbar />
         <Main />
       </div>
+      <Footer />
     </div>
   );
 }

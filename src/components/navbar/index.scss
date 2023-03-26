@@ -3,7 +3,7 @@
 .Navbar {
   background: #ffffff;
   border-bottom: $border-container;
-  padding: 14px 29.25px;
+  padding: 14px 30px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -13,12 +13,12 @@
     @include input;
     // background: transparent url("../../images/search.svg") no-repeat 13.88px
     //   center;
-    background-size: 16.25px;
+    background-size: 16px;
     padding: 8px 12px 8px 40px;
     font-size: 17px;
     font-weight: 400;
     line-height: 24px;
-    margin-right: 33.25px;
+    margin-right: 33px;
   }
 
   input[type="search"]::placeholder {
@@ -29,13 +29,13 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    width: 17.51px;
-    height: 16.73px;
+    width: 18px;
+    height: auto;
   }
 
   svg {
-    width: 17.51px;
-    height: 16.73px;
+    width: 18px;
+    height: auto;
   }
 }
 
