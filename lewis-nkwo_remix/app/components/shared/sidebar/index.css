@@ -1,5 +1,3 @@
-@use "../../../variables" as *;
-
 .Sidebar,
 .Sidebar--open,
 .Sidebar--close {
@@ -8,12 +6,15 @@
   flex-direction: column;
   width: 280px;
   height: 100%;
-  border-right: $border-container;
+  border-right: 1px solid #e5e5e5;
   background: #ffffff;
 }
 
 .Sidebar__top {
-  @include flex(column);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Sidebar__items {
@@ -21,12 +22,18 @@
 }
 
 .Sidebar__name {
-  @include text-post-title;
+  font-size: 17px;
+  line-height: 24px;
+  color: #0d1619;
+  font-weight: 500;
   margin-top: 16px;
 }
 
 .Sidebar__role {
-  @include text-secondary-small;
+  font-size: 15px;
+  line-height: 20px;
+  color: #6b6c6c;
+  font-weight: 400;
   margin-top: 4px;
 }
 
@@ -37,13 +44,12 @@
     padding: 32px 16px;
     position: absolute;
     width: 280px;
-    border-right: $border-container;
+    border-right: 1px solid #e5e5e5;
     background: #fff;
     height: 100%;
     left: -280px;
     z-index: 2;
   }
-
   .Sidebar__underlay {
     position: fixed;
     top: 0;
@@ -54,17 +60,14 @@
     background: #9f9f9f;
     opacity: 0.3;
   }
-
   .Sidebar--open {
     left: -280px;
     animation: slide-right 0.2s ease-in-out forwards;
   }
-
   .Sidebar--close {
     left: 0px;
     animation: slide-left 0.2s ease-in-out forwards;
   }
-
   @keyframes slide-left {
     0% {
       left: 0;
@@ -73,7 +76,6 @@
       left: -280px;
     }
   }
-
   @keyframes slide-right {
     0% {
       left: -280px;
@@ -83,3 +85,5 @@
     }
   }
 }
+
+/*# sourceMappingURL=index.css.map */

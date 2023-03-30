@@ -3,8 +3,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev",
-    "typecheck": "tsc"
+    "dev": "concurrently \"npm run sass\" \"remix dev\"",
+    "typecheck": "tsc",
+    "sass": "sass --watch app/:app/"
   },
   "dependencies": {
     "@remix-run/node": "^1.14.3",
@@ -18,20 +19,21 @@
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "sass": "^1.58.3"
+    "@fortawesome/react-fontawesome": "^0.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.14.3",
     "@remix-run/eslint-config": "^1.14.3",
     "@remix-run/serve": "^1.14.3",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
-    "eslint": "^8.27.0",
-    "typescript": "^4.8.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0"
+    "@testing-library/user-event": "^13.5.0",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.27.0",
+    "sass": "^1.58.3",
+    "typescript": "^4.8.4"
   },
   "engines": {
     "node": ">=14"

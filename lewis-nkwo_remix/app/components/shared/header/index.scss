@@ -1,4 +1,4 @@
-@use "../../variables" as *;
+@use "../../../variables" as *;
 
 header {
   background: #ffffff;
@@ -52,7 +52,7 @@ header {
     }
 
     input[type="search"] {
-      width: 180px;
+      width: 181px;
     }
   }
 }
