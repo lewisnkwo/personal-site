@@ -1,17 +1,38 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @use "../../../variables" as *;
- *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   app/components/shared/sidebar/sidebar-item/index.scss 1:1  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use \"../../../variables\" as *;\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   app/components/shared/sidebar/sidebar-item/index.scss 1:1  root stylesheet";
+.SidebarItem {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 0px 12px 14.5px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  cursor: pointer;
 }
+.SidebarItem:hover {
+  background-color: #f2f2f2;
+}
+.SidebarItem:active {
+  background-color: #e5e5e5;
+}
+.SidebarItem:last-child {
+  margin-bottom: 0px;
+}
+
+.SidebarItem__icon {
+  width: 15px;
+  height: auto;
+}
+
+.SidebarItem__icon-container {
+  width: 25px;
+  height: auto;
+}
+
+.SidebarItem__title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  margin-left: 18.5px;
+}
+
+/*# sourceMappingURL=index.css.map */

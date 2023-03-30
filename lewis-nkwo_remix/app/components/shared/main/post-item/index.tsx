@@ -1,5 +1,5 @@
-import { Post } from "../../../types";
-import { postListTabIndex } from "../../../utils";
+import { Post } from "../../../../types";
+import { postListTabIndex } from "../../../../utils";
 import Image from "../../image";
 import "./index.scss";
 

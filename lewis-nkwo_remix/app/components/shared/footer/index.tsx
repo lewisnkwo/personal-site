@@ -1,7 +1,7 @@
 import "./index.scss";
-import react from "../../images/react.svg";
-import ts from "../../images/ts.svg";
-import sass from "../../images/sass.svg";
+import react from "../../../images/react.svg";
+import ts from "../../../images/ts.svg";
+import sass from "../../../images/sass.svg";
 
 const Footer = () => (
   <footer>

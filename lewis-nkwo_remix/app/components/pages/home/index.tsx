@@ -1,4 +1,4 @@
-import "./App.scss";
+import "./index.scss";
 import Main from "../../shared/main";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -19,7 +19,7 @@ import {
 import Sidebar from "../../shared/sidebar";
 import Header from "../../shared/header";
 import Footer from "../../shared/footer";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 library.add(
   faHouse,
@@ -37,10 +37,6 @@ library.add(
 
 const App = () => {
   const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
-
-  useEffect(() => {
-    document.body.style.overflow = openMenu ? "hidden" : "unset";
-  }, [openMenu]);
 
   return (
     <div className="App">
