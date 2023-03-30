@@ -1,6 +1,8 @@
 @use "../../variables" as *;
 
-.Sidebar {
+.Sidebar,
+.Sidebar--open,
+.Sidebar--close {
   padding: 32px 16px;
   display: flex;
   flex-direction: column;

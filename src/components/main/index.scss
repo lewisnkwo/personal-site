@@ -39,7 +39,9 @@
     @include text-primary;
     margin-left: 16px;
     padding: 8px 40px 8px 12px;
-    background-position: 223.66px center;
+    background: transparent url("../../images/chevron-down.svg") no-repeat 224px
+      center;
+    background-size: 17px;
     appearance: none;
     cursor: pointer;
   }
