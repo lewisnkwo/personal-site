@@ -1,4 +1,3 @@
-import "./index.scss";
 import Main from "../../shared/main";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -35,11 +34,11 @@ library.add(
   fab
 );
 
-const App = () => {
+const Layout = () => {
   const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
 
   return (
-    <div className="App">
+    <div className="Layout">
       <Sidebar
         isMenuOpen={openMenu}
         items={[
@@ -74,13 +73,13 @@ const App = () => {
         ]}
         onMenuClose={() => setOpenMenu(false)}
       />
-      <div className="App-right">
+      <>
         <Header onMenuClick={() => setOpenMenu(true)} />
         <Main />
         <Footer />
-      </div>
+      </>
     </div>
   );
 };
 
-export default App;
+export default Layout;

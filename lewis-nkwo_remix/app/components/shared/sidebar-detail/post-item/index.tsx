@@ -1,5 +1,3 @@
-import "./index.scss";
-
 interface Props {
   label: string;
   value: string;

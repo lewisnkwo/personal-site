@@ -1,5 +1,4 @@
 import { SidebarItem as SidebarItemT } from "../../../../types";
-import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName, IconPrefix } from "@fortawesome/fontawesome-common-types";
 

@@ -1,7 +1,6 @@
 import PostItem from "./post-item";
-import "./index.scss";
 import { useEffect, useState, useRef } from "react";
-import { isMobile, toPost } from "../../../utils";
+import { toPost } from "../../../utils";
 import SidebarDetail from "../sidebar-detail";
 import { Post } from "../../../types";
 import fakePosts from "../../../fakeposts";
@@ -9,9 +8,14 @@ import fakePosts from "../../../fakeposts";
 const Main = () => {
   const posts = toPost(fakePosts);
 
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
 
   const sidebarPostRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false);
+  }, []);
 
   useEffect(() => {
     if (sidebarPostRef?.current) {

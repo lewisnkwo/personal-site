@@ -1,5 +1,5 @@
-import Home from "~/components/pages/home";
+import Layout from "~/components/pages/layout";
 
 export default function Index() {
-  return <Home />;
+  return <Layout />;
 }

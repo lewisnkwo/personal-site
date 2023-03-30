@@ -1,4 +1,3 @@
-import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Props {

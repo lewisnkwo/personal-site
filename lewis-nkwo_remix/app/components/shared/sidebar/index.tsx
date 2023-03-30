@@ -1,7 +1,6 @@
 import { SidebarItem } from "../../../types";
 import UserImage from "../image";
 import Item from "./sidebar-item";
-import "./index.scss";
 import author from "../../../images/lewisnkwo.jpg";
 import { useEffect } from "react";
 

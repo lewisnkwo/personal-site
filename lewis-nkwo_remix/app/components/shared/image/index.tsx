@@ -1,5 +1,4 @@
-import { Size } from "../../types";
-import "./index.scss";
+import { Size } from "../../../types";
 
 interface Props {
   image: string;
