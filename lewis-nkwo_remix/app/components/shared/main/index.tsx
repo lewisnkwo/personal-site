@@ -1,10 +1,10 @@
 import PostItem from "./post-item";
 import "./index.scss";
 import { useEffect, useState, useRef } from "react";
-import { isMobile, toPost } from "../../utils";
+import { isMobile, toPost } from "../../../utils";
 import SidebarDetail from "../sidebar-detail";
-import { Post } from "../../types";
-import fakePosts from "../../fakeposts";
+import { Post } from "../../../types";
+import fakePosts from "../../../fakeposts";
 
 const Main = () => {
   const posts = toPost(fakePosts);

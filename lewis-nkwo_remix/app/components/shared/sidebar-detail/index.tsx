@@ -1,7 +1,7 @@
 import Image from "../image";
 import SidebarDetailItem from "./post-item";
 import "./index.scss";
-import { Post as Props } from "../../types";
+import { Post as Props } from "../../../types";
 
 const SidebarDetail = ({ title, subtitle, image, author }: Props) => (
   <div className="SidebarDetail" aria-label={title}>

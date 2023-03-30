@@ -1,4 +1,4 @@
-import { SidebarItem } from "../../types";
+import { SidebarItem } from "../../../types";
 import UserImage from "../image";
 import Item from "./sidebar-item";
 import "./index.scss";

@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+}
+
+.error,
+.loading {
+  @include text-secondary;
+}
+
+.loading {
+  font-style: italic;
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    display: initial;
+    grid-template-columns: none;
+    height: auto;
+  }
+}
