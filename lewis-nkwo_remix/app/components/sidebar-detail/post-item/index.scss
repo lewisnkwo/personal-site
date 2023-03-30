@@ -1,0 +1,15 @@
+@use "../../../variables" as *;
+
+.SidebarDetail__item {
+  margin-top: 40px;
+}
+
+.SidebarDetail__item-name {
+  @include sidebar-item-value;
+  color: $text-secondary;
+}
+
+.SidebarDetail__item-value {
+  @include text-primary;
+  margin-top: 4px;
+}

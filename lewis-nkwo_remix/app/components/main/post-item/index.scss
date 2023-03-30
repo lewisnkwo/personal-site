@@ -1,0 +1,38 @@
+@use "../../../variables" as *;
+
+.PostItem,
+.PostItem--selected {
+  @include flex(row, flex-start);
+  @include psuedo;
+  padding: 12px;
+  border-radius: $border-radius;
+  margin-bottom: 24px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: none;
+
+  &:last-child(-n + 2) {
+    margin-bottom: 0px;
+  }
+}
+
+.PostItem--selected {
+  background-color: #fff;
+  box-shadow: inset 0px 0px 0px 2px $border-primary;
+}
+
+.PostItem__info {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.PostItem__title {
+  @include text-post-title;
+}
+
+.PostItem__subtitle {
+  @include text-secondary-small;
+}
