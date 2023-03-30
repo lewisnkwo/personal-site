@@ -73,11 +73,11 @@ const Layout = () => {
         ]}
         onMenuClose={() => setOpenMenu(false)}
       />
-      <>
+      <div>
         <Header onMenuClick={() => setOpenMenu(true)} />
         <Main />
         <Footer />
-      </>
+      </div>
     </div>
   );
 };

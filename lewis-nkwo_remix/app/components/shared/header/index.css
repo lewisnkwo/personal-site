@@ -6,6 +6,7 @@ header {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  height: fit-content;
 }
 header input[type=search] {
   width: 256px;

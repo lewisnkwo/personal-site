@@ -1,4 +1,4 @@
-@use "../../../variables" as *;
+@use "../../../styles/variables" as *;
 
 header {
   background: #ffffff;
@@ -8,6 +8,7 @@ header {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  height: fit-content;
 
   input[type="search"] {
     @include input;
