@@ -41,13 +41,7 @@
   .Sidebar,
   .Sidebar--open,
   .Sidebar--close {
-    padding: 32px 16px;
     position: absolute;
-    width: 280px;
-    border-right: 1px solid #e5e5e5;
-    background: #fff;
-    height: 100%;
-    left: -280px;
     z-index: 2;
   }
   .Sidebar__underlay {
@@ -60,28 +54,22 @@
     background: #9f9f9f;
     opacity: 0.3;
   }
-  .Sidebar--open {
+  .Sidebar {
     left: -280px;
-    animation: slide-right 0.2s ease-in-out forwards;
+  }
+  .Sidebar--open {
+    left: 0px;
   }
   .Sidebar--close {
-    left: 0px;
-    animation: slide-left 0.2s ease-in-out forwards;
+    left: -280px;
+    animation: slide-left 0.2s ease-out backwards;
   }
   @keyframes slide-left {
     0% {
-      left: 0;
+      left: 0px;
     }
     100% {
       left: -280px;
-    }
-  }
-  @keyframes slide-right {
-    0% {
-      left: -280px;
-    }
-    100% {
-      left: 0;
     }
   }
 }
