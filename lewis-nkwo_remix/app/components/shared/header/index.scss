@@ -11,7 +11,8 @@ header {
 
   input[type="search"] {
     @include input;
-    background: transparent url("../../images/search.svg") no-repeat 14px center;
+    background: transparent url("../../../images/search.svg") no-repeat 14px
+      center;
     width: 256px;
     padding: 8px 12px 8px 40px;
     font-size: 17px;
