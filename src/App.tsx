@@ -19,7 +19,7 @@ import {
 import Sidebar from "./components/sidebar";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 library.add(
   faHouse,
@@ -37,6 +37,10 @@ library.add(
 
 const App = () => {
   const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    document.body.style.overflow = openMenu ? "hidden" : "unset";
+  }, [openMenu]);
 
   return (
     <div className="App">
