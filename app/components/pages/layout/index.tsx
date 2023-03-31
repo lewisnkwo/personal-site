@@ -52,6 +52,7 @@ const Layout = ({ children }: Props) => {
           {
             icon: "code",
             title: "Blog",
+            slug: "posts",
           },
           {
             icon: "plane",
