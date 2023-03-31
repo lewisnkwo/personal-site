@@ -21,7 +21,7 @@ import sidebarDetailPostItemStyles from "./components/shared/sidebar-detail/post
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Lewis Nkwo",
   viewport: "width=device-width,initial-scale=1",
 });
 
