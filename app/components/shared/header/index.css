@@ -8,12 +8,13 @@ header {
   align-items: center;
   height: fit-content;
 }
-header input[type=search] {
+header input[type="search"] {
   width: 256px;
   height: 40px;
   border: 1px solid #bfbfbf;
   border-radius: 8px;
-  background: transparent url("../../../images/search.svg") no-repeat 14px center;
+  background: transparent url("../../../images/search.svg") no-repeat 14px
+    center;
   width: 256px;
   padding: 8px 12px 8px 40px;
   font-size: 17px;
@@ -22,7 +23,7 @@ header input[type=search] {
   margin-right: 33px;
   background-size: 17px;
 }
-header input[type=search]::placeholder {
+header input[type="search"]::placeholder {
   color: #acacac;
 }
 header button {
@@ -43,11 +44,15 @@ header svg {
 @media only screen and (max-width: 768px) {
   header {
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
   header #menu-button {
     display: initial;
   }
-  header input[type=search] {
+  header input[type="search"] {
     width: 181px;
   }
 }

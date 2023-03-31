@@ -48,6 +48,7 @@ header {
 @media only screen and (max-width: 768px) {
   header {
     justify-content: space-between;
+    position: fixed;
 
     #menu-button {
       display: initial;
