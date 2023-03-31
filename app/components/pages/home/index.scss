@@ -1,36 +1,29 @@
 @use "../../../styles/variables" as *;
 
-.Main,
-.Main-with-sidebar {
+.Home-with-sidebar {
   box-sizing: border-box;
   height: 100vh;
 }
 
-.Main__left {
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-}
-
-.Main-with-sidebar {
+.Home-with-sidebar {
   display: grid;
   grid-template-columns: 1fr 440px;
 }
 
-.Main__heading {
+.Home__heading {
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
   display: block;
 }
 
-.Main__description {
+.Home__description {
   @include text-secondary;
   margin-top: 8px;
   display: block;
 }
 
-.Main__select-posts {
+.Home__select-posts {
   @include flex(row, flex-start);
   @include text-secondary;
 
@@ -49,7 +42,7 @@
   margin-top: 24px;
 }
 
-.Main__post-list {
+.Home__post-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 40px;
@@ -57,15 +50,15 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .Main__left {
+  .Home__left {
     padding: 20px;
   }
 
-  .Main__post-list {
+  .Home__post-list {
     column-gap: 0px;
   }
 
-  .Main-with-sidebar {
+  .Home-with-sidebar {
     display: flex;
     flex-direction: column;
     grid-template-columns: none;

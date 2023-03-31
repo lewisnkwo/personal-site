@@ -1,4 +1,3 @@
-import Main from "../../shared/main";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faHouse,
@@ -34,7 +33,11 @@ library.add(
   fab
 );
 
-const Layout = () => {
+interface Props {
+  children: React.ReactElement;
+}
+
+const Layout = ({ children }: Props) => {
   const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
 
   return (
@@ -75,7 +78,7 @@ const Layout = () => {
       />
       <div>
         <Header onMenuClick={() => setOpenMenu(true)} />
-        <Main />
+        {children}
         <Footer />
       </div>
     </div>
