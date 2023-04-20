@@ -1,5 +1,5 @@
-import { Formik } from "formik";
+import AddPost from "~/components/pages/content/post-add";
 
 export default function PostsNewRoute() {
-  return <></>;
+  return <AddPost />;
 }

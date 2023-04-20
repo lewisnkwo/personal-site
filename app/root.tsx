@@ -10,8 +10,8 @@ import {
 import globalStyles from "./styles/global.css";
 import layoutStyles from "./components/pages/layout/index.css";
 import headerStyles from "./components/shared/header/index.css";
-import homeStyles from "./components/pages/home/index.css";
-import postItemStyles from "./components/pages/home/post-item/index.css";
+import homeStyles from "./components/pages/content/home/index.css";
+import postItemStyles from "./components/pages/content/home/post-item/index.css";
 import footerStyles from "./components/shared/footer/index.css";
 import imageStyles from "./components/shared/image/index.css";
 import sidebarStyles from "./components/shared/sidebar/index.css";

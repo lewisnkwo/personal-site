@@ -1,7 +1,5 @@
+import ViewAllPosts from "~/components/pages/content/home/posts-view-all";
+
 export default function PostsIndexRoute() {
-  return (
-    <div>
-      <h1>All Posts:</h1>
-    </div>
-  );
+  return <ViewAllPosts />;
 }
