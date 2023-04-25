@@ -24,6 +24,7 @@ const PostNew = () => (
         <option value="travel">Travel</option>
         <option value="fitness">Fitness</option>
       </select>
+      <button type="submit">Add post</button>
     </form>
   </>
 );

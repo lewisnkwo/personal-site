@@ -20,5 +20,8 @@ form textarea {
 form textarea {
   height: 400px;
 }
+form button {
+  width: fit-content;
+}
 
 /*# sourceMappingURL=index.css.map */

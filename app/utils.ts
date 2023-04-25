@@ -1,4 +1,4 @@
-import { Post, PostModel } from "./types";
+import type { Post, PostModel } from "./types";
 
 export const postListTabIndex = 8;
 
