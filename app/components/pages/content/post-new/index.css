@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: left;
+  gap: 20px;
+}
+form input,
+form textarea {
+  width: 256px;
+  height: 40px;
+  border: 1px solid #bfbfbf;
+  border-radius: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+}
+form textarea {
+  height: 400px;
+}
+
+/*# sourceMappingURL=index.css.map */

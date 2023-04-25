@@ -13,7 +13,7 @@
 }
 
 .Sidebar__top {
-  @include flex(column);
+  @include flex(column, center, center);
 }
 
 .Sidebar__items {

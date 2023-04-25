@@ -1,5 +1,5 @@
-import AddPost from "~/components/pages/content/post-add";
+import PostNew from "~/components/pages/content/post-new";
 
 export default function PostsNewRoute() {
-  return <AddPost />;
+  return <PostNew />;
 }

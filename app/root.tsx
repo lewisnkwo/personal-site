@@ -11,7 +11,7 @@ import globalStyles from "./styles/global.css";
 import layoutStyles from "./components/pages/layout/index.css";
 import headerStyles from "./components/shared/header/index.css";
 import homeStyles from "./components/pages/content/home/index.css";
-import postItemStyles from "./components/pages/content/home/post-item/index.css";
+import postNewStyles from "./components/pages/content/post-new/index.css";
 import footerStyles from "./components/shared/footer/index.css";
 import imageStyles from "./components/shared/image/index.css";
 import sidebarStyles from "./components/shared/sidebar/index.css";
@@ -31,7 +31,7 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: layoutStyles },
     { rel: "stylesheet", href: headerStyles },
     { rel: "stylesheet", href: homeStyles },
-    { rel: "stylesheet", href: postItemStyles },
+    { rel: "stylesheet", href: postNewStyles },
     { rel: "stylesheet", href: footerStyles },
     { rel: "stylesheet", href: imageStyles },
     { rel: "stylesheet", href: sidebarStyles },

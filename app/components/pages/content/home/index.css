@@ -28,28 +28,12 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  align-items: center;
+  align-items: left;
   font-size: 17px;
   font-weight: 400;
   line-height: 24px;
   color: #6b6c6c;
   margin-top: 24px;
-}
-.Home__select-posts select {
-  width: 256px;
-  height: 40px;
-  border: 1px solid #bfbfbf;
-  border-radius: 8px;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 24px;
-  color: #0d1619;
-  margin-left: 16px;
-  padding: 8px 40px 8px 12px;
-  background: transparent url("../../../../images/chevron-down.svg") no-repeat 221px center;
-  background-size: 17px;
-  appearance: none;
-  cursor: pointer;
 }
 
 .Home__post-list {
