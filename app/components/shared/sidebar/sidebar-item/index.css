@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  align-items: left;
+  align-items: flex-start;
   padding: 12px 0px 12px 14.5px;
   margin-bottom: 4px;
   border-radius: 8px;

@@ -4,7 +4,11 @@ $border-container: 1px solid #e5e5e5;
 $border-primary: #0d1619;
 $border-radius: 8px;
 
-@mixin flex($direction: column, $justify-content: center, $align-items: left) {
+@mixin flex(
+  $direction: column,
+  $justify-content: center,
+  $align-items: flex-start
+) {
   display: flex;
   justify-content: $justify-content;
   flex-direction: $direction;

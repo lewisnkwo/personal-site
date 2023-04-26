@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  align-items: left;
+  align-items: flex-start;
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 24px;
@@ -23,6 +23,10 @@
 .PostItem:last-child(-n + 2),
 .PostItem--selected:last-child(-n + 2) {
   margin-bottom: 0px;
+}
+
+.test {
+  font-size: 20px;
 }
 
 .PostItem--selected {

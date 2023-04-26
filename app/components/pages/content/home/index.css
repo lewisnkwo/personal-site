@@ -28,12 +28,15 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  align-items: left;
+  align-items: center;
   font-size: 17px;
   font-weight: 400;
   line-height: 24px;
   color: #6b6c6c;
   margin-top: 24px;
+}
+.Home__select-posts select {
+  margin-left: 20px;
 }
 
 .Home__post-list {

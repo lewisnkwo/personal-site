@@ -24,10 +24,14 @@
 }
 
 .Home__select-posts {
-  @include flex(row, flex-start);
+  @include flex(row, flex-start, center);
   @include text-secondary;
 
   margin-top: 24px;
+
+  select {
+    margin-left: 20px;
+  }
 }
 
 .Home__post-list {
