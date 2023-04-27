@@ -1,7 +1,7 @@
 import type { Post, PostModel } from "../types";
-import { toPost } from ".";
+import { toPosts } from ".";
 
-describe("toPost", () => {
+describe("toPosts", () => {
   it("should convert PostModels to Posts", () => {
     const posts: PostModel[] = [
       {
@@ -45,6 +45,6 @@ describe("toPost", () => {
       },
     ];
 
-    expect(toPost(posts)).toEqual(expected);
+    expect(toPosts(posts)).toEqual(expected);
   });
 });

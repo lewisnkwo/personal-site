@@ -1,12 +1,13 @@
 import PostItem from "./post-item";
 import { useEffect, useState, useRef } from "react";
-import { toPost } from "../../../../utils";
 import SidebarDetail from "../../../shared/sidebar-detail";
-import type { Post } from "../../../../types";
+import type { Post } from "~/types";
 
-const Home = () => {
-  const posts = toPost([]);
+interface Props {
+  posts: Post[];
+}
 
+const Home = ({ posts }: Props) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
 

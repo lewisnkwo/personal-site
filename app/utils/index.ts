@@ -2,7 +2,7 @@ import type { Post, PostCategory, PostModel } from "../types";
 
 export const postListTabIndex = 8;
 
-export const toPost = (posts: PostModel[]): Post[] =>
+export const toPosts = (posts: PostModel[]): Post[] =>
   posts.map((post) => ({
     ...post,
     id: parseInt(post.id),

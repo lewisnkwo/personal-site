@@ -1,6 +1,5 @@
 import type { Post } from "../../../../../types";
 import { postListTabIndex } from "../../../../../utils";
-import Image from "../../../../shared/image";
 
 export interface Props extends Post {
   onSelect: () => void;
@@ -10,8 +9,7 @@ export interface Props extends Post {
 
 const PostItem = ({
   title,
-  subtitle,
-  image,
+  subTitle,
   onSelect,
   isSelected,
   tabIndex,
@@ -22,10 +20,9 @@ const PostItem = ({
     aria-label={title}
     tabIndex={tabIndex + postListTabIndex}
   >
-    {image && <Image image={image} name={title} size="small" />}
     <div className="PostItem__info">
       <span className="PostItem__title">{title}</span>
-      <span className="PostItem__subtitle">{subtitle}</span>
+      <span className="PostItem__subtitle">{subTitle}</span>
     </div>
   </button>
 );
