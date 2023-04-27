@@ -1,5 +1,5 @@
-import { Post, PostModel } from "./types";
-import { toPost } from "./utils";
+import type { Post, PostModel } from "../types";
+import { toPost } from ".";
 
 describe("toPost", () => {
   it("should convert PostModels to Posts", () => {
