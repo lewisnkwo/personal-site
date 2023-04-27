@@ -3,10 +3,9 @@ import { useEffect, useState, useRef } from "react";
 import { toPost } from "../../../../utils";
 import SidebarDetail from "../../../shared/sidebar-detail";
 import type { Post } from "../../../../types";
-import fakePosts from "../../../../fakeposts";
 
 const Home = () => {
-  const posts = toPost(fakePosts);
+  const posts = toPost([]);
 
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);

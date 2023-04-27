@@ -10,7 +10,8 @@
     "dev:remix": "remix dev",
     "generate:css": "sass app/:app/",
     "start": "remix-serve build",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "test": "jest"
   },
   "prisma": {
     "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts"
@@ -37,12 +38,16 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.1",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.27.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "npm-run-all": "^4.1.5",
     "prisma": "^4.13.0",
     "sass": "^1.58.3",
+    "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^4.8.4"
