@@ -1,11 +1,10 @@
-import type { Post, PostModel } from "../types";
+import type { Post, PostCategory, PostModel } from "../types";
 
 export const postListTabIndex = 8;
 
 export const toPost = (posts: PostModel[]): Post[] =>
   posts.map((post) => ({
     ...post,
-    author: {
-      name: `${post.author.name.first} ${post.author.name.last}`,
-    },
+    id: parseInt(post.id),
+    category: post.category as PostCategory,
   }));

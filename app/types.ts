@@ -6,39 +6,30 @@ export interface SidebarItem {
 
 export type Size = "small" | "medium" | "large";
 
+export type PostCategory = "Coding" | "Travel" | "Fitness";
+
 export interface PostModel {
-  id: number;
+  id: string;
   title: string;
-  subtitle: string;
-  author: {
-    name: {
-      first: string;
-      last: string;
-    };
-  };
+  subTitle: string;
+  body: string;
   category: string;
-  email: string;
-  date: string;
-  image: string | undefined;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Post {
   id: number;
   title: string;
-  subtitle: string;
-  author: {
-    name: string;
-  };
-  category: string;
-  email: string;
-  date: string;
-  image: string | undefined;
+  subTitle: string;
+  body: string;
+  category: PostCategory;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface PostListItem {
-  name: string;
-  city: string;
-  phone: string;
-  email: string;
-  picture: string;
+  title: string;
+  subTitle: string;
+  updatedAt: string;
 }
