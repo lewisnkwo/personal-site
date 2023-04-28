@@ -19,7 +19,7 @@ export interface PostModel {
 }
 
 export interface Post {
-  id: number;
+  id: string;
   title: string;
   subTitle: string;
   body: string;

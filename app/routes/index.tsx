@@ -8,7 +8,7 @@ import homePostItemStyles from "../components/pages/content/home/post-item/index
 import sidebarDetailStyles from "../components/shared/sidebar-detail/index.css";
 import sidebarDetailPostItemStyles from "../components/shared/sidebar-detail/post-item/index.css";
 import { useLoaderData } from "@remix-run/react";
-import { toPosts } from "~/utils";
+import { toPost } from "~/utils";
 
 export const loader = async () => {
   return json({
@@ -28,9 +28,11 @@ export const links: LinksFunction = () => {
 export default function Index() {
   const data = useLoaderData<typeof loader>();
 
+  console.log(data.listOfPosts);
+
   return (
     <Layout>
-      <Home posts={toPosts(data.listOfPosts)} />
+      <Home posts={data.listOfPosts.map(toPost)} />
     </Layout>
   );
 }
