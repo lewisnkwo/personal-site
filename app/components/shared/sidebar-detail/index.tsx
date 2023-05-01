@@ -7,6 +7,7 @@ const SidebarDetail = ({ title, subTitle, updatedAt }: Props) => (
       <div className="SidebarDetail__info">
         <span className="SidebarDetail__title">{title}</span>
         <span className="SidebarDetail__subtitle">{subTitle}</span>
+        <span>View post</span>
       </div>
     </section>
     <section className="SidebarDetail__items">

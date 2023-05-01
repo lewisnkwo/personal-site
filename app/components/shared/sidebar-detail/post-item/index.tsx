@@ -5,7 +5,7 @@ interface Props {
 
 const SidebarDetailItem = ({ label, value }: Props) => (
   <div className="SidebarDetail__item">
-    <div className="SidebarDetail__item-name">{label}</div>
+    <label className="SidebarDetail__item-name">{label}</label>
     <div className="SidebarDetail__item-value">{value}</div>
   </div>
 );

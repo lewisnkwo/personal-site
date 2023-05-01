@@ -1,6 +1,6 @@
 import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { db } from "~/utils/db.server";
 
 export const loader = async ({ params }: LoaderArgs) => {
@@ -21,7 +21,6 @@ export default function PostRoute() {
     <div>
       <h2>{post.title}</h2>
       <h4>{post.subTitle}</h4>
-      <Link to=".">"{post.title}" Permalink</Link>
     </div>
   );
 }
