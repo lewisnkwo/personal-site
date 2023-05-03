@@ -1,7 +1,15 @@
-import type { LoaderArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import Layout from "~/components/pages/layout";
+import { toPost } from "~/utils";
 import { db } from "~/utils/db.server";
+import ViewSinglePost from "~/components/pages/content/posts-view-single";
+import viewSinglePostStyles from "../components/pages/content/posts-view-single/index.css";
+
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: viewSinglePostStyles }];
+};
 
 export const loader = async ({ params }: LoaderArgs) => {
   const post = await db.postModel.findUnique({
@@ -18,9 +26,10 @@ export default function PostRoute() {
   const { post } = useLoaderData<typeof loader>();
 
   return (
-    <div>
-      <h2>{post.title}</h2>
-      <h4>{post.subTitle}</h4>
-    </div>
+    <Layout>
+      <main>
+        <ViewSinglePost post={toPost(post)} />
+      </main>
+    </Layout>
   );
 }

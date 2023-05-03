@@ -72,3 +72,12 @@ $border-radius: 8px;
     background-color: #e5e5e5;
   }
 }
+
+@mixin content-actions {
+  border-top: $border-container;
+  margin-top: 30px;
+  padding-top: 20px;
+  @include flex(column);
+  align-items: flex-start;
+  gap: 15px;
+}

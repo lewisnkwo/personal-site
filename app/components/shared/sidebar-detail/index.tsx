@@ -1,13 +1,14 @@
 import SidebarDetailItem from "./post-item";
 import type { Post as Props } from "../../../types";
+import { Link } from "@remix-run/react";
 
-const SidebarDetail = ({ title, subTitle, updatedAt }: Props) => (
+const SidebarDetail = ({ id, title, subTitle, updatedAt }: Props) => (
   <div className="SidebarDetail" aria-label={title}>
     <section className="SidebarDetail__top">
       <div className="SidebarDetail__info">
         <span className="SidebarDetail__title">{title}</span>
         <span className="SidebarDetail__subtitle">{subTitle}</span>
-        <span>View post</span>
+        <Link to={`/posts/${id}`}>View post</Link>
       </div>
     </section>
     <section className="SidebarDetail__items">
