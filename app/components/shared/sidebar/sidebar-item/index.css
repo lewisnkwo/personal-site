@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   padding: 12px 0px 12px 14.5px;
   margin-bottom: 4px;
   border-radius: 8px;
@@ -32,7 +32,7 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 20px;
-  margin-left: 18.5px;
+  margin-left: 19px;
 }
 
 /*# sourceMappingURL=index.css.map */

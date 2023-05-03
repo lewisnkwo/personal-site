@@ -1,7 +1,7 @@
 @use "../../../../styles/variables" as *;
 
 .SidebarItem {
-  @include flex(row, flex-start);
+  @include flex(row, flex-start, center);
   @include psuedo;
   padding: 12px 0px 12px 14.5px;
   margin-bottom: 4px;
@@ -26,5 +26,5 @@
 
 .SidebarItem__title {
   @include sidebar-item-value;
-  margin-left: 18.5px;
+  margin-left: 19px;
 }
