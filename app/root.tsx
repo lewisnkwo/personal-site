@@ -10,7 +10,7 @@ import {
 import globalStyles from "./styles/global.css";
 import layoutStyles from "./components/pages/layout/index.css";
 import headerStyles from "./components/shared/header/index.css";
-import postNewStyles from "./components/pages/content/post-add/index.css";
+import postsNewStyles from "./components/pages/content/posts-new/index.css";
 import footerStyles from "./components/shared/footer/index.css";
 import imageStyles from "./components/shared/image/index.css";
 import sidebarStyles from "./components/shared/sidebar/index.css";
@@ -27,7 +27,7 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: globalStyles },
     { rel: "stylesheet", href: layoutStyles },
     { rel: "stylesheet", href: headerStyles },
-    { rel: "stylesheet", href: postNewStyles },
+    { rel: "stylesheet", href: postsNewStyles },
     { rel: "stylesheet", href: footerStyles },
     { rel: "stylesheet", href: imageStyles },
     { rel: "stylesheet", href: sidebarStyles },

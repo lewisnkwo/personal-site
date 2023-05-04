@@ -5,7 +5,7 @@ const ViewAllPosts = () => {
   return (
     <>
       <h1>All posts</h1>
-      <button onClick={() => goTo("/posts/add")}>Add new post</button>
+      <button onClick={() => goTo("/posts/new")}>Add new post</button>
     </>
   );
 };

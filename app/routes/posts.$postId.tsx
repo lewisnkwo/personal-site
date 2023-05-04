@@ -22,7 +22,7 @@ export const loader = async ({ params }: LoaderArgs) => {
   return json({ post });
 };
 
-export default function PostRoute() {
+export default function PostViewRoute() {
   const { post } = useLoaderData<typeof loader>();
 
   return (

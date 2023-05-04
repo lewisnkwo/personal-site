@@ -28,8 +28,6 @@ export const links: LinksFunction = () => {
 export default function Index() {
   const data = useLoaderData<typeof loader>();
 
-  console.log(data.listOfPosts);
-
   return (
     <Layout>
       <Home posts={data.listOfPosts.map(toPost)} />
