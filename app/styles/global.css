@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  padding: 48px;
+  padding: 50px 50px 110px 50px;
 }
 
 select {
@@ -37,6 +37,10 @@ button {
   padding: 8px 12px;
   background: #fff;
   cursor: pointer;
+}
+
+.field-error {
+  color: rgba(208, 48, 48, 0.906);
 }
 
 @media only screen and (max-width: 768px) {

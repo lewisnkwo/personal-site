@@ -2,6 +2,8 @@ import PostsNew from "~/components/pages/content/posts-new";
 import type { ActionArgs } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
+import { badRequest } from "~/utils/request.server";
+import { validatePostBody, validatePostTitle } from "./validators";
 
 export const action = async ({ request }: ActionArgs) => {
   const form = await request.formData();
@@ -17,8 +19,18 @@ export const action = async ({ request }: ActionArgs) => {
     typeof body !== "string" ||
     typeof category !== "string"
   ) {
-    throw new Error("Form data not submitted correctly.");
+    return badRequest({
+      fieldErrors: null,
+      fields: null,
+      formError: "Form not submitted correctly.",
+    });
   }
+
+  const fieldErrors = {
+    title: validatePostTitle(title, "title"),
+    subTitle: validatePostTitle(subTitle, "subtitle"),
+    body: validatePostBody(body),
+  };
 
   const fields = {
     title,
@@ -26,6 +38,14 @@ export const action = async ({ request }: ActionArgs) => {
     body,
     category,
   };
+
+  if (Object.values(fieldErrors).some(Boolean)) {
+    return badRequest({
+      fieldErrors,
+      fields,
+      formError: null,
+    });
+  }
 
   const post = await db.postModel.create({ data: fields });
   return redirect(`/posts/${post.id}`);
