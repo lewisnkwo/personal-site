@@ -1,6 +1,6 @@
 import { useActionData } from "@remix-run/react";
 import type { action } from "~/routes/posts/new";
-import { PostsNewFieldError } from "./field-error";
+import { PostsNewFieldError } from "../../../shared/form/field-error";
 
 const PostsNew = () => {
   const actionData = useActionData<typeof action>();

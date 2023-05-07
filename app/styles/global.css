@@ -39,6 +39,32 @@ button {
   cursor: pointer;
 }
 
+form {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+form input,
+form textarea {
+  width: 256px;
+  height: 40px;
+  border: 1px solid #bfbfbf;
+  border-radius: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+}
+form textarea {
+  height: 400px;
+}
+form button {
+  width: fit-content;
+}
+
 .field-error {
   color: rgba(208, 48, 48, 0.906);
 }

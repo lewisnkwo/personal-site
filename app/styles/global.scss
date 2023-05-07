@@ -35,6 +35,30 @@ button {
   cursor: pointer;
 }
 
+form {
+  @include flex(column, flex-start);
+
+  input,
+  textarea {
+    @include input;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  textarea {
+    height: 400px;
+  }
+
+  button {
+    width: fit-content;
+  }
+
+  gap: 20px;
+}
+
 .field-error {
   color: rgba(208, 48, 48, 0.906);
 }
