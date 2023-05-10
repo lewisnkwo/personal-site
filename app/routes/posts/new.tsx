@@ -56,3 +56,11 @@ export const action = async ({ request }: ActionArgs) => {
 export default function PostsNewRoute() {
   return <PostsNew />;
 }
+
+export function ErrorBoundary() {
+  return (
+    <div className="ErrorBoundary">
+      Oops, something went wrong. Please try again later.
+    </div>
+  );
+}

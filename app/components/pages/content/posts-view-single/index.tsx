@@ -7,6 +7,7 @@ interface Props {
 
 const ViewSinglePost = ({ post }: Props) => {
   const goTo = useNavigate();
+
   return (
     <>
       <h2>{post.title}</h2>

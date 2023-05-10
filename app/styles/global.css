@@ -69,10 +69,13 @@ form button {
   color: rgba(208, 48, 48, 0.906);
 }
 
-.ErrorBoundary--root {
+.ErrorBoundary {
   background: rgba(208, 48, 48, 0.906);
   color: white;
   gap: 20px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
 }
 
 @media only screen and (max-width: 768px) {

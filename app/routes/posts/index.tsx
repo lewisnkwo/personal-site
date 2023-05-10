@@ -25,3 +25,11 @@ export const loader = async ({ request }: LoaderArgs) => {
 export default function PostsIndexRoute() {
   return <ViewAllPosts />;
 }
+
+export function ErrorBoundary() {
+  return (
+    <div className="ErrorBoundary">
+      Oops, something went wrong. Please try again later.
+    </div>
+  );
+}

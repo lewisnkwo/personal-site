@@ -1,6 +1,6 @@
 import type { LinksFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useParams } from "@remix-run/react";
 import Layout from "~/components/pages/layout";
 import { toPost } from "~/utils";
 import { db } from "~/utils/db.server";
@@ -31,5 +31,14 @@ export default function PostViewRoute() {
         <ViewSinglePost post={toPost(post)} />
       </main>
     </Layout>
+  );
+}
+
+export function ErrorBoundary() {
+  const { postId } = useParams();
+  return (
+    <div className="ErrorBoundary">
+      There was an error loading the post by the id {postId}.
+    </div>
   );
 }
