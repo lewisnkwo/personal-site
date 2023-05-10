@@ -78,11 +78,6 @@ export const action = async ({ request }: ActionArgs) => {
         });
       }
       return createUserSession(user.id, redirectTo);
-      // return badRequest({
-      //   fieldErrors: null,
-      //   fields,
-      //   formError: "Not implemented",
-      // });
     }
     default: {
       return badRequest({

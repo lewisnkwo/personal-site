@@ -4,8 +4,10 @@ import { redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 import { badRequest } from "~/utils/request.server";
 import { validatePostBody, validatePostTitle } from "./validators";
+import { requireUserId } from "~/utils/session.server";
 
 export const action = async ({ request }: ActionArgs) => {
+  const userId = await requireUserId(request);
   const form = await request.formData();
 
   const title = form.get("title");
@@ -47,7 +49,7 @@ export const action = async ({ request }: ActionArgs) => {
     });
   }
 
-  const post = await db.postModel.create({ data: fields });
+  const post = await db.postModel.create({ data: { ...fields, userId } });
   return redirect(`/posts/${post.id}`);
 };
 
