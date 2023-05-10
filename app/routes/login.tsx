@@ -1,5 +1,6 @@
 import type { ActionArgs } from "@remix-run/node";
 import { badRequest } from "~/utils/request.server";
+import { createUserSession, login } from "~/utils/session.server";
 import Layout from "~/components/pages/layout";
 import Login from "~/components/pages/content/login";
 
@@ -67,11 +68,21 @@ export const action = async ({ request }: ActionArgs) => {
 
   switch (loginType) {
     case "login": {
-      return badRequest({
-        fieldErrors: null,
-        fields,
-        formError: "Not implemented",
-      });
+      const user = await login({ username, password });
+      console.log({ user });
+      if (!user) {
+        return badRequest({
+          fieldErrors: null,
+          fields,
+          formError: "Username or password is incorrect",
+        });
+      }
+      return createUserSession(user.id, redirectTo);
+      // return badRequest({
+      //   fieldErrors: null,
+      //   fields,
+      //   formError: "Not implemented",
+      // });
     }
     default: {
       return badRequest({
