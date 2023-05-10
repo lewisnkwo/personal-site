@@ -60,7 +60,13 @@ form {
 }
 
 .field-error {
-  color: rgba(208, 48, 48, 0.906);
+  color: $error;
+}
+
+.ErrorBoundary--root {
+  background: $error;
+  color: white;
+  gap: 20px;
 }
 
 @media only screen and (max-width: 768px) {

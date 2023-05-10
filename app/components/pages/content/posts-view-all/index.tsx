@@ -11,7 +11,7 @@ const ViewAllPosts = () => {
       {data?.user ? (
         <div className="ViewAllPosts__content">
           <span>{`Hello ${data.user.username}`}</span>
-          <button onClick={() => goTo("/posts/new")}>Add new post</button>
+          <button onClick={() => goTo("new")}>Add new post</button>
           <form action="/logout" method="post">
             <button type="submit">Logout</button>
           </form>

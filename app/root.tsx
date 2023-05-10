@@ -33,19 +33,51 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export default function App() {
+interface DocumentProps {
+  children: React.ReactNode;
+  title?: string;
+}
+
+function Document({
+  children,
+  title = "Lewis Nkwo's Personal Website",
+}: DocumentProps) {
   return (
     <html lang="en">
       <head>
         <Meta />
+        <title>{title}</title>
         <Links />
       </head>
       <body>
-        <Outlet />
+        {children}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
+  );
+}
+
+export default function App() {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
+  );
+}
+
+interface ErrorBoundaryProps {
+  error: Error;
+}
+
+export function ErrorBoundary({ error }: ErrorBoundaryProps) {
+  return (
+    <Document title="Oops!">
+      <div className="ErrorBoundary--root">
+        <h1>An error occurred</h1>
+        <pre>{error.message}</pre>
+      </div>
+    </Document>
   );
 }
