@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
 } from "@remix-run/react";
 import globalStyles from "./styles/global.css";
 import layoutStyles from "./components/pages/layout/index.css";
@@ -14,6 +15,7 @@ import footerStyles from "./components/shared/footer/index.css";
 import imageStyles from "./components/shared/image/index.css";
 import sidebarStyles from "./components/shared/sidebar/index.css";
 import sidebarItemStyles from "./components/shared/sidebar/sidebar-item/index.css";
+import SiteError from "./components/shared/error";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -67,6 +69,20 @@ export default function App() {
   );
 }
 
+export function CatchBoundary() {
+  const caught = useCatch();
+
+  return (
+    <Document title={`${caught.status} ${caught.statusText}`}>
+      <SiteError>
+        <h1>
+          {caught.status} {caught.statusText}
+        </h1>
+      </SiteError>
+    </Document>
+  );
+}
+
 interface ErrorBoundaryProps {
   error: Error;
 }
@@ -74,10 +90,12 @@ interface ErrorBoundaryProps {
 export function ErrorBoundary({ error }: ErrorBoundaryProps) {
   return (
     <Document title="Oops!">
-      <div className="ErrorBoundary--root">
-        <h1>An error occurred</h1>
-        <pre>{error.message}</pre>
-      </div>
+      <SiteError>
+        <>
+          <h1>An error occurred</h1>
+          <pre>{error.message}</pre>
+        </>
+      </SiteError>
     </Document>
   );
 }

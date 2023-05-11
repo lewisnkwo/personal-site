@@ -4,6 +4,7 @@ import { PostsNewFieldError } from "../../../shared/form/field-error";
 
 const PostsNew = () => {
   const actionData = useActionData<typeof action>();
+
   return (
     <>
       <h1>Add new post</h1>
