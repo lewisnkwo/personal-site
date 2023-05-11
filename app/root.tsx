@@ -88,6 +88,7 @@ interface ErrorBoundaryProps {
 }
 
 export function ErrorBoundary({ error }: ErrorBoundaryProps) {
+  console.error(error);
   return (
     <Document title="Oops!">
       <SiteError>
