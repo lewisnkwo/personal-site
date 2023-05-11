@@ -8,7 +8,9 @@ const SidebarDetail = ({ id, title, subTitle, updatedAt }: Props) => (
       <div className="SidebarDetail__info">
         <span className="SidebarDetail__title">{title}</span>
         <span className="SidebarDetail__subtitle">{subTitle}</span>
-        <Link to={`/posts/${id}`}>View post</Link>
+        <Link prefetch="intent" to={`/posts/${id}`}>
+          View post
+        </Link>
       </div>
     </section>
     <section className="SidebarDetail__items">
