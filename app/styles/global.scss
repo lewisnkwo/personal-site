@@ -64,6 +64,7 @@ form {
 }
 
 .ErrorBoundary {
+  @include flex(column, flex-start, flex-start);
   background: $error;
   color: white;
   gap: 20px;

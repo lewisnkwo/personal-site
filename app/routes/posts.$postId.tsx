@@ -84,7 +84,7 @@ export function CatchBoundary() {
     case 404: {
       return (
         <SiteError>
-          <span>Request is not allowed.</span>
+          <span>Could not find post.</span>
         </SiteError>
       );
     }
