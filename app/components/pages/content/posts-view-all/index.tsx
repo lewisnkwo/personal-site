@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigate } from "@remix-run/react";
+import { Form, Link, useLoaderData, useNavigate } from "@remix-run/react";
 import type { loader } from "~/routes/posts/";
 
 const ViewAllPosts = () => {
@@ -12,9 +12,9 @@ const ViewAllPosts = () => {
         <div className="ViewAllPosts__content">
           <span>{`Hello ${data.user.username}`}</span>
           <button onClick={() => goTo("new")}>Add new post</button>
-          <form action="/logout" method="post">
+          <Form action="/logout" method="post">
             <button type="submit">Logout</button>
-          </form>
+          </Form>
         </div>
       ) : (
         <Link to="/login">Login</Link>

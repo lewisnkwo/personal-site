@@ -1,4 +1,4 @@
-import { useActionData } from "@remix-run/react";
+import { Form, useActionData } from "@remix-run/react";
 import type { action } from "~/routes/posts/new";
 import { PostsNewFieldError } from "../../../shared/form/field-error";
 
@@ -8,7 +8,7 @@ const PostsNew = () => {
   return (
     <>
       <h1>Add new post</h1>
-      <form method="post">
+      <Form method="post">
         <input
           defaultValue={actionData?.fields?.title}
           name="title"
@@ -50,7 +50,7 @@ const PostsNew = () => {
           <option value="fitness">Fitness</option>
         </select>
         <button type="submit">Add post</button>
-      </form>
+      </Form>
     </>
   );
 };

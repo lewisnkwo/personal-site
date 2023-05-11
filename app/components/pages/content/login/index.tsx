@@ -1,4 +1,4 @@
-import { useActionData, useSearchParams } from "@remix-run/react";
+import { Form, useActionData, useSearchParams } from "@remix-run/react";
 import { PostsNewFieldError } from "~/components/shared/form/field-error";
 import type { action } from "~/routes/login";
 
@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <>
       <h1>Login</h1>
-      <form method="post">
+      <Form method="post">
         <input
           type="hidden"
           name="redirectTo"
@@ -45,7 +45,7 @@ const Login = () => {
         />
         <PostsNewFieldError actionData={actionData} fieldName="password" />
         <button type="submit">Login</button>
-      </form>
+      </Form>
     </>
   );
 };

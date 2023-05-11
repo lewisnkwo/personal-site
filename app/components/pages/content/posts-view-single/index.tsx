@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "@remix-run/react";
+import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import type { loader } from "~/routes/posts.$postId";
 import type { Post } from "~/types";
 
@@ -18,11 +18,11 @@ const ViewSinglePost = ({ post }: Props) => {
       <p>{post.category}</p>
       <div className="ViewSinglePost__actions">
         {data.isOwner && (
-          <form method="post">
+          <Form method="post">
             <button name="action" type="submit" value="delete">
               Delete
             </button>
-          </form>
+          </Form>
         )}
         <button onClick={() => goTo("/")}>Back to homepage</button>
       </div>
