@@ -1,4 +1,9 @@
-import type { ActionArgs, LinksFunction, LoaderArgs } from "@remix-run/node";
+import type {
+  ActionArgs,
+  LinksFunction,
+  LoaderArgs,
+  MetaFunction,
+} from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useCatch, useLoaderData, useParams } from "@remix-run/react";
@@ -9,6 +14,19 @@ import ViewSinglePost from "~/components/pages/content/posts-view-single";
 import viewSinglePostStyles from "../components/pages/content/posts-view-single/index.css";
 import { getUserId, requireUserId } from "~/utils/session.server";
 import SiteError from "~/components/shared/error";
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  if (!data) {
+    return {
+      title: "Empty post",
+      description: "No post found",
+    };
+  }
+  return {
+    title: data.post.title,
+    description: data.post.subTitle,
+  };
+};
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: viewSinglePostStyles }];

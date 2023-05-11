@@ -1,7 +1,7 @@
 import { db } from "~/utils/db.server";
 import Layout from "~/components/pages/layout";
 import Home from "~/components/pages/content/home";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import homeStyles from "../components/pages/content/home/index.css";
 import homePostItemStyles from "../components/pages/content/home/post-item/index.css";
@@ -24,6 +24,12 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: sidebarDetailPostItemStyles },
   ];
 };
+
+export const meta: MetaFunction = () => ({
+  title: "Lewis Nkwo Homepage",
+  description:
+    "View the latest software engineering & travel posts from Lewis Nkwo.",
+});
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
