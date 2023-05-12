@@ -9,7 +9,7 @@ export interface Props extends Post {
 
 const PostItem = ({
   title,
-  subTitle,
+  subtitle,
   onSelect,
   isSelected,
   tabIndex,
@@ -22,7 +22,7 @@ const PostItem = ({
   >
     <div className="PostItem__info">
       <span className="PostItem__title">{title}</span>
-      <span className="PostItem__subtitle">{subTitle}</span>
+      <span className="PostItem__subtitle">{subtitle}</span>
     </div>
   </button>
 );

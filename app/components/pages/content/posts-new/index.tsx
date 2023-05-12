@@ -22,17 +22,17 @@ const PostsNew = () => {
         />
         <PostsNewFieldError actionData={actionData} fieldName="title" />
         <input
-          defaultValue={actionData?.fields?.subTitle}
-          name="subTitle"
+          defaultValue={actionData?.fields?.subtitle}
+          name="subtitle"
           type="text"
           placeholder="Enter subtitle..."
           aria-label="Enter post subtitle"
-          aria-invalid={Boolean(actionData?.fieldErrors?.subTitle)}
+          aria-invalid={Boolean(actionData?.fieldErrors?.subtitle)}
           aria-errormessage={
-            actionData?.fieldErrors?.subTitle ? "subTitle-error" : undefined
+            actionData?.fieldErrors?.subtitle ? "subtitle-error" : undefined
           }
         />
-        <PostsNewFieldError actionData={actionData} fieldName="subTitle" />
+        <PostsNewFieldError actionData={actionData} fieldName="subtitle" />
         <textarea
           defaultValue={actionData?.fields?.body}
           name="body"

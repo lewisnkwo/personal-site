@@ -12,7 +12,7 @@ export type PostCategory = "Coding" | "Travel" | "Fitness";
 export interface PostModel {
   id: string;
   title: string;
-  subTitle: string;
+  subtitle: string;
   body: string;
   category: string;
   createdAt: string;
@@ -22,7 +22,7 @@ export interface PostModel {
 export interface Post {
   id: string;
   title: string;
-  subTitle: string;
+  subtitle: string;
   body: string;
   category: PostCategory;
   createdAt: string;
@@ -31,6 +31,6 @@ export interface Post {
 
 export interface PostListItem {
   title: string;
-  subTitle: string;
+  subtitle: string;
   updatedAt: string;
 }

@@ -24,7 +24,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   }
   return {
     title: data.post.title,
-    description: data.post.subTitle,
+    description: data.post.subtitle,
   };
 };
 

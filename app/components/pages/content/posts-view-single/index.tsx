@@ -13,7 +13,7 @@ const ViewSinglePost = ({ post }: Props) => {
   return (
     <>
       <h2>{post.title}</h2>
-      <h4>{post.subTitle}</h4>
+      <h4>{post.subtitle}</h4>
       <p>{post.body}</p>
       <p>{post.category}</p>
       <div className="ViewSinglePost__actions">

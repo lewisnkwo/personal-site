@@ -21,7 +21,7 @@ model PostModel {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
-  subTitle  String
+  subtitle  String
   body      String
   category  String
   User      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)

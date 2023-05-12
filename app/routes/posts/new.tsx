@@ -21,13 +21,13 @@ export const action = async ({ request }: ActionArgs) => {
   const form = await request.formData();
 
   const title = form.get("title");
-  const subTitle = form.get("subTitle");
+  const subtitle = form.get("subtitle");
   const body = form.get("body");
   const category = form.get("category");
 
   if (
     typeof title !== "string" ||
-    typeof subTitle !== "string" ||
+    typeof subtitle !== "string" ||
     typeof body !== "string" ||
     typeof category !== "string"
   ) {
@@ -40,13 +40,13 @@ export const action = async ({ request }: ActionArgs) => {
 
   const fieldErrors = {
     title: validatePostTitle(title, "title"),
-    subTitle: validatePostTitle(subTitle, "subtitle"),
+    subtitle: validatePostTitle(subtitle, "subtitle"),
     body: validatePostBody(body),
   };
 
   const fields = {
     title,
-    subTitle,
+    subtitle,
     body,
     category,
   };

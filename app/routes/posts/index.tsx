@@ -13,7 +13,7 @@ export const links: LinksFunction = () => {
 export const loader = async ({ request }: LoaderArgs) => {
   const posts = await db.postModel.findMany({
     orderBy: { createdAt: "desc" },
-    select: { id: true, title: true, subTitle: true },
+    select: { id: true, title: true, subtitle: true },
   });
   const user = await getUser(request);
 
