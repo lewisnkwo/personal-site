@@ -14,7 +14,7 @@ const Home = ({ posts }: Props) => {
   const sidebarPostRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false);
+    setIsMobile(window.innerWidth <= 768);
   }, []);
 
   useEffect(() => {
@@ -33,11 +33,12 @@ const Home = ({ posts }: Props) => {
         <div>
           <section>
             <span className="Home__heading">Latest posts</span>
-            <span className="Home__description">Latest posts</span>
+            <span className="Home__description">What's new on my mind...</span>
             <div className="Home__select-posts">
               Choice of posts:
               <select name="users" defaultValue="developers">
-                <option value="developers">Developers</option>
+                <option value="coding">Coding</option>
+                <option value="coding">Travel</option>
               </select>
             </div>
           </section>

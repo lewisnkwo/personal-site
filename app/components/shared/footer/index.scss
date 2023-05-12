@@ -17,11 +17,3 @@ footer {
     @include text-secondary;
   }
 }
-
-@media only screen and (max-width: 768px) {
-  footer {
-    span {
-      @include text-secondary-small;
-    }
-  }
-}

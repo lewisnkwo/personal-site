@@ -24,6 +24,7 @@
   padding: 48px;
   background: #f2f2f2;
   border-bottom: $border-container;
+  gap: 10px;
 }
 
 .SidebarDetail__info {
@@ -44,7 +45,11 @@
 
 .SidebarDetail__subtitle {
   @include text-secondary;
-  margin-top: 8px;
+  margin-top: 10px;
+}
+
+.SidebarDetail__actions {
+  margin-top: 10px;
 }
 
 @media only screen and (max-width: 768px) {

@@ -26,9 +26,9 @@ export const links: LinksFunction = () => {
 };
 
 export const meta: MetaFunction = () => ({
-  title: "Lewis Nkwo Homepage",
+  title: "Lewis Nkwo | Frontend Software Engineer",
   description:
-    "View the latest software engineering & travel posts from Lewis Nkwo.",
+    "View the latest software engineering & travel inspired posts from Lewis Nkwo.",
 });
 
 export default function Index() {

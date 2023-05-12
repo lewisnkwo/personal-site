@@ -27,7 +27,9 @@ const Sidebar = ({ items, isMenuOpen, onMenuClose }: Props) => {
         <div className="Sidebar__top">
           <UserImage image={author} name="Lewis Nkwo" size="medium" />
           <span className="Sidebar__name">Lewis Nkwo</span>
-          <span className="Sidebar__role">Software Engineer</span>
+          <span className="Sidebar__role">
+            Software Engineer & Travel Ethusiast
+          </span>
         </div>
         <nav className="Sidebar__items" aria-label="Side Navigation">
           {items.map((item, i) => (
