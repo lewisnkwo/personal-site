@@ -2,6 +2,7 @@ export interface SidebarItem {
   icon: string;
   title: string;
   slug?: string;
+  external?: string;
 }
 
 export type Size = "small" | "medium" | "large";

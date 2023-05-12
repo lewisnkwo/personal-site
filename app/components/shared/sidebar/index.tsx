@@ -30,8 +30,8 @@ const Sidebar = ({ items, isMenuOpen, onMenuClose }: Props) => {
           <span className="Sidebar__role">Software Engineer</span>
         </div>
         <nav className="Sidebar__items" aria-label="Side Navigation">
-          {items.map(({ icon, title, slug }, i) => (
-            <Item key={i} icon={icon} title={title} slug={slug} tabIndex={i} />
+          {items.map((item, i) => (
+            <Item key={i} {...item} tabIndex={i} />
           ))}
         </nav>
       </div>

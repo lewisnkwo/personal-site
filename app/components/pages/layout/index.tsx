@@ -3,7 +3,6 @@ import {
   faHouse,
   faCode,
   faPlane,
-  faDumbbell,
   faHashtag,
   faMessage,
   faCog,
@@ -23,7 +22,6 @@ library.add(
   faHouse,
   faCode,
   faPlane,
-  faDumbbell,
   faHashtag,
   faMessage,
   faCog,
@@ -59,20 +57,18 @@ const Layout = ({ children }: Props) => {
             title: "Travel",
           },
           {
-            icon: "dumbbell",
-            title: "Health",
-          },
-          {
             icon: "hashtag",
             title: "About",
           },
           {
             icon: "linkedin-in",
             title: "LinkedIn",
+            external: "https://www.linkedin.com/in/lewis-nkwo-18868ba1/",
           },
           {
             icon: "github",
             title: "Github",
+            external: "https://github.com/lewisnkwo",
           },
         ]}
         onMenuClose={() => setOpenMenu(false)}

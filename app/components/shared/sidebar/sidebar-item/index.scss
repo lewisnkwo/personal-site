@@ -2,10 +2,12 @@
 
 .SidebarItem {
   @include flex(row, flex-start, center);
+  @include text-primary;
   @include psuedo;
   padding: 12px 0px 12px 14.5px;
   margin-bottom: 4px;
   border-radius: $border-radius;
+  text-decoration: none;
 
   cursor: pointer;
 

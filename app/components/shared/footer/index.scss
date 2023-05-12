@@ -12,33 +12,16 @@ footer {
   justify-content: flex-end;
   align-items: center;
 
-  span {
+  span,
+  a {
     @include text-secondary;
   }
-
-  img {
-    height: 50px;
-  }
-}
-
-.footer__logo-row {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-left: 20px;
 }
 
 @media only screen and (max-width: 768px) {
   footer {
-    flex-direction: column;
-    gap: 10px;
-
     span {
       @include text-secondary-small;
-    }
-
-    img {
-      height: 25px;
     }
   }
 }
