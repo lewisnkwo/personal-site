@@ -1,5 +1,5 @@
-import type { Post } from "../../../../../types";
-import { postListTabIndex } from "../../../../../utils";
+import type { Post } from "../../../types";
+import { postListTabIndex } from "../../../utils";
 
 export interface Props extends Post {
   onSelect: () => void;

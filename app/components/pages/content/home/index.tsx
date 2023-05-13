@@ -1,7 +1,7 @@
-import PostItem from "./post-item";
 import { useEffect, useState, useRef } from "react";
 import SidebarDetail from "../../../shared/sidebar-detail";
 import type { Post } from "~/types";
+import PostList from "~/components/shared/post-list";
 
 interface Props {
   posts: Post[];
@@ -43,17 +43,11 @@ const Home = ({ posts }: Props) => {
             </div>
           </section>
           <section className="Home__post-list">
-            {posts.map((p, i) => (
-              <PostItem
-                key={i}
-                {...p}
-                onSelect={() =>
-                  setSelectedPost(selectedPost?.id === p.id ? undefined : p)
-                }
-                isSelected={selectedPost?.id === p.id}
-                tabIndex={i}
-              />
-            ))}
+            <PostList
+              posts={posts}
+              selectedPost={selectedPost}
+              setSelectedPost={setSelectedPost}
+            />
           </section>
         </div>
       </main>
