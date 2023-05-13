@@ -3,7 +3,7 @@ import {
   faHouse,
   faCode,
   faPlane,
-  faHashtag,
+  faQuestion,
   faMessage,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +21,7 @@ library.add(
   faHouse,
   faCode,
   faPlane,
-  faHashtag,
+  faQuestion,
   faMessage,
   faLinkedinIn,
   faGithub,
@@ -55,13 +55,14 @@ const Layout = ({ children }: Props) => {
             title: "Travel",
           },
           {
-            icon: "hashtag",
+            icon: "question",
             title: "About",
+            slug: "about",
           },
           {
             icon: "linkedin-in",
             title: "LinkedIn",
-            external: "https://github.com/lewisnkwo",
+            external: "https://www.linkedin.com/in/lewis-nkwo-18868ba1",
           },
           {
             icon: "github",

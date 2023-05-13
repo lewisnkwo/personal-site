@@ -28,7 +28,7 @@ const Sidebar = ({ items, isMenuOpen, onMenuClose }: Props) => {
           <UserImage image={author} name="Lewis Nkwo" size="medium" />
           <span className="Sidebar__name">Lewis Nkwo</span>
           <span className="Sidebar__role">
-            Software Engineer & Travel Ethusiast
+            Software Engineer & Travel Enthusiast
           </span>
         </div>
         <nav className="Sidebar__items" aria-label="Side Navigation">
