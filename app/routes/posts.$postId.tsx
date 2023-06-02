@@ -10,6 +10,7 @@ import { useCatch, useLoaderData, useParams } from "@remix-run/react";
 import Layout from "~/components/pages/layout";
 import { toPost } from "~/utils";
 import { db } from "~/utils/db.server";
+import { readMarkdown } from "~/utils/readMarkdown.server";
 import ViewSinglePost from "~/components/pages/content/posts-view-single";
 import viewSinglePostStyles from "../components/pages/content/posts-view-single/index.css";
 import { getUserId, requireUserId } from "~/utils/session.server";
@@ -37,13 +38,14 @@ export const loader = async ({ params, request }: LoaderArgs) => {
   const post = await db.postModel.findUnique({
     where: { id: params.postId },
   });
+  const markdown = await readMarkdown("one");
 
   if (!post) {
     throw new Response("Oops. Could not find post.", {
       status: 404,
     });
   }
-  return json({ post, isOwner: userId === post.userId });
+  return json({ post, isOwner: userId === post.userId, markdown });
 };
 
 export const action = async ({ params, request }: ActionArgs) => {
