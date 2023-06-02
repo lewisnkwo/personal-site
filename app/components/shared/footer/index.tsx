@@ -9,7 +9,7 @@ const Footer = () => (
       >
         Github
       </a>
-      . Built with 🔥 using{" "}
+      . Built with ⚡ using{" "}
       <a href="https://remix.run" target="_blank" rel="noreferrer">
         Remix
       </a>

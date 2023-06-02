@@ -24,7 +24,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     };
   }
   return {
-    title: data.post.title,
+    title: `${data.post.title} | Lewis Nkwo`,
     description: data.post.subtitle,
   };
 };
