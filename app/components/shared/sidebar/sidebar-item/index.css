@@ -1,3 +1,10 @@
+.SidebarItem .SidebarItem__title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  margin-left: 20px;
+}
+
 .SidebarItem {
   display: flex;
   justify-content: flex-start;
@@ -7,7 +14,7 @@
   font-weight: 400;
   line-height: 24px;
   color: #0d1619;
-  padding: 12px 0px 12px 14.5px;
+  padding: 12px 0px 12px 15px;
   margin-bottom: 4px;
   border-radius: 8px;
   text-decoration: none;
@@ -22,22 +29,13 @@
 .SidebarItem:last-child {
   margin-bottom: 0px;
 }
-
 .SidebarItem__icon {
   width: 15px;
   height: auto;
 }
-
 .SidebarItem__icon-container {
   width: 25px;
   height: auto;
-}
-
-.SidebarItem__title {
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 20px;
-  margin-left: 19px;
 }
 
 /*# sourceMappingURL=index.css.map */

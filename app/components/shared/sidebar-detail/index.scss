@@ -8,6 +8,39 @@
   background: #ffffff;
   position: relative;
   animation: slide-right 0.2s ease-in forwards;
+
+  &__top {
+    @include flex(column);
+    padding: 48px;
+    background: #f2f2f2;
+    border-bottom: $border-container;
+    gap: 10px;
+  }
+
+  &__info {
+    @include flex(column);
+  }
+
+  &__items {
+    padding: 0px 40px;
+  }
+
+  &__title {
+    @include text-post-title;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    margin-top: 16px;
+  }
+
+  &__subtitle {
+    @include text-secondary;
+    margin-top: 10px;
+  }
+
+  &__actions {
+    margin-top: 10px;
+  }
 }
 
 @keyframes slide-right {
@@ -19,48 +52,16 @@
   }
 }
 
-.SidebarDetail__top {
-  @include flex(column);
-  padding: 48px;
-  background: #f2f2f2;
-  border-bottom: $border-container;
-  gap: 10px;
-}
-
-.SidebarDetail__info {
-  @include flex(column);
-}
-
-.SidebarDetail__items {
-  padding: 0px 40px;
-}
-
-.SidebarDetail__title {
-  @include text-post-title;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  margin-top: 16px;
-}
-
-.SidebarDetail__subtitle {
-  @include text-secondary;
-  margin-top: 10px;
-}
-
-.SidebarDetail__actions {
-  margin-top: 10px;
-}
-
 @media only screen and (max-width: 768px) {
   .SidebarDetail {
     display: initial;
     width: 100%;
     border-left: none;
     position: initial;
-  }
 
-  .SidebarDetail__items {
-    padding-bottom: 40px;
+    &__items {
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+    }
   }
 }

@@ -1,5 +1,7 @@
 @use "../../../../styles/variables" as *;
 
-.ViewSinglePost__actions {
-  @include content-actions;
+.ViewSinglePost {
+  &__actions {
+    @include content-actions;
+  }
 }

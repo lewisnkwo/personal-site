@@ -1,10 +1,15 @@
 @use "../../../../styles/variables" as *;
 
+.SidebarItem .SidebarItem__title {
+  @include sidebar-item-value;
+  margin-left: 20px;
+}
+
 .SidebarItem {
   @include flex(row, flex-start, center);
   @include text-primary;
   @include psuedo;
-  padding: 12px 0px 12px 14.5px;
+  padding: 12px 0px 12px 15px;
   margin-bottom: 4px;
   border-radius: $border-radius;
   text-decoration: none;
@@ -14,19 +19,14 @@
   &:last-child {
     margin-bottom: 0px;
   }
-}
 
-.SidebarItem__icon {
-  width: 15px;
-  height: auto;
-}
+  &__icon {
+    width: 15px;
+    height: auto;
+  }
 
-.SidebarItem__icon-container {
-  width: 25px;
-  height: auto;
-}
-
-.SidebarItem__title {
-  @include sidebar-item-value;
-  margin-left: 19px;
+  &__icon-container {
+    width: 25px;
+    height: auto;
+  }
 }

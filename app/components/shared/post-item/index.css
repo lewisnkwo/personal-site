@@ -25,29 +25,22 @@
   margin-bottom: 0px;
 }
 
-.test {
-  font-size: 20px;
-}
-
 .PostItem--selected {
   background-color: #fff;
   box-shadow: inset 0px 0px 0px 2px #0d1619;
 }
-
 .PostItem__info {
   margin-left: 12px;
   display: flex;
   flex-direction: column;
   text-align: left;
 }
-
 .PostItem__title {
   font-size: 17px;
   line-height: 24px;
   color: #0d1619;
   font-weight: 500;
 }
-
 .PostItem__subtitle {
   font-size: 15px;
   line-height: 20px;

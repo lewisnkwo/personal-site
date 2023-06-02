@@ -1,20 +1,9 @@
-.Home-with-sidebar {
-  box-sizing: border-box;
-  height: 100vh;
-}
-
-.Home-with-sidebar {
-  display: grid;
-  grid-template-columns: 1fr 440px;
-}
-
 .Home__heading {
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
   display: block;
 }
-
 .Home__description {
   font-size: 17px;
   font-weight: 400;
@@ -23,7 +12,6 @@
   margin-top: 8px;
   display: block;
 }
-
 .Home__select-posts {
   display: flex;
   justify-content: flex-start;
@@ -38,12 +26,18 @@
 .Home__select-posts select {
   margin-left: 20px;
 }
-
 .Home__post-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 40px;
   margin-top: 40px;
+}
+
+.Home-with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {

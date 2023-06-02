@@ -17,26 +17,24 @@
   }
 }
 
-.test {
-  font-size: 20px;
-}
+.PostItem {
+  &--selected {
+    background-color: #fff;
+    box-shadow: inset 0px 0px 0px 2px $border-primary;
+  }
 
-.PostItem--selected {
-  background-color: #fff;
-  box-shadow: inset 0px 0px 0px 2px $border-primary;
-}
+  &__info {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
 
-.PostItem__info {
-  margin-left: 12px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
+  &__title {
+    @include text-post-title;
+  }
 
-.PostItem__title {
-  @include text-post-title;
-}
-
-.PostItem__subtitle {
-  @include text-secondary-small;
+  &__subtitle {
+    @include text-secondary-small;
+  }
 }

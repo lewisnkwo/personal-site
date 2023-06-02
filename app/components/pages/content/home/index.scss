@@ -1,53 +1,54 @@
 @use "../../../../styles/variables" as *;
 
-.Home-with-sidebar {
-  box-sizing: border-box;
-  height: 100vh;
+.Home {
+  &__heading {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    display: block;
+  }
+
+  &__description {
+    @include text-secondary;
+    margin-top: 8px;
+    display: block;
+  }
+
+  &__select-posts {
+    @include flex(row, flex-start, center);
+    @include text-secondary;
+
+    margin-top: 24px;
+
+    select {
+      margin-left: 20px;
+    }
+  }
+
+  &__post-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    margin-top: 40px;
+  }
 }
 
 .Home-with-sidebar {
   display: grid;
   grid-template-columns: 1fr 440px;
-}
-
-.Home__heading {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
-  display: block;
-}
-
-.Home__description {
-  @include text-secondary;
-  margin-top: 8px;
-  display: block;
-}
-
-.Home__select-posts {
-  @include flex(row, flex-start, center);
-  @include text-secondary;
-
-  margin-top: 24px;
-
-  select {
-    margin-left: 20px;
-  }
-}
-
-.Home__post-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 40px;
-  margin-top: 40px;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {
-  .Home__left {
-    padding: 20px;
-  }
+  .Home {
+    &__left {
+      padding: 20px;
+    }
 
-  .Home__post-list {
-    column-gap: 0px;
+    &__post-list {
+      column-gap: 0px;
+    }
   }
 
   .Home-with-sidebar {

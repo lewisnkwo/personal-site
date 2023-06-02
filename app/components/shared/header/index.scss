@@ -1,13 +1,10 @@
 @use "../../../styles/variables" as *;
 
 header {
+  @include flex(row, flex-end, center);
   background: #ffffff;
   border-bottom: $border-container;
   padding: 14px 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
   height: fit-content;
   width: 100%;
 
@@ -30,10 +27,12 @@ header {
     color: $text-secondary;
   }
 
-  .Header__right {
-    @include flex(row, flex-start, center);
-    gap: 10px;
-    color: $text-secondary;
+  .Header {
+    &__right {
+      @include flex(row, flex-start, center);
+      gap: 10px;
+      color: $text-secondary;
+    }
   }
 }
 
