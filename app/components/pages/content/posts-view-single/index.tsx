@@ -1,5 +1,5 @@
-import Markdown from "markdown-to-jsx";
 import { Form, useLoaderData, useNavigate } from "@remix-run/react";
+import Markdown from "~/components/shared/markdown";
 import type { loader } from "~/routes/posts.$postId";
 import type { Post } from "~/types";
 
@@ -15,7 +15,7 @@ const ViewSinglePost = ({ post }: Props) => {
     <>
       <h2>{post.title}</h2>
       <h4>{post.subtitle}</h4>
-      <Markdown>{data.markdown}</Markdown>
+      <Markdown content={data.markdown} />
       <p>{post.category}</p>
       <div className="ViewSinglePost__actions">
         {data.isOwner && (
