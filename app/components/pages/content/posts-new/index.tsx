@@ -47,7 +47,6 @@ const PostsNew = () => {
         <select name="category" defaultValue="coding" aria-label="Post topic">
           <option value="coding">Coding</option>
           <option value="travel">Travel</option>
-          <option value="fitness">Fitness</option>
         </select>
         <button type="submit">Add post</button>
       </Form>

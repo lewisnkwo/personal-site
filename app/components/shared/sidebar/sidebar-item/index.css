@@ -29,13 +29,12 @@
 .SidebarItem:last-child {
   margin-bottom: 0px;
 }
-.SidebarItem__icon {
-  width: 15px;
-  height: auto;
-}
 .SidebarItem__icon-container {
   width: 25px;
   height: auto;
+}
+.SidebarItem svg {
+  width: 15px;
 }
 
 /*# sourceMappingURL=index.css.map */

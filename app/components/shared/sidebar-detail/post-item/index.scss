@@ -13,5 +13,6 @@
   &__item-value {
     @include text-primary;
     margin-top: 5px;
+    text-transform: capitalize;
   }
 }
