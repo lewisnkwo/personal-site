@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import SidebarDetail from "../../../shared/sidebar-detail";
-import type { Post } from "~/types";
+import type { Post, PostCategory } from "~/types";
 import PostList from "~/components/shared/post-list";
+import { filterPosts } from "./utils";
 
 interface Props {
   posts: Post[];
@@ -10,6 +11,7 @@ interface Props {
 const Home = ({ posts }: Props) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
+  const [latestPosts, setLatestPosts] = useState<Post[]>(posts);
 
   const sidebarPostRef = useRef<HTMLDivElement | null>(null);
 
@@ -36,15 +38,23 @@ const Home = ({ posts }: Props) => {
             <span className="Home__description">What's new on my mind...</span>
             <div className="Home__select-posts">
               Choice of posts:
-              <select name="users" defaultValue="developers">
-                <option value="coding">Coding</option>
-                <option value="coding">Travel</option>
+              <select
+                name="users"
+                defaultValue="developers"
+                onChange={(e) => {
+                  setLatestPosts(
+                    filterPosts(posts, e.currentTarget.value as PostCategory)
+                  );
+                }}
+              >
+                <option value="Coding">Coding</option>
+                <option value="Travel">Travel</option>
               </select>
             </div>
           </section>
           <section className="Home__post-list">
             <PostList
-              posts={posts}
+              posts={latestPosts}
               selectedPost={selectedPost}
               setSelectedPost={setSelectedPost}
             />

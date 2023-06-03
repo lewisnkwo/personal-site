@@ -45,8 +45,8 @@ const PostsNew = () => {
         />
         <PostsNewFieldError actionData={actionData} fieldName="body" />
         <select name="category" defaultValue="coding" aria-label="Post topic">
-          <option value="coding">Coding</option>
-          <option value="travel">Travel</option>
+          <option value="Coding">Coding</option>
+          <option value="Travel">Travel</option>
         </select>
         <button type="submit">Add post</button>
       </Form>
