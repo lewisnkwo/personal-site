@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 interface Props {
   content: string;
@@ -16,7 +16,7 @@ const Markdown = ({ content }: Props) => (
           <SyntaxHighlighter
             {...props}
             children={String(children).replace(/\n$/, "")}
-            style={dark}
+            style={nord}
             language={match[1]}
             PreTag="div"
           />
