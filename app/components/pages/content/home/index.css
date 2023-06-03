@@ -45,7 +45,7 @@
     padding: 20px;
   }
   .Home__post-list {
-    column-gap: 0px;
+    column-gap: 10px;
   }
   .Home-with-sidebar {
     display: flex;
