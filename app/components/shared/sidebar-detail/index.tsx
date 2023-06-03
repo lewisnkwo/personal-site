@@ -1,9 +1,11 @@
 import SidebarDetailItem from "./post-item";
 import type { Post as Props } from "../../../types";
 import { useNavigate } from "@remix-run/react";
+import { toDate } from "~/utils";
 
 const SidebarDetail = ({ id, title, subtitle, category, updatedAt }: Props) => {
   const goTo = useNavigate();
+
   return (
     <div className="SidebarDetail" aria-label={title}>
       <section className="SidebarDetail__top">
@@ -17,7 +19,7 @@ const SidebarDetail = ({ id, title, subtitle, category, updatedAt }: Props) => {
       </section>
       <section className="SidebarDetail__items">
         <SidebarDetailItem label="Category" value={category} />
-        <SidebarDetailItem label="Last updated" value={updatedAt} />
+        <SidebarDetailItem label="Last updated" value={toDate(updatedAt)} />
       </section>
     </div>
   );

@@ -1,5 +1,5 @@
 import type { Post, PostModel } from "../types";
-import { toPost } from ".";
+import { toDate, toPost } from ".";
 
 describe("toPost", () => {
   it("should convert a PostModel to Post", () => {
@@ -24,5 +24,17 @@ describe("toPost", () => {
     };
 
     expect(toPost(post)).toEqual(expected);
+  });
+});
+
+describe("toDate", () => {
+  it("should format the date as expected", () => {
+    const date = toDate("2023-06-02T14:52:06.562Z");
+    expect(date).toEqual("Friday, 2 June 2023");
+  });
+
+  it("should return `Invalid Date` for incorrect inputs", () => {
+    const date = toDate("incorrect-date-here");
+    expect(date).toEqual("Invalid Date");
   });
 });
