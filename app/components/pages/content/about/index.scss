@@ -1,0 +1,31 @@
+@use "../../../../styles/variables" as *;
+
+.About {
+  font-size: 17px;
+
+  &__content {
+    @include flex(row, space-between, center);
+  }
+
+  img {
+    width: 230px;
+    margin-right: 40px;
+    border-radius: $border-radius;
+  }
+
+  a {
+    @include text-secondary;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .About {
+    &__content {
+      @include flex(column-reverse, flex-start, flex-start);
+    }
+
+    img {
+      margin-top: 15px;
+    }
+  }
+}
