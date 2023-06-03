@@ -33,6 +33,18 @@ const PostsNew = () => {
           }
         />
         <PostsNewFieldError actionData={actionData} fieldName="subtitle" />
+        <input
+          defaultValue={actionData?.fields?.slug}
+          name="slug"
+          type="text"
+          placeholder="Enter slug..."
+          aria-label="Enter post slug"
+          aria-invalid={Boolean(actionData?.fieldErrors?.slug)}
+          aria-errormessage={
+            actionData?.fieldErrors?.slug ? "slug-error" : undefined
+          }
+        />
+        <PostsNewFieldError actionData={actionData} fieldName="subtitle" />
         <textarea
           defaultValue={actionData?.fields?.body}
           name="body"
@@ -44,8 +56,12 @@ const PostsNew = () => {
           }
         />
         <PostsNewFieldError actionData={actionData} fieldName="body" />
-        <select name="category" defaultValue="coding" aria-label="Post topic">
-          <option value="Coding">Coding</option>
+        <select
+          name="category"
+          defaultValue="Engineering"
+          aria-label="Post topic"
+        >
+          <option value="Engineering">Engineering</option>
           <option value="Travel">Travel</option>
         </select>
         <button type="submit">Add post</button>

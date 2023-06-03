@@ -8,7 +8,7 @@ describe("filterPosts", () => {
       title: "Post 1",
       subtitle: "Subtitle 1",
       body: "Body 1",
-      category: "Coding",
+      category: "Engineering",
       createdAt: "2023-01-01",
       updatedAt: "2023-01-02",
     },
@@ -23,10 +23,10 @@ describe("filterPosts", () => {
     },
   ];
 
-  it('should filter posts correctly for the "Coding" category', () => {
-    const filteredPosts = filterPosts(posts, "Coding");
+  it('should filter posts correctly for the "Engineering" category', () => {
+    const filteredPosts = filterPosts(posts, "Engineering");
     expect(filteredPosts).toHaveLength(1);
-    expect(filteredPosts[0].category).toBe("Coding");
+    expect(filteredPosts[0].category).toBe("Engineering");
   });
 
   it('should filter posts correctly for the "Travel" category', () => {

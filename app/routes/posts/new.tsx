@@ -22,12 +22,14 @@ export const action = async ({ request }: ActionArgs) => {
 
   const title = form.get("title");
   const subtitle = form.get("subtitle");
+  const slug = form.get("slug");
   const body = form.get("body");
   const category = form.get("category");
 
   if (
     typeof title !== "string" ||
     typeof subtitle !== "string" ||
+    typeof slug !== "string" ||
     typeof body !== "string" ||
     typeof category !== "string"
   ) {
@@ -41,12 +43,14 @@ export const action = async ({ request }: ActionArgs) => {
   const fieldErrors = {
     title: validatePostTitle(title, "title"),
     subtitle: validatePostTitle(subtitle, "subtitle"),
+    slug: validatePostTitle(subtitle, "slug"),
     body: validatePostBody(body),
   };
 
   const fields = {
     title,
     subtitle,
+    slug,
     body,
     category,
   };

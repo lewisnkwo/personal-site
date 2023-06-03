@@ -47,7 +47,7 @@ const Home = ({ posts }: Props) => {
                   );
                 }}
               >
-                <option value="Coding">Coding</option>
+                <option value="Engineering">Engineering</option>
                 <option value="Travel">Travel</option>
               </select>
             </div>

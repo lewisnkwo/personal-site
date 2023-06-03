@@ -7,7 +7,7 @@ export interface SidebarItem {
 
 export type Size = "small" | "medium" | "large";
 
-export type PostCategory = "Coding" | "Travel";
+export type PostCategory = "Engineering" | "Travel";
 
 export interface PostModel {
   id: string;

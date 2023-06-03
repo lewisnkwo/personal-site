@@ -23,10 +23,16 @@ seed();
 function getPosts() {
   return [
     {
-      title: "Why React",
+      title: "Why React?",
       subtitle: "The benefits of using React",
+      slug: "why-react",
+      category: "Engineering",
+    },
+    {
+      title: "My Japan 2023 Trip",
+      subtitle: "My Trip to the land of the rising sun",
       body: "My summary of using one of the most popular JS libraries in the world.",
-      category: "Coding",
+      category: "Travel",
     },
   ];
 }

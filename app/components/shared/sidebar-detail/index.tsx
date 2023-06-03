@@ -12,7 +12,6 @@ const SidebarDetail = ({
   updatedAt,
 }: Props) => {
   const goTo = useNavigate();
-
   return (
     <div className="SidebarDetail" aria-label={title}>
       <section className="SidebarDetail__top">
@@ -20,7 +19,7 @@ const SidebarDetail = ({
           <span className="SidebarDetail__title">{title}</span>
           <span className="SidebarDetail__subtitle">{subtitle}</span>
           <div className="SidebarDetail__actions">
-            <button onClick={() => goTo(`/posts/${id}`)}>View post</button>
+            <button onClick={() => goTo(`/posts/${id}`)}>Let's go</button>
           </div>
         </div>
       </section>
