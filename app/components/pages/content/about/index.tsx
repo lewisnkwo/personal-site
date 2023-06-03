@@ -31,6 +31,26 @@ const About = () => {
             willing to learn the relevant technologies in order to expand my
             knowledge.
           </p>
+          <h2>I have experience with these technologies:</h2>
+          <ul>
+            <li>React</li>
+            <li>Redux</li>
+            <li>Remix & NextJS</li>
+            <li>Javascript & TypeScript</li>
+            <li>Node.js</li>
+            <li>Styled Components (Emotion)</li>
+            <li>SASS</li>
+            <li>Jest</li>
+            <li>Testing Library</li>
+            <li>Cypress</li>
+            <li>Storybook</li>
+            <li>Angular 8+</li>
+            <li>MySQL</li>
+            <li>Prisma (ORM)</li>
+            <li>iOS</li>
+            <li>Android</li>
+            <li>AWS</li>
+          </ul>
           <h2>What gets me going?</h2>
           <p>
             I'm a big fan of running (outdoors), mental & physical fitness,
@@ -40,8 +60,8 @@ const About = () => {
             cultures. I'm also aiming to try every single food market in London!
           </p>
           <p>
-            I&apos;m also open to any opportunities or ideas that you may have,
-            so feel free to{" "}
+            I&apos;m open to any opportunities or ideas that you may have, so
+            feel free to{" "}
             <Link aria-label="Email Lewis Nkwo" to="mailto:nkwolewis@gmail.com">
               send an email
             </Link>{" "}

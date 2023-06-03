@@ -5,12 +5,15 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 }
 .About img {
   width: 230px;
-  margin-right: 40px;
+  margin: 27px 40px 0px 0px;
   border-radius: 8px;
+}
+.About ul {
+  line-height: 1.6;
 }
 .About a {
   font-size: 17px;

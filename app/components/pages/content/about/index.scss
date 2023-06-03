@@ -4,13 +4,17 @@
   font-size: 17px;
 
   &__content {
-    @include flex(row, space-between, center);
+    @include flex(row, space-between, flex-start);
   }
 
   img {
     width: 230px;
-    margin-right: 40px;
+    margin: 27px 40px 0px 0px;
     border-radius: $border-radius;
+  }
+
+  ul {
+    line-height: 1.6;
   }
 
   a {
