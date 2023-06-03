@@ -3,7 +3,14 @@ import type { Post as Props } from "../../../types";
 import { useNavigate } from "@remix-run/react";
 import { toDate } from "~/utils";
 
-const SidebarDetail = ({ id, title, subtitle, category, updatedAt }: Props) => {
+const SidebarDetail = ({
+  id,
+  title,
+  subtitle,
+  category,
+  createdAt,
+  updatedAt,
+}: Props) => {
   const goTo = useNavigate();
 
   return (
@@ -19,6 +26,7 @@ const SidebarDetail = ({ id, title, subtitle, category, updatedAt }: Props) => {
       </section>
       <section className="SidebarDetail__items">
         <SidebarDetailItem label="Category" value={category} />
+        <SidebarDetailItem label="Date created" value={toDate(createdAt)} />
         <SidebarDetailItem label="Last updated" value={toDate(updatedAt)} />
       </section>
     </div>
