@@ -25,6 +25,15 @@ export const meta: MetaFunction = () => ({
 
 export const links: LinksFunction = () => {
   return [
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400..700",
+    },
     { rel: "stylesheet", href: globalStyles },
     { rel: "stylesheet", href: layoutStyles },
     { rel: "stylesheet", href: headerStyles },
