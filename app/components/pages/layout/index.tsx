@@ -4,7 +4,6 @@ import {
   faCode,
   faPlane,
   faQuestion,
-  faMessage,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -22,7 +21,6 @@ library.add(
   faCode,
   faPlane,
   faQuestion,
-  faMessage,
   faLinkedinIn,
   faGithub,
   faBars,
