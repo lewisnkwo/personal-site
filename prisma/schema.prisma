@@ -22,7 +22,7 @@ model PostModel {
   updatedAt DateTime @updatedAt
   title     String
   subtitle  String
-  slug      String?
+  slug      String?  @unique
   body      String?
   category  String
   User      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
