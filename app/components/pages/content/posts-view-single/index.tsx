@@ -13,8 +13,8 @@ const ViewSinglePost = ({ post }: Props) => {
 
   return (
     <>
-      <h2>{post.title}</h2>
-      <h4>{post.subtitle}</h4>
+      <h1>{post.title}</h1>
+      <h2>{post.subtitle}</h2>
       <Markdown content={data.markdown} />
       <p>{post.category}</p>
       <div className="ViewSinglePost__actions">
