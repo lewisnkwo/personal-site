@@ -13,7 +13,7 @@ const Header = ({ onMenuClick }: Props) => (
     <div className="Header__right">
       <span>Let's get in contact:</span>
       <Link aria-label="Settings" to="mailto:nkwolewis@gmail.com">
-        <FontAwesomeIcon icon="message" />
+        💬
       </Link>
     </div>
   </header>

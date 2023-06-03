@@ -16,6 +16,7 @@ header a {
   cursor: pointer;
   width: 18px;
   height: auto;
+  text-decoration: none;
 }
 header #menu-button {
   display: none;
