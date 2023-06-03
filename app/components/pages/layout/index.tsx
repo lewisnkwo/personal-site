@@ -5,6 +5,7 @@ import {
   faPlane,
   faQuestion,
   faBars,
+  faTag,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedinIn,
@@ -24,6 +25,7 @@ library.add(
   faLinkedinIn,
   faGithub,
   faBars,
+  faTag,
   fab
 );
 

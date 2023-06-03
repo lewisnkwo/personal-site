@@ -4,4 +4,18 @@
   &__actions {
     @include content-actions;
   }
+
+  &__category {
+    margin-top: 40px;
+    padding: 4px 8px;
+    width: fit-content;
+    border: 1px solid $border-category;
+    border-radius: $border-radius;
+    text-transform: capitalize;
+    @include flex(row, flex-start, center);
+
+    svg {
+      margin-right: 5px;
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import Markdown from "~/components/shared/markdown";
 import type { loader } from "~/routes/posts.$postId";
@@ -12,11 +13,13 @@ const ViewSinglePost = ({ post }: Props) => {
   const goTo = useNavigate();
 
   return (
-    <>
+    <div className="ViewSinglePost">
       <h1>{post.title}</h1>
       <h2>{post.subtitle}</h2>
       <Markdown content={data.markdown} />
-      <p>{post.category}</p>
+      <span className="ViewSinglePost__category">
+        <FontAwesomeIcon icon="tag" /> {post.category}
+      </span>
       <div className="ViewSinglePost__actions">
         {data.isOwner && (
           <Form method="post">
@@ -27,7 +30,7 @@ const ViewSinglePost = ({ post }: Props) => {
         )}
         <button onClick={() => goTo("/")}>Back to homepage</button>
       </div>
-    </>
+    </div>
   );
 };
 

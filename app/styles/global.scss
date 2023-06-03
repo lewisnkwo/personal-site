@@ -28,6 +28,7 @@ select {
 
 button {
   @include text-secondary;
+  @include psuedo;
   border: 1px solid #bfbfbf;
   border-radius: $border-radius;
   padding: 8px 12px;
