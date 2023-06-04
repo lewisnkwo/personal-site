@@ -16,5 +16,5 @@ node_modules
 .vscode/settings.json
 
 #scss
-/app/*.css
-/app/*.css.map
+*.css
+*.css.map
