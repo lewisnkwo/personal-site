@@ -11,6 +11,8 @@ describe("filterPosts", () => {
       category: "Engineering",
       createdAt: "2023-01-01",
       updatedAt: "2023-01-02",
+      slug: "post-1",
+      userId: "lewis",
     },
     {
       id: "2",
@@ -20,6 +22,8 @@ describe("filterPosts", () => {
       category: "Travel",
       createdAt: "2023-02-01",
       updatedAt: "2023-02-02",
+      slug: "post-1",
+      userId: "lewis",
     },
   ];
 

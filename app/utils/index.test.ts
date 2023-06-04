@@ -1,5 +1,6 @@
-import type { Post, PostModel } from "../types";
-import { toDate, toPost } from ".";
+import type { PostModel } from "@prisma/client";
+import type { Post } from "../types";
+import { toDate, toPost } from "./index.server";
 
 describe("toPost", () => {
   it("should convert a PostModel to Post", () => {
@@ -8,9 +9,11 @@ describe("toPost", () => {
       title: "Title 1",
       subtitle: "Subtitle 1",
       body: "An example body...",
+      slug: "title-1",
       category: "Engineering",
-      createdAt: "2023-03-21",
-      updatedAt: "2023-04-21",
+      createdAt: new Date("2023-06-04T20:13:35.835Z"),
+      updatedAt: new Date("2023-06-05T20:13:35.835Z"),
+      userId: "lewis",
     };
 
     const expected: Post = {
@@ -18,9 +21,11 @@ describe("toPost", () => {
       title: "Title 1",
       subtitle: "Subtitle 1",
       body: "An example body...",
+      slug: "title-1",
       category: "Engineering",
-      createdAt: "2023-03-21",
-      updatedAt: "2023-04-21",
+      createdAt: "Sunday, 4 June 2023",
+      updatedAt: "Monday, 5 June 2023",
+      userId: "lewis",
     };
 
     expect(toPost(post)).toEqual(expected);
@@ -29,12 +34,7 @@ describe("toPost", () => {
 
 describe("toDate", () => {
   it("should format the date as expected", () => {
-    const date = toDate("2023-06-02T14:52:06.562Z");
-    expect(date).toEqual("Friday, 2 June 2023");
-  });
-
-  it("should return `Invalid Date` for incorrect inputs", () => {
-    const date = toDate("incorrect-date-here");
-    expect(date).toEqual("Invalid Date");
+    const date = new Date("2023-06-02T14:52:06.562Z");
+    expect(toDate(date)).toEqual("Friday, 2 June 2023");
   });
 });

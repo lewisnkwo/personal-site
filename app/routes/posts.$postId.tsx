@@ -8,13 +8,14 @@ import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useCatch, useLoaderData, useParams } from "@remix-run/react";
 import Layout from "~/components/pages/layout";
-import { toPost } from "~/utils";
+import { toPost } from "~/utils/index.server";
 import { db } from "~/utils/db.server";
 import { readMarkdown } from "~/utils/readMarkdown.server";
 import ViewSinglePost from "~/components/pages/content/posts-view-single";
 import viewSinglePostStyles from "../components/pages/content/posts-view-single/index.css";
 import { getUserId, requireUserId } from "~/utils/session.server";
 import SiteError from "~/components/shared/error";
+import type { Post } from "~/types";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   if (!data) {
@@ -38,14 +39,31 @@ export const loader = async ({ params, request }: LoaderArgs) => {
   const post = await db.postModel.findUnique({
     where: { id: params.postId },
   });
-  const markdown = await readMarkdown("one");
+
+  if (!post?.slug) {
+    throw new Response("Oops. Could not find the content for this post.", {
+      status: 404,
+    });
+  }
+
+  const markdown = await readMarkdown(post?.slug)
+    .then((file) => file.toString())
+    .catch(() => {
+      throw new Response("Oops. Could read the content for this post.", {
+        status: 404,
+      });
+    });
 
   if (!post) {
     throw new Response("Oops. Could not find post.", {
       status: 404,
     });
   }
-  return json({ post, isOwner: userId === post.userId, markdown });
+  return json({
+    post: toPost(post),
+    isOwner: userId === post.userId,
+    markdown,
+  });
 };
 
 export const action = async ({ params, request }: ActionArgs) => {
@@ -84,7 +102,7 @@ export default function PostViewRoute() {
   return (
     <Layout>
       <main>
-        <ViewSinglePost post={toPost(post)} />
+        <ViewSinglePost post={post as Post} />
       </main>
     </Layout>
   );

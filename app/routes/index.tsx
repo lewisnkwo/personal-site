@@ -8,11 +8,13 @@ import postItemStyles from "../components/shared/post-item/index.css";
 import sidebarDetailStyles from "../components/shared/sidebar-detail/index.css";
 import sidebarDetailPostItemStyles from "../components/shared/sidebar-detail/post-item/index.css";
 import { useLoaderData } from "@remix-run/react";
-import { toPost } from "~/utils";
+import { toPost } from "~/utils/index.server";
+import type { Post } from "~/types";
 
 export const loader = async () => {
+  const posts = await db.postModel.findMany();
   return json({
-    listOfPosts: await db.postModel.findMany(),
+    posts: posts.map(toPost),
   });
 };
 
@@ -36,7 +38,7 @@ export default function Index() {
 
   return (
     <Layout>
-      <Home posts={data.listOfPosts.map(toPost)} />
+      <Home posts={data.posts as Post[]} />
     </Layout>
   );
 }

@@ -9,24 +9,16 @@ export type Size = "small" | "medium" | "large";
 
 export type PostCategory = "Engineering" | "Travel";
 
-export interface PostModel {
-  id: string;
-  title: string;
-  subtitle: string;
-  body: string;
-  category: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export interface Post {
   id: string;
   title: string;
   subtitle: string;
-  body: string;
+  body: string | undefined;
+  slug: string | undefined;
   category: PostCategory;
   createdAt: string;
   updatedAt: string;
+  userId: string | undefined;
 }
 
 export interface PostListItem {

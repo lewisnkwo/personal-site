@@ -1,7 +1,6 @@
 import SidebarDetailItem from "./post-item";
 import type { Post as Props } from "../../../types";
 import { useNavigate } from "@remix-run/react";
-import { toDate } from "~/utils";
 
 const SidebarDetail = ({
   id,
@@ -25,8 +24,8 @@ const SidebarDetail = ({
       </section>
       <section className="SidebarDetail__items">
         <SidebarDetailItem label="Category" value={category} />
-        <SidebarDetailItem label="Date created" value={toDate(createdAt)} />
-        <SidebarDetailItem label="Last updated" value={toDate(updatedAt)} />
+        <SidebarDetailItem label="Date created" value={createdAt} />
+        <SidebarDetailItem label="Last updated" value={updatedAt} />
       </section>
     </div>
   );
