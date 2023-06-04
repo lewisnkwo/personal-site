@@ -10,7 +10,8 @@ node_modules
 /api/index.js
 /api/index.js.map
 
-prisma/*.db
+/prisma/*.db
+/prisma/seed.ts
 
 .vscode/settings.json
 
