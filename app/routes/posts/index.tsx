@@ -1,4 +1,4 @@
-import type { LinksFunction, LoaderArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import ViewAllPosts from "~/components/pages/content/posts-view-all";
 import { db } from "~/utils/db.server";
@@ -14,6 +14,11 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: postItemStyles },
   ];
 };
+
+export const meta: MetaFunction = () => ({
+  title: "Lewis Nkwo | All Posts",
+  description: "View all posts from Lewis Nkwo.",
+});
 
 export const loader = async ({ request }: LoaderArgs) => {
   const posts = await db.postModel.findMany({
