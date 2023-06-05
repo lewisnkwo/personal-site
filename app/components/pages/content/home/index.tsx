@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import SidebarDetail from "../../../shared/sidebar-detail";
 import type { Post, PostCategory } from "~/types";
-import PostList from "~/components/shared/post-list";
+import PostList from "~/components/shared/post-list-home";
 import { filterPosts } from "./utils";
 
 interface Props {

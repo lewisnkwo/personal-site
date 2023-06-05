@@ -1,6 +1,6 @@
 import type { PostModel } from "@prisma/client";
 import type { Post } from "../types";
-import { toDate, toPost } from "./index.server";
+import { toDate, toPost, toPostPartial } from "./index.server";
 
 describe("toPost", () => {
   it("should convert a PostModel to Post", () => {
@@ -29,6 +29,24 @@ describe("toPost", () => {
     };
 
     expect(toPost(post)).toEqual(expected);
+  });
+});
+
+describe("toPostPartial", () => {
+  it("should convert a partial amount of a PostModel to a partial Post", () => {
+    const post: Partial<PostModel> = {
+      id: "1",
+      title: "Title 1",
+      subtitle: "Subtitle 1",
+    };
+
+    const expected: Partial<Post> = {
+      id: "1",
+      title: "Title 1",
+      subtitle: "Subtitle 1",
+    };
+
+    expect(toPostPartial(post)).toEqual(expected);
   });
 });
 

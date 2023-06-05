@@ -5,4 +5,13 @@
     @include flex(column, flex-start, flex-start);
     gap: 20px;
   }
+
+  &__post-list {
+    @include flex(column, flex-start, flex-start);
+    margin-top: 20px;
+
+    button {
+      width: 100%;
+    }
+  }
 }
