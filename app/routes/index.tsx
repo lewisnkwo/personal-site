@@ -12,7 +12,7 @@ import { toPost } from "~/utils/index.server";
 import type { Post } from "~/types";
 
 export const loader = async () => {
-  const posts = await db.postModel.findMany();
+  const posts = await db.postModel.findMany({ take: 4 });
   return json({
     posts: posts.map(toPost),
   });

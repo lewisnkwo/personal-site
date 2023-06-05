@@ -27,7 +27,6 @@ const validateUrl = (url: string) => {
 export const action = async ({ request }: ActionArgs) => {
   const form = await request.formData();
 
-  const loginType = form.get("loginType");
   const username = form.get("username");
   const password = form.get("password");
   const redirectTo = validateUrl(
@@ -35,7 +34,6 @@ export const action = async ({ request }: ActionArgs) => {
   );
 
   if (
-    typeof loginType !== "string" ||
     typeof username !== "string" ||
     typeof password !== "string" ||
     typeof redirectTo !== "string"
@@ -48,7 +46,6 @@ export const action = async ({ request }: ActionArgs) => {
   }
 
   const fields = {
-    loginType,
     username,
     password,
   };
@@ -66,27 +63,16 @@ export const action = async ({ request }: ActionArgs) => {
     });
   }
 
-  switch (loginType) {
-    case "login": {
-      const user = await login({ username, password });
-      console.log({ user });
-      if (!user) {
-        return badRequest({
-          fieldErrors: null,
-          fields,
-          formError: "Username or password is incorrect",
-        });
-      }
-      return createUserSession(user.id, redirectTo);
-    }
-    default: {
-      return badRequest({
-        fieldErrors: null,
-        fields,
-        formError: `Login type invalid`,
-      });
-    }
+  const user = await login({ username, password });
+
+  if (!user) {
+    return badRequest({
+      fieldErrors: null,
+      fields,
+      formError: "Username or password is incorrect",
+    });
   }
+  return createUserSession(user.id, redirectTo);
 };
 
 export default function LoginRoute() {

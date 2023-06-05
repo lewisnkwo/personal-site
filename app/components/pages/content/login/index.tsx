@@ -14,12 +14,6 @@ const Login = () => {
           name="redirectTo"
           value={searchParams.get("redirectTo") ?? undefined}
         />
-        <fieldset>
-          <label>
-            <input type="radio" name="loginType" value="login" defaultChecked />
-            Login
-          </label>
-        </fieldset>
         <input
           name="username"
           type="text"
