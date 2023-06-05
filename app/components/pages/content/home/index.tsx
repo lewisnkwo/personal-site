@@ -53,6 +53,7 @@ const Home = ({ posts }: Props) => {
             </div>
           </section>
           <section className="Home__post-list">
+            {posts.length === 0 && "No posts found."}
             <PostList
               posts={latestPosts}
               selectedPost={selectedPost}

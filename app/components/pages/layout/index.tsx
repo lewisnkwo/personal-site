@@ -2,7 +2,6 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faHouse,
   faCode,
-  faPlane,
   faQuestion,
   faBars,
   faTag,
@@ -20,7 +19,6 @@ import { useState } from "react";
 library.add(
   faHouse,
   faCode,
-  faPlane,
   faQuestion,
   faLinkedinIn,
   faGithub,
@@ -49,10 +47,6 @@ const Layout = ({ children }: Props) => {
             icon: "code",
             title: "Blog",
             slug: "posts",
-          },
-          {
-            icon: "plane",
-            title: "Travel",
           },
           {
             icon: "question",
