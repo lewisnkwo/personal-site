@@ -1,13 +1,6 @@
 @use "../../../../styles/variables" as *;
 
 .Home {
-  &__heading {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
-    display: block;
-  }
-
   &__description {
     @include text-secondary;
     margin-top: 8px;

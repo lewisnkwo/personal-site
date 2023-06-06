@@ -3,7 +3,7 @@
 .SidebarDetail {
   right: -440px;
   width: 440px;
-  border-left: $border-container;
+  border-left: 1px solid $border-container;
   height: 100%;
   background: #ffffff;
   position: relative;
@@ -13,7 +13,7 @@
     @include flex(column);
     padding: 48px;
     background: #f2f2f2;
-    border-bottom: $border-container;
+    border-bottom: 1px solid $border-container;
     gap: 10px;
   }
 

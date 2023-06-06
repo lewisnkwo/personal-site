@@ -5,6 +5,14 @@
     @include content-actions;
   }
 
+  h2 {
+    font-style: italic;
+  }
+
+  hr {
+    border: 1px solid $border-container;
+  }
+
   &__category {
     margin-top: 40px;
     padding: 4px 8px;

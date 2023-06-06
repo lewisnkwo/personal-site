@@ -1,6 +1,7 @@
 $text-primary: #0d1619;
 $text-secondary: #6b6c6c;
-$border-container: 1px solid #e5e5e5;
+$text-heading: #2e3440;
+$border-container: #e5e5e5;
 $border-primary: #0d1619;
 $border-radius: 8px;
 $border-category: #d3d3d3;
@@ -53,7 +54,7 @@ $error: rgba(208, 48, 48, 0.906);
 }
 
 @mixin post-image {
-  border: $border-container;
+  border: 1px solid $border-container;
   border-radius: $border-radius;
   @include flex;
   background: #fff;
@@ -76,10 +77,10 @@ $error: rgba(208, 48, 48, 0.906);
 }
 
 @mixin content-actions {
-  border-top: $border-container;
+  @include flex(column);
+  border-top: 1px solid $border-container;
   margin-top: 30px;
   padding-top: 20px;
-  @include flex(column);
   align-items: flex-start;
   gap: 15px;
 }

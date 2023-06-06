@@ -1,7 +1,7 @@
 const Footer = () => (
   <footer>
     <span>
-      &copy; Lewis Nkwo 2023. Check out my{" "}
+      Lewis Nkwo 2023. Check out my{" "}
       <a
         href="https://github.com/lewisnkwo/personal-site"
         target="_blank"

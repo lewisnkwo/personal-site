@@ -34,7 +34,7 @@ const Home = ({ posts }: Props) => {
       <main>
         <div>
           <section>
-            <span className="Home__heading">Latest posts</span>
+            <h2>Latest posts</h2>
             <span className="Home__description">What's new on my mind...</span>
             <div className="Home__select-posts">
               Choice of posts:

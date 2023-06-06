@@ -13,10 +13,6 @@
     border-radius: $border-radius;
   }
 
-  ul {
-    line-height: 1.6;
-  }
-
   a {
     @include text-secondary;
   }
