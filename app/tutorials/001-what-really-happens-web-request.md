@@ -1,4 +1,4 @@
-So you wanted to treat yourself yesterday and decided to order a pizza online from your favourite chain. You've typed in a URL into your browser and hit **Enter**. You're then presented with your expected result as a web page in less than a few seconds. What goes on behind the scenes to achieve this?
+So you wanted to treat yourself yesterday and decided to order a pizza online from your favourite chain. You typed in a URL into your browser and hit **Enter**. You were then presented with your expected result as a web page in less than a few seconds. What went on behind the scenes to achieve this?
 
 ### The process begins
 

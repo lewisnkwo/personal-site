@@ -4,7 +4,9 @@ import Layout from "~/components/pages/layout";
 export default function PostsRoute() {
   return (
     <Layout>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </Layout>
   );
 }
