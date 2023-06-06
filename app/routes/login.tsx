@@ -78,9 +78,7 @@ export const action = async ({ request }: ActionArgs) => {
 export default function LoginRoute() {
   return (
     <Layout>
-      <main>
-        <Login />
-      </main>
+      <Login />
     </Layout>
   );
 }

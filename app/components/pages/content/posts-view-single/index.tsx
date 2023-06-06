@@ -14,22 +14,31 @@ const ViewSinglePost = ({ post }: Props) => {
 
   return (
     <div className="ViewSinglePost">
-      <h1>{post.title}</h1>
-      <h2>{post.subtitle}</h2>
-      <Markdown content={data.markdown} />
-      <span className="ViewSinglePost__category">
-        <FontAwesomeIcon icon="tag" /> {post.category}
-      </span>
-      <div className="ViewSinglePost__actions">
-        {data.isOwner && (
-          <Form method="post">
-            <button name="action" type="submit" value="delete">
-              Delete
-            </button>
-          </Form>
-        )}
-        <button onClick={() => goTo("/")}>Back to homepage</button>
-      </div>
+      <main>
+        <h1>{post.title}</h1>
+        <h2>{post.subtitle}</h2>
+        <span className="ViewSinglePost__history">
+          Last updated: {post.updatedAt}
+        </span>
+        <hr />
+        <Markdown content={data.markdown} />
+        <span className="ViewSinglePost__category">
+          <FontAwesomeIcon icon="tag" /> {post.category}
+        </span>
+        <span className="ViewSinglePost__history">
+          Created on: {post.createdAt}
+        </span>
+        <div className="ViewSinglePost__actions">
+          {data.isOwner && (
+            <Form method="post">
+              <button name="action" type="submit" value="delete">
+                Delete
+              </button>
+            </Form>
+          )}
+          <button onClick={() => goTo("/")}>Back to homepage</button>
+        </div>
+      </main>
     </div>
   );
 };

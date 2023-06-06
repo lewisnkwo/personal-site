@@ -15,9 +15,7 @@ export const meta: MetaFunction = () => ({
 export default function AboutRoute() {
   return (
     <Layout>
-      <main>
-        <About />
-      </main>
+      <About />
     </Layout>
   );
 }

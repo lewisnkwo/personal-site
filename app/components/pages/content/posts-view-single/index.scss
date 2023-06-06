@@ -1,8 +1,11 @@
 @use "../../../../styles/variables" as *;
 
 .ViewSinglePost {
-  &__actions {
-    @include content-actions;
+  background: $content-background;
+
+  &__history {
+    @include text-secondary-small;
+    display: block;
   }
 
   h2 {
@@ -13,8 +16,13 @@
     border: 1px solid $border-container;
   }
 
+  &__actions {
+    @include content-actions;
+  }
+
   &__category {
     margin-top: 40px;
+    margin-bottom: 20px;
     padding: 4px 8px;
     width: fit-content;
     border: 1px solid $border-category;

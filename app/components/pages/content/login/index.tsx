@@ -6,7 +6,7 @@ const Login = () => {
   const actionData = useActionData<typeof action>();
   const [searchParams] = useSearchParams();
   return (
-    <>
+    <main>
       <h1>Login</h1>
       <Form method="post">
         <input
@@ -40,7 +40,7 @@ const Login = () => {
         <PostsNewFieldError actionData={actionData} fieldName="password" />
         <button type="submit">Login</button>
       </Form>
-    </>
+    </main>
   );
 };
 

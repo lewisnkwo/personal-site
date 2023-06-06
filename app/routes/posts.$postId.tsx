@@ -101,9 +101,7 @@ export default function PostViewRoute() {
 
   return (
     <Layout>
-      <main>
-        <ViewSinglePost post={post as Post} />
-      </main>
+      <ViewSinglePost post={post as Post} />
     </Layout>
   );
 }
