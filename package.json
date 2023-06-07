@@ -11,7 +11,8 @@
     "generate:css": "sass app/:app/",
     "start": "remix-serve build",
     "typecheck": "tsc",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts"
