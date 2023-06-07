@@ -12,7 +12,7 @@ into the address bar, the browser performs a lookup to see if it has the IP (**I
 
 ### What does it do with the IP address?
 
-It'll then open up a TCP connection to the IP address and send the request over HTTP (**Hypertext Transfer Protocol**) with the method to the server (e.g. a GET request if you've typed in `awebsitethatsellspizza.com` in the address bar).
+It will then open up a TCP connection to the IP address and send the request over HTTP (**Hypertext Transfer Protocol**) with the method to the server (e.g. a GET request if you've typed in `awebsitethatsellspizza.com` in the address bar).
 
 ---
 
