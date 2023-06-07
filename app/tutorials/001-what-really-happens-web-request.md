@@ -22,7 +22,7 @@ TCP (**Transmission Control Protocol**) is a current standard of transmitting da
 
 ---
 
-Once the server receives the request, it’ll send a HTTP response back.
+Once the server receives the request, it will send a HTTP response back.
 
 **Example of a HTTP Request**
 
