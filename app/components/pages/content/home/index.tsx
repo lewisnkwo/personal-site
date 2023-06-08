@@ -39,8 +39,8 @@ const Home = ({ posts }: Props) => {
             <div className="Home__select-posts">
               Choice of posts:
               <select
-                name="users"
-                defaultValue="developers"
+                name="postType"
+                defaultValue="Engineering"
                 onChange={(e) => {
                   setLatestPosts(
                     filterPosts(posts, e.currentTarget.value as PostCategory)

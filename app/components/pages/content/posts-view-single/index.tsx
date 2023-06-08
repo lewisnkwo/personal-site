@@ -21,7 +21,12 @@ const ViewSinglePost = ({ post }: Props) => {
           Last updated: {post.updatedAt}
         </span>
         <hr />
-        <Markdown content={data.markdown} />
+        <Markdown
+          content={
+            data.markdown ??
+            "Could not load post content. Please try again later."
+          }
+        />
         <span className="ViewSinglePost__category">
           <FontAwesomeIcon icon="tag" /> {post.category}
         </span>
