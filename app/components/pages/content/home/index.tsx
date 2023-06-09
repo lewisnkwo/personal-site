@@ -17,6 +17,10 @@ const Home = ({ posts }: Props) => {
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
+
+    return () => {
+      setIsMobile(true);
+    };
   }, []);
 
   useEffect(() => {
