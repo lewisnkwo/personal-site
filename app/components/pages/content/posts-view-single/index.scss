@@ -3,6 +3,10 @@
 .ViewSinglePost {
   background: $content-background;
 
+  a {
+    color: $text-primary;
+  }
+
   &__history {
     @include text-secondary-small;
     display: block;

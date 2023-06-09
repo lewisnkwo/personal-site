@@ -77,7 +77,7 @@ useEffect(effect: React.EffectCallback, deps?: React.DependencyList | undefined)
 
 **Some things to note about _useEffect_:**
 
-- They have two types of usages; _with cleanup_ (if you specify a return value inside the useEffect callback function e.g. when subscribing to something), and _without cleanup_ (e.g. relying on changes to the state of your component).
+- It has two types of usages; _with cleanup_ (if you specify a return value inside the useEffect callback function e.g. when subscribing to something), and _without cleanup_ (e.g. relying on changes to the state of your component).
 
 #### Why should usages of useEffect be 'cleaned up'?
 
