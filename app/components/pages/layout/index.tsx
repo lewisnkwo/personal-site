@@ -32,7 +32,7 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
     <div className="Layout">
