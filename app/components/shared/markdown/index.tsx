@@ -14,36 +14,42 @@ interface Props {
 
 const Markdown = ({ content }: Props) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isDomLoaded, setIsDomLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768); // To-do turn into custom hook
+    setIsDomLoaded(true); // Used as a fix to solve a hydration issue with the ReactMarkdown component.
   }, []);
 
   return (
-    <ReactMarkdown
-      children={content}
-      components={{
-        code({ node, inline, className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || "");
-          return !inline && match ? (
-            <SyntaxHighlighter
-              {...props}
-              children={String(children).replace(/\n$/, "")}
-              style={nord}
-              language={match[1]}
-              PreTag="div"
-              showLineNumbers
-              wrapLines={!isMobile}
-              wrapLongLines={!isMobile}
-            />
-          ) : (
-            <code {...props} className={className}>
-              {children}
-            </code>
-          );
-        },
-      }}
-    />
+    <>
+      {isDomLoaded && (
+        <ReactMarkdown
+          children={content}
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || "");
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  {...props}
+                  children={String(children).replace(/\n$/, "")}
+                  style={nord}
+                  language={match[1]}
+                  PreTag="div"
+                  showLineNumbers
+                  wrapLines={!isMobile}
+                  wrapLongLines={!isMobile}
+                />
+              ) : (
+                <code {...props} className={className}>
+                  {children}
+                </code>
+              );
+            },
+          }}
+        />
+      )}
+    </>
   );
 };
 
