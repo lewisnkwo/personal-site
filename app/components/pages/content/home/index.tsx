@@ -3,21 +3,17 @@ import SidebarDetail from "../../../shared/sidebar-detail";
 import type { Post, PostCategory } from "~/types";
 import PostList from "~/components/shared/post-list-home";
 import { filterPosts } from "./utils";
+import { useDeviceWidth } from "~/hooks/useDeviceWidth";
 
 interface Props {
   posts: Post[];
 }
 
 const Home = ({ posts }: Props) => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<Post | undefined>(undefined);
   const [latestPosts, setLatestPosts] = useState<Post[]>(posts);
 
   const sidebarPostRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
-  }, []);
 
   useEffect(() => {
     if (sidebarPostRef?.current) {
@@ -28,6 +24,8 @@ const Home = ({ posts }: Props) => {
       });
     }
   }, [selectedPost]);
+
+  const isMobile = useDeviceWidth();
 
   return (
     <div className={`Home${selectedPost ? "-with-sidebar" : ""}`}>

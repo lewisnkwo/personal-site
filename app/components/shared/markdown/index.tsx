@@ -4,6 +4,7 @@ import md from "react-syntax-highlighter/dist/cjs/languages/prism/markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { useEffect, useState } from "react";
+import { useDeviceWidth } from "~/hooks/useDeviceWidth";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("md", md);
@@ -13,13 +14,13 @@ interface Props {
 }
 
 const Markdown = ({ content }: Props) => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isDomLoaded, setIsDomLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 768); // To-do turn into custom hook
     setIsDomLoaded(true); // Used as a fix to solve a hydration issue with the ReactMarkdown component.
   }, []);
+
+  const isMobile = useDeviceWidth();
 
   return (
     <>
