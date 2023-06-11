@@ -14,17 +14,17 @@ interface Props {
 }
 
 const Markdown = ({ content }: Props) => {
-  const [isDomLoaded, setIsDomLoaded] = useState<boolean>(false);
+  const [isComponentMounted, setIsComponentMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    setIsDomLoaded(true); // Used as a fix to solve a hydration issue with the ReactMarkdown component.
+    setIsComponentMounted(true); // Used as a fix to solve a hydration issue with the ReactMarkdown component.
   }, []);
 
   const isMobile = useDeviceWidth();
 
   return (
     <>
-      {isDomLoaded && (
+      {isComponentMounted && (
         <ReactMarkdown
           children={content}
           components={{
