@@ -116,4 +116,4 @@ useEffect(() => {
 }, []);
 ```
 
-_(useRef, useCallback, useMemo, useContext, useReducer, & Custom Hooks sections coming soon!)_
+_(useRef, useCallback, useMemo, useContext, useReducer, & Custom Hooks sections coming soon! Stay tuned.)_
