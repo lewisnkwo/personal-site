@@ -1,13 +1,13 @@
 import type { Post } from "../../../types";
 
 export interface Props extends Partial<Post> {
-  onSelect: (id: string) => void;
+  onSelect: (slug: string) => void;
   isSelected?: boolean;
   tabIndex: number;
 }
 
 const PostItem = ({
-  id,
+  slug,
   title,
   subtitle,
   onSelect,
@@ -16,7 +16,7 @@ const PostItem = ({
 }: Props) => (
   <button
     className={`PostItem${isSelected ? "--selected" : ""}`}
-    onClick={() => id && onSelect(id)}
+    onClick={() => slug && onSelect(slug)}
     aria-label={title}
     tabIndex={tabIndex}
   >

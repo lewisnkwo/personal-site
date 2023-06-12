@@ -22,7 +22,10 @@ const ViewAllPosts = () => {
       </div>
       <section className="ViewAllPosts__post-list">
         {data.posts.length === 0 && "No posts found."}
-        <PostList posts={data.posts} onSelect={(id) => goTo(`/posts/${id}`)} />
+        <PostList
+          posts={data.posts}
+          onSelect={(slug) => goTo(`/posts/${slug}`)}
+        />
       </section>
     </>
   );

@@ -3,7 +3,7 @@ import type { Post } from "~/types";
 
 interface Props {
   posts: Partial<Post>[];
-  onSelect: (id: string) => void;
+  onSelect: (slug: string) => void;
 }
 
 const PostList = ({ posts, onSelect }: Props) => (

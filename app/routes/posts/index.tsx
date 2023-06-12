@@ -23,7 +23,7 @@ export const meta: MetaFunction = () => ({
 export const loader = async ({ request }: LoaderArgs) => {
   const posts = await db.postModel.findMany({
     orderBy: { createdAt: "desc" },
-    select: { id: true, title: true, subtitle: true },
+    select: { id: true, title: true, subtitle: true, slug: true },
   });
   const user = await getUser(request);
 

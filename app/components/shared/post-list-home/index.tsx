@@ -13,8 +13,8 @@ const PostListHome = ({ posts, selectedPost, setSelectedPost }: Props) => (
       <PostItem
         key={i}
         {...p}
-        onSelect={() =>
-          setSelectedPost(selectedPost?.id === p.id ? undefined : p)
+        onSelect={(slug) =>
+          setSelectedPost(selectedPost?.slug === slug ? undefined : p)
         }
         isSelected={selectedPost?.id === p.id}
         tabIndex={i}
