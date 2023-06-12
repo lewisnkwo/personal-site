@@ -1,3 +1,5 @@
+import type { LoadingBarRef } from "react-top-loading-bar";
+import LoadingBar from "react-top-loading-bar";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faHouse,
@@ -14,7 +16,8 @@ import {
 import Sidebar from "../../shared/sidebar";
 import Header from "../../shared/header";
 import Footer from "../../shared/footer";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigation } from "@remix-run/react";
 
 library.add(
   faHouse,
@@ -33,9 +36,19 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const navigation = useNavigation();
+
+  const loadingBarRef = useRef<LoadingBarRef | null>(null);
+
+  useEffect(() => {
+    if (loadingBarRef.current !== null && navigation.state === "loading") {
+      loadingBarRef.current.continuousStart();
+    }
+  }, [navigation.state]);
 
   return (
     <div className="Layout">
+      <LoadingBar color="#2e3440" ref={loadingBarRef} />
       <Sidebar
         isMenuOpen={openMenu}
         items={[
