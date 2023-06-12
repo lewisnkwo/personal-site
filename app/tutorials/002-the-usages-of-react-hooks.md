@@ -19,7 +19,10 @@ For Typescript users, it also accepts a single type argument (where I've passed 
 Let's have a further look at the return type of this `useState` usage:
 
 ```tsx
-[boolean, React.Dispatch<React.SetStateAction<boolean>>];
+[
+  boolean | undefined,
+  React.Dispatch<React.SetStateAction<boolean | undefined>>,
+];
 ```
 
 We are given an array of two values: the first being the current value, the second being a method to set/update the value in state. To access these two values, we can _destructure_ the array:

@@ -47,7 +47,7 @@ export const loader = async ({ params, request }: LoaderArgs) => {
   }
 
   const markdown = await readMarkdown(post?.slug)
-    .then((file) => file.Body?.toString())
+    .then((file) => file)
     .catch((e) => {
       console.log(e);
       throw new Response("Oops. Could read the content for this post.", {
