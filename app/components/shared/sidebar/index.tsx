@@ -27,7 +27,7 @@ const Sidebar = ({ items, isMenuOpen, onMenuClose }: Props) => {
         <div className="Sidebar__top">
           <UserImage image={author} name="Lewis Nkwo" size="large" />
           <span className="Sidebar__name">Lewis Nkwo</span>
-          <span className="Sidebar__role">
+          <span className="Sidebar__desc">
             Software Engineer & Travel Enthusiast based in London, UK
           </span>
         </div>

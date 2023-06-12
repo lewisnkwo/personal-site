@@ -8,8 +8,8 @@
   flex-direction: column;
   width: 280px;
   height: 100%;
-  border-right: 1px solid $border-container;
-  background: #ffffff;
+  background: $sidebar-background;
+  color: $text-sidebar-primary;
 }
 
 .Sidebar {
@@ -25,11 +25,13 @@
   &__name {
     @include text-post-title;
     margin-top: 16px;
+    color: $text-sidebar-primary;
   }
 
-  &__role {
+  &__desc {
     @include text-secondary-small;
     margin-top: 5px;
+    color: $text-sidebar-secondary;
   }
 }
 

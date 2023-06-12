@@ -1,12 +1,23 @@
+// text
 $text-primary: #0d1619;
 $text-secondary: #6b6c6c;
 $text-heading: #2e3440;
+$text-sidebar-primary: #fff;
+$text-sidebar-secondary: #e5e5e5;
+$text-sidebar-selected: #2e3440;
+
+// borders
 $border-container: #e5e5e5;
 $border-primary: #0d1619;
 $border-radius: 8px;
 $border-category: #d3d3d3;
-$error: rgba(208, 48, 48, 0.906);
+
+// backgrounds
+$sidebar-background: #2e3440;
 $content-background: #f8f8fa;
+
+// misc
+$error: rgba(208, 48, 48, 0.906);
 
 @mixin flex(
   $direction: column,

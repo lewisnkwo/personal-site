@@ -7,8 +7,8 @@
 
 .SidebarItem {
   @include flex(row, flex-start, center);
-  @include text-primary;
   @include psuedo;
+  color: $text-sidebar-primary;
   padding: 12px 0px 12px 15px;
   margin-bottom: 4px;
   border-radius: $border-radius;
@@ -18,6 +18,11 @@
 
   &:last-child {
     margin-bottom: 0px;
+  }
+
+  &:hover,
+  &:active {
+    color: $text-sidebar-selected;
   }
 
   &__icon-container {

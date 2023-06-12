@@ -11,9 +11,11 @@ const Header = ({ onMenuClick }: Props) => (
       <FontAwesomeIcon icon="bars" />
     </button>
     <div className="Header__right">
-      <span>Let's get in contact:</span>
-      <Link aria-label="Settings" to="mailto:nkwolewis@gmail.com">
-        💬
+      <Link
+        aria-label="Send Mail to Lewis Nkwo"
+        to="mailto:nkwolewis@gmail.com"
+      >
+        <span>Let's get in contact:</span> 💬
       </Link>
     </div>
   </header>
