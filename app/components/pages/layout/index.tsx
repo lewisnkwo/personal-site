@@ -35,7 +35,7 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
   const navigation = useNavigation();
 
   const loadingBarRef = useRef<LoadingBarRef | null>(null);

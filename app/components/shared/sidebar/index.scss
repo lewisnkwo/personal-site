@@ -46,6 +46,15 @@
   .Sidebar {
     left: -280px;
 
+    &--open {
+      left: 0px;
+    }
+
+    &--close {
+      left: -280px;
+      animation: slide-left 0.2s ease-out backwards;
+    }
+
     &__underlay {
       position: fixed;
       top: 0;
@@ -55,15 +64,6 @@
       z-index: 1;
       background: #9f9f9f;
       opacity: 0.3;
-    }
-
-    &--open {
-      left: 0px;
-    }
-
-    &--close {
-      left: -280px;
-      animation: slide-left 0.2s ease-out backwards;
     }
   }
 

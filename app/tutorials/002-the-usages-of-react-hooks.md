@@ -8,19 +8,21 @@ Here's an example of it [being used](https://github.com/lewisnkwo/personal-site/
 
 ```tsx
 const Layout = ({ children }: Props) => {
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openMenu, setOpenMenu] = useState<boolean | undefined>(undefined);
 };
 ```
 
-The `useState` hook accepts an initial value where I have passed in `false`. Once the `Layout` component is rendered, I want the side menu to be initially hidden which is why I have given it that default value. For Typescript users, it also accepts a single type argument (where I've passed in `boolean`) to reflect the type of the state.
+The `useState` hook accepts an initial value where I have passed in `undefined`. Once the `Layout` component is rendered, I want the side menu to be initially hidden with `undefined` (as having a `boolean` value on the state will control the visibility of the side menu, with the `.Sidebar--open` & `.Sidebar--close` classes that I have set on the element).
 
-Let's have a further look at the return types of this useState usage:
+For Typescript users, it also accepts a single type argument (where I've passed in `boolean | undefined`) to reflect the type of the state.
+
+Let's have a further look at the return type of this `useState` usage:
 
 ```tsx
 [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 ```
 
-We are given an array of two values: the first being the current value, the second being a method to set/update the value in state. To access these two values, we can _destructure_ the returned array:
+We are given an array of two values: the first being the current value, the second being a method to set/update the value in state. To access these two values, we can _destructure_ the array:
 
 ```tsx
 const [openMenu, setOpenMenu] = useState;
