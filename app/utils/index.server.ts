@@ -14,7 +14,6 @@ export const toDate = (value: Date): string => {
 export const toPost = (post: PostModel): Post => ({
   ...post,
   body: post.body ?? undefined,
-  slug: post.slug ?? undefined,
   createdAt: toDate(post.createdAt),
   updatedAt: toDate(post.updatedAt),
   category: post.category as PostCategory,
