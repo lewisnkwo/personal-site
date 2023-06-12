@@ -37,7 +37,7 @@ export const links: LinksFunction = () => {
 export const loader = async ({ params, request }: LoaderArgs) => {
   const userId = await getUserId(request);
   const post = await db.postModel.findUnique({
-    where: { id: params.postId },
+    where: { slug: params.postSlug },
   });
 
   if (!post?.slug) {
@@ -78,7 +78,7 @@ export const action = async ({ params, request }: ActionArgs) => {
 
   const userId = await requireUserId(request);
   const post = await db.postModel.findUnique({
-    where: { id: params.jokeId },
+    where: { id: params.postId },
   });
 
   if (!post) {
@@ -93,7 +93,7 @@ export const action = async ({ params, request }: ActionArgs) => {
     });
   }
 
-  await db.postModel.delete({ where: { id: params.jokeId } });
+  await db.postModel.delete({ where: { id: params.postId } });
   return redirect("/posts");
 };
 

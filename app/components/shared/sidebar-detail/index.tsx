@@ -4,6 +4,7 @@ import { useNavigate } from "@remix-run/react";
 
 const SidebarDetail = ({
   id,
+  slug,
   title,
   subtitle,
   category,
@@ -18,7 +19,9 @@ const SidebarDetail = ({
           <span className="SidebarDetail__title">{title}</span>
           <span className="SidebarDetail__subtitle">{subtitle}</span>
           <div className="SidebarDetail__actions">
-            <button onClick={() => goTo(`/posts/${id}`)}>Let's go</button>
+            <button onClick={() => goTo(`/posts/${slug ?? id}`)}>
+              Let's go
+            </button>
           </div>
         </div>
       </section>

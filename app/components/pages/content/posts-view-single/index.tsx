@@ -1,8 +1,8 @@
+import type { loader } from "~/routes/posts.$postSlug";
+import type { Post } from "~/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import Markdown from "~/components/shared/markdown";
-import type { loader } from "~/routes/posts.$postId";
-import type { Post } from "~/types";
 
 interface Props {
   post: Post;
