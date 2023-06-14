@@ -101,24 +101,86 @@ Warning: Can't perform a React state update on an unmounted component. This is a
 A way to solve this:
 
 ```tsx
-const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
+let userCanViewContent;
 
 useEffect(() => {
-  fetch("https://lewisnkwo.com/feed") // (Note: this endpoint does not exist at the moment!)
+  // (Note: this endpoint does not exist at the moment!)
+  fetch("https://lewisnkwo.com/feed")
     .then((response) => response.json())
     .then((result) => {
-      if (result.posts[0]) {
-        // i.e. If I can access a post...
-        setIsSubscribed(true);
-      }
+      userCanViewContent = true;
     })
     .catch((err) => console.error(err));
 
   // The return function below will cleanup the effect (incase the component is unexpectedly unmounted before the fetch is completed, for example)
   return () => {
-    setIsSubscribed(false);
+    userCanViewContent = false;
   };
 }, []);
 ```
 
-_(useRef, useCallback, useMemo, useContext, useReducer, & Custom Hooks sections coming soon! Stay tuned.)_
+### useRef
+
+This hook can be used to create a reference (or a `ref` attribute) to access an element imperatively on the DOM. References specified with `useRef` do not cause the component to re-render. One reason why this may be used to improve performance on a component that has values that may not need to be updated on each render.
+
+One other way to utilise `useRef` is to use it to persist data between component re-rendering. This is helpful if, for example, you wanted to keep track of values throughout the life of a component (or as long as the component is mounted to the DOM).
+
+#### The `.current` property
+
+The value returned from `useRef` contains an object with a single property: `.current`. This property is mutable (meaning it can be modified), which is what provides you with the ability to hold data between component re-renders.
+
+On the other hand, this means that using the hook for data that needs to be updated on the UI will not prove helpful. Have a look at this example:
+
+```tsx
+const pageViewRef = useRef<number>(0);
+
+return (
+  <>
+    <button
+      onClick={() => {
+        pageViewRef.current = pageViewRef.current + 1;
+      }}
+    >
+      Update Page Views
+    </button>
+    <span> Current View Count: {pageViewRef.current}</span>
+  </>
+);
+```
+
+In the code above, I've added a button which aims to increment the value of the `.current` property of `pageViewRef` by `1`, every time it is clicked. Here's what happens when I click on the button:
+
+![image](https://lewisnkwosite-assets.s3.eu-west-2.amazonaws.com/images/useRefCounter.gif)
+
+Did you notice how initially, the count does not update as intended? I clicked on the button 3 times expecting the UI to display `Current Count: 3`, but the UI did not change.
+
+The UI was only updated when I triggered [a change on the `Home` component](https://github.com/lewisnkwo/personal-site/blob/main/app/components/pages/content/home/index.tsx#L58) (by clicking on a post item which opens up a sidebar that utilises `useState`). This caused the component to re-render — updating the UI with the correct value.
+
+In this scenario, you would use `useState` instead of `useRef` to update the page view count.
+
+#### Where have I used it?
+
+In one instance, I've used it _imperatively_ to [control the scroll direction & animation](https://github.com/lewisnkwo/personal-site/blob/main/app/components/pages/content/home/index.tsx#L20) of a side bar on the homepage:
+
+```tsx
+// accessing the scrollIntoView method on the .current property
+if (sidebarPostRef?.current) {
+  sidebarPostRef.current.scrollIntoView({
+    behavior: "smooth",
+    block: "end",
+    inline: "nearest",
+  });
+}
+
+// adding the ref attribute to an element
+<div ref={isMobile ? sidebarPostRef : null}>
+  <SidebarDetail {...selectedPost} />
+</div>;
+```
+
+#### As a summary
+
+- `useRef` can be used to directly access an element's properties on the DOM.
+- Use `useState` over `useRef` when dealing with state changes that need to be updated in the UI.
+
+_(Part 2 with useCallback, useMemo, useContext, useReducer, & Custom Hooks sections coming soon! Stay tuned.)_

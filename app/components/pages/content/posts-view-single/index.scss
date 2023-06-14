@@ -38,4 +38,15 @@
       margin-right: 5px;
     }
   }
+
+  img {
+    border: 1px solid $border-container;
+    border-radius: $border-radius;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  img {
+    width: 100%;
+  }
 }
