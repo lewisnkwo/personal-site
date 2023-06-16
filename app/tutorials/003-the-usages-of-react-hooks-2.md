@@ -71,8 +71,6 @@ In the component above, I want to generate a random number of players for today'
 
 To help generate this, I'm calling an endpoint to get a random number; and then returning the player list as an array with user objects (type: `Player[]`), containing a `userId` (taken from the current index of the `for` loop inside the function).
 
-> As a note: The most important thing is that I only want to generate the user list _**once per day**_.
-
 #### Modifying the results
 
 Now let's give the user the ability to only show the first _100_ players of the lottery:
@@ -125,7 +123,8 @@ setPlayers(
 For reference, here are the types in this instance:
 
 ```tsx
-useMemo<Player[]>(factory: () => Player[], deps: React.DependencyList | undefined): Player[]
+useMemo<Player[]>(factory: () => Player[],
+deps: React.DependencyList | undefined): Player[]
 ```
 
 Similarly to structure of `useEffect`, `useMemo` accepts two arguments:
@@ -137,13 +136,14 @@ By placing the return value of `generatePlayerList(result)` inside a `useMemo` c
 
 ```tsx
 setPlayers(
-  useMemo<Player[]>(() => generatePlayerList(result), [totalPlayers]) // only generate the players again if the amount of total players has changed
+  useMemo<Player[]>(() => generatePlayerList(result), [totalPlayers])
+  // only generate the players again if the amount of total players has changed
 );
 ```
 
 #### Some things to note:
 
-- If the user refreshes their browser; unless there's some sort of fetch caching in place outside this component, then the endpoint in the example above will most likely be called again (hint: the `useEffect`):
+- If the user refreshes their browser; unless there's some sort of fetch caching in place in your application, then the endpoint in the example above will most likely be called again (hint: the `useEffect`):
 
 ```tsx
 useEffect(() => {
