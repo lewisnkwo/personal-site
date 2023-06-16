@@ -2,7 +2,7 @@ Continuing on from [Part 1](https://lewisnkwo.com/posts/002-the-usages-of-react-
 
 ### useMemo
 
-`useMemo` may sound like a note-taking feature provided by the team at React, but it is actually a handy way to save precious computing time across your app.
+`useMemo` may sound like a note-taking feature provided by the React Team, but it is actually a handy way to save precious computing time across your app.
 
 It can be used to create a memoised (or 'cached') value to avoid repeating expensive calculations on component renders.
 
@@ -127,7 +127,7 @@ useMemo<Player[]>(factory: () => Player[],
 deps: React.DependencyList | undefined): Player[]
 ```
 
-Similarly to structure of `useEffect`, `useMemo` accepts two arguments:
+Similarly to the structure of `useEffect`, `useMemo` accepts two arguments:
 
 - A callback function
 - A dependency array
@@ -168,5 +168,7 @@ useEffect(() => {
 ```
 
 - _Or even better_; expensive calculations such as the one above should really be calculated in an environment with more memory/speed/power (e.g. on a server, rather than the client's browser), when necessary. This helps to free up memory on the client for other tasks.
+
+### useCallback
 
 _(useCallback, useContext, useReducer, & Custom Hooks sections coming soon!)_

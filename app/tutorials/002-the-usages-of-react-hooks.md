@@ -183,4 +183,4 @@ if (sidebarPostRef?.current) {
 - `useRef` can be used to directly access an element's properties on the DOM.
 - Use `useState` over `useRef` when dealing with state changes that need to be updated in the UI.
 
-[Click here to view Part 2/2](https://lewisnkwo.com/posts/003-the-usages-of-react-hooks-2).
+[Click here to view Part 2/2](https://lewisnkwo.com/posts/003-the-usages-of-react-hooks-2)

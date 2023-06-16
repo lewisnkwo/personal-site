@@ -64,7 +64,7 @@ export const action = async ({ request }: ActionArgs) => {
   }
 
   const post = await db.postModel.create({ data: { ...fields, userId } });
-  return redirect(`/posts/${post.id}`);
+  return redirect(`/posts/${post.slug}`);
 };
 
 export default function PostsNewRoute() {
