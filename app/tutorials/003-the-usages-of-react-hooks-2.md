@@ -1,4 +1,4 @@
-Continuing on from (Part 1)[https://lewisnkwo.com/posts/002-the-usages-of-react-hooks], the next hook I'm going to discuss is `useMemo`.
+Continuing on from [Part 1](https://lewisnkwo.com/posts/002-the-usages-of-react-hooks), the next hook I'm going to discuss is `useMemo`.
 
 ### useMemo
 
