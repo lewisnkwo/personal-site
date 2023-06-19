@@ -186,19 +186,19 @@ useEffect(() => {
 }, []);
 ```
 
-#### An infinite ♾️
+#### An infinite loop
 
 If you have an ESLint extension enabled in your IDE, you'll probably see this warning:
 
 ![image](https://lewisnkwosite-assets.s3.eu-west-2.amazonaws.com/images/useEffectESLint.png)
 
-It's telling us to add `getLotteryPlayers` & `maxPlayers` as dependencies into the dependency array. By adding `getLotteryPlayers` or the fetch as a dependency, we can actually get into infinite loop territory because we are updating the state once the fetch is finished. The state update causes the component to re-render, which in-turn, causes the `useEffect` to run again & again 😱
+It's telling us to add `getLotteryPlayers` & `maxPlayers` as dependencies into the dependency array. But by adding `getLotteryPlayers` or the fetch as a dependency, we can actually get into infinite loop territory because we are updating the state once the fetch is finished. The state update causes the component to re-render, which in-turn, causes the `useEffect` to run again & again 😱
 
 Here is the warning I received when I did this:
 
 ![image](https://lewisnkwosite-assets.s3.eu-west-2.amazonaws.com/images/useEffectDependencyWarning.png)
 
-We could ignore this by adding something like `eslint-disable-next-line react-hooks/exhaustive-deps` for the dependency line, but what if React provided us with a better way to help avoid the inevitable performance issue? This is where `useCallback` could come in. Let's wrap our `fetch` in `getLotteryPlayers` with it:
+We could ignore this by adding something like `eslint-disable-next-line react-hooks/exhaustive-deps` for the dependency line, but what if React provided us with a better way to help avoid the inevitable performance issue that would occur? This is where `useCallback` could come in. Let's wrap our `fetch` in `getLotteryPlayers` with it:
 
 ```tsx
 const getLotteryPlayers = useCallback(
