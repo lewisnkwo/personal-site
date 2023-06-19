@@ -169,6 +169,70 @@ useEffect(() => {
 
 - _Or even better_; expensive calculations such as the one above should really be calculated in an environment with more memory/speed/power (e.g. on a server, rather than the client's browser), when necessary. This helps to free up memory on the client for other tasks.
 
+So if we can memoise values, can we do the same for functions? Ideally we want our functions to be reusable, so what if we wanted to call `getLotteryPlayers` somewhere else in our component outside the `useEffect`?
+
 ### useCallback
 
-_(useCallback, useContext, useReducer, & Custom Hooks sections coming soon!)_
+Similarly to `useMemo`, the `useCallback` hook is used to memoise functions that could affect the performance of the components in your app. The syntax is almost identical to `useMemo`, apart from one main difference:
+
+- `useCallback`, memoises the function allowing you to invoke it only when it's needed (by having dependencies)
+- While `useMemo` goes a step further & invokes the function, and then memoises the value returned by that function.
+
+Let's revisit our `useEffect` hook usage in the `LotteryForToday` component above:
+
+```tsx
+useEffect(() => {
+  getLotteryPlayers(maxPlayers);
+}, []);
+```
+
+#### An infinite ♾️
+
+If you have an ESLint extension enabled in your IDE, you'll probably see this warning:
+
+![image](https://lewisnkwosite-assets.s3.eu-west-2.amazonaws.com/images/useEffectESLint.png)
+
+It's telling us to add `getLotteryPlayers` & `maxPlayers` as dependencies into the dependency array. By adding `getLotteryPlayers` or the fetch as a dependency, we can actually get into infinite loop territory because we are updating the state once the fetch is finished. The state update causes the component to re-render, which in-turn, causes the `useEffect` to run again & again 😱
+
+Here is the warning I received when I did this:
+
+![image](https://lewisnkwosite-assets.s3.eu-west-2.amazonaws.com/images/useEffectDependencyWarning.png)
+
+We could ignore this by adding something like `eslint-disable-next-line react-hooks/exhaustive-deps` for the dependency line, but what if React provided us with a better way to help avoid the inevitable performance issue? This is where `useCallback` could come in. Let's wrap our `fetch` in `getLotteryPlayers` with it:
+
+```tsx
+const getLotteryPlayers = useCallback(
+  (maxPlayers: number = 10000) =>
+    fetch(`https://lewisnkwo.com/getRandomNumberBetween1And${maxPlayers}`)
+      .then((response) => response.json())
+      .then((result) => {
+        setTotalPlayers(result);
+        setPlayers(generatePlayerList(result));
+      })
+      .catch(console.error),
+  []
+);
+```
+
+Now we can add `getLotteryPlayers` to the `useEffect` dependency array making our hook usage more efficient:
+
+```tsx
+useEffect(() => {
+  getLotteryPlayers(maxPlayers);
+}, [getLotteryPlayers]);
+```
+
+> But what about `maxPlayers`? Wouldn't ESLint complain if we excluded it from our `useEffect` dependency array? Or would it complain if it was left out in our `useCallback` dependencies? It seems like we now have a choice of including `maxPlayers` into _both_ hook usages.
+
+Since I'm passing in the `maxPlayers` value as an argument to `getLotteryPlayers` _inside_ the of the `useEffect`, I'll need to add it as a dependency in the `useEffect` rather than the `useCallback`. Adding the `maxPlayers` value as a dependency to `useCallback` will be unnecessary because I'm not using it as an input for a function in the hook.
+
+Here is the finished `useEffect`:
+
+```tsx
+useEffect(() => {
+  getLotteryPlayers(maxPlayers); // with a useCallback 'skin';
+}, [getLotteryPlayers, maxPlayers]);
+// getLotteryPlayers will not trigger on a re-render unless we pass in a dependency to the useCallback. Since we have maxPlayers as a dependency here, getLotteryPlayers will trigger if maxPlayers changes.
+```
+
+_(useContext, useReducer, & Custom Hooks sections coming soon!)_
