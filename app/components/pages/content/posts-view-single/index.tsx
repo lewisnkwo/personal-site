@@ -3,6 +3,9 @@ import type { Post } from "~/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import Markdown from "~/components/shared/markdown";
+import { ClapButton } from "@lyket/react";
+import { useEffect, useState } from "react";
+
 interface Props {
   post: Post;
 }
@@ -10,11 +13,21 @@ interface Props {
 const ViewSinglePost = ({ post }: Props) => {
   const data = useLoaderData<typeof loader>();
   const goTo = useNavigate();
+  const [isComponentMounted, setIsComponentMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsComponentMounted(true);
+  }, []);
 
   return (
     <>
       <h1>{post.title}</h1>
       <h2>{post.subtitle}</h2>
+      {isComponentMounted && ( // fixes CSS mismatch issue on hydration
+        <div className="ViewSinglePost__clap">
+          <ClapButton id={post.slug ?? post.id} namespace="post" />
+        </div>
+      )}
       <span className="ViewSinglePost__history">
         Last updated: {post.updatedAt}
       </span>

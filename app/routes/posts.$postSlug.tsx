@@ -13,11 +13,12 @@ import { db } from "~/utils/db.server";
 import { readMarkdown } from "~/utils/readMarkdown.server";
 import ViewSinglePost from "~/components/pages/content/posts-view-single";
 import viewSinglePostStyles from "~/components/pages/content/posts-view-single/index.css";
-import shareButtonsStyles from "~/components/shared/share-buttons/index.css";
+import interactStyles from "~/components/shared/interact/index.css";
 import { getUserId, requireUserId } from "~/utils/session.server";
 import SiteError from "~/components/shared/error";
 import type { Post } from "~/types";
-import ShareButtons from "~/components/shared/share-buttons";
+import Interact from "~/components/shared/interact";
+import { Provider as LyketProvider } from "@lyket/react";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   if (!data) {
@@ -35,7 +36,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: viewSinglePostStyles },
-    { rel: "stylesheet", href: shareButtonsStyles },
+    { rel: "stylesheet", href: interactStyles },
   ];
 };
 
@@ -108,21 +109,36 @@ export default function PostViewRoute() {
   const shareTitle = `${post.title} by Lewis Nkwo`;
   const shareUrl = `https://lewisnkwo.com/posts/${post.slug}`;
 
+  const actionFillColor = "#88C0D0";
+
   return (
-    <Layout>
-      <div className="ViewSinglePost">
-        <main>
-          <ViewSinglePost post={post as Post} />
-          <ShareButtons
-            heading="Spread the good news:"
-            shareTitle={shareTitle}
-            shareSubtitle={post.subtitle}
-            shareUrl={shareUrl}
-            fillColor="#2e3440"
-          />
-        </main>
-      </div>
-    </Layout>
+    <LyketProvider
+      apiKey="pt_f6a55995b70f934d74f21da89f2525"
+      theme={{
+        colors: {
+          background: actionFillColor,
+          text: "#2e3440",
+          primary: "#6b6c6c",
+          icon: "#ffffff",
+          highlight: "#6b6c6c",
+        },
+      }}
+    >
+      <Layout>
+        <div className="ViewSinglePost">
+          <main>
+            <ViewSinglePost post={post as Post} />
+            <Interact
+              heading="Spread the good news:"
+              shareTitle={shareTitle}
+              shareSubtitle={post.subtitle}
+              shareUrl={shareUrl}
+              fillColor={actionFillColor}
+            />
+          </main>
+        </div>
+      </Layout>
+    </LyketProvider>
   );
 }
 

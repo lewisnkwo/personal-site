@@ -7,6 +7,10 @@
     color: $text-primary;
   }
 
+  &__clap {
+    margin-bottom: 10px;
+  }
+
   &__history {
     @include text-secondary-small;
     display: block;
