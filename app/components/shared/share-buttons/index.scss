@@ -1,0 +1,8 @@
+@use "../../../styles/variables" as *;
+
+.ShareButtons {
+  &__actions {
+    @include flex(row, flex-start, center);
+    gap: 10px;
+  }
+}

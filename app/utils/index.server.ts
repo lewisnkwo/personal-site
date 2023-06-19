@@ -23,7 +23,6 @@ export const toPost = (post: PostModel): Post => ({
 export const toPostPartial = (post: Partial<PostModel>): Partial<Post> => ({
   ...post,
   body: post.body ?? undefined,
-  slug: post.slug ?? undefined,
   createdAt: post.createdAt ? toDate(post.createdAt) : undefined,
   updatedAt: post.updatedAt ? toDate(post.updatedAt) : undefined,
   category: post.category as PostCategory,

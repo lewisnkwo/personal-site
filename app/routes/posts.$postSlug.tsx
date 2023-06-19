@@ -12,10 +12,12 @@ import { toPost } from "~/utils/index.server";
 import { db } from "~/utils/db.server";
 import { readMarkdown } from "~/utils/readMarkdown.server";
 import ViewSinglePost from "~/components/pages/content/posts-view-single";
-import viewSinglePostStyles from "../components/pages/content/posts-view-single/index.css";
+import viewSinglePostStyles from "~/components/pages/content/posts-view-single/index.css";
+import shareButtonsStyles from "~/components/shared/share-buttons/index.css";
 import { getUserId, requireUserId } from "~/utils/session.server";
 import SiteError from "~/components/shared/error";
 import type { Post } from "~/types";
+import ShareButtons from "~/components/shared/share-buttons";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   if (!data) {
@@ -31,7 +33,10 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: viewSinglePostStyles }];
+  return [
+    { rel: "stylesheet", href: viewSinglePostStyles },
+    { rel: "stylesheet", href: shareButtonsStyles },
+  ];
 };
 
 export const loader = async ({ params, request }: LoaderArgs) => {
@@ -100,9 +105,23 @@ export const action = async ({ params, request }: ActionArgs) => {
 export default function PostViewRoute() {
   const { post } = useLoaderData<typeof loader>();
 
+  const shareTitle = `${post.title} by Lewis Nkwo`;
+  const shareUrl = `https://lewisnkwo.com/posts/${post.slug}`;
+
   return (
     <Layout>
-      <ViewSinglePost post={post as Post} />
+      <div className="ViewSinglePost">
+        <main>
+          <ViewSinglePost post={post as Post} />
+          <ShareButtons
+            heading="Spread the good news:"
+            shareTitle={shareTitle}
+            shareSubtitle={post.subtitle}
+            shareUrl={shareUrl}
+            fillColor="#2e3440"
+          />
+        </main>
+      </div>
     </Layout>
   );
 }
