@@ -186,7 +186,7 @@ useEffect(() => {
 }, []);
 ```
 
-#### An infinite loop
+**An infinite loop** ♾️
 
 If you have an ESLint extension enabled in your IDE, you'll probably see this warning:
 
