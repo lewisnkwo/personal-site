@@ -179,7 +179,7 @@ const Settings = () => {
       <h2>Favourite posts from all users:</h2>
       <ul>
         {createFavouritePostList(userFavourites)?.map((user) => (
-          <ul>
+          <ul key={user.userId}>
             <li>{user.userId}</li>
             <li>
               {user.favourites.map((fav) => (
