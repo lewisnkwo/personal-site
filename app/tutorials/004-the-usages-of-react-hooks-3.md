@@ -1,6 +1,6 @@
 Continuing on from [Part 2](https://lewisnkwo.com/posts/003-the-usages-of-react-hooks-2), the next topic I'm going to discuss is React's _Context_ & how we could access it with `useContext`.
 
-### useContext
+### useContext
 
 React's Context is a way to pass down information to your child components through something called a _context provider_, rather than the traditional method of relying on the information through the props of a parent component. Having access to React's Context API through `useContext` becomes quite helpful when dealing with sharing relevant information across larger applications that have a more complex structure.
 
@@ -22,6 +22,8 @@ To be honest, I could have a single parent component utilise `useState` for a us
 Firstly, we need to create the context by importing the `createContext` function from React. I want to enable a way for a component to manage state through a **Provider**, so I'm going to provide `createContext` with the properties of `useState`. `createContext` also requires a single type argument that we need to pass in for TypeScript users. I have set up two interfaces to help with this:
 
 ```tsx
+// context/userFavourites.tsx
+
 interface FavouritePost {
   postId: string;
   isFavourite: boolean;
@@ -38,6 +40,8 @@ interface UserFavourites {
 Before I add the properties of `useState` to `createContext`, we will need to add a type for our `useContext` instance. This will be the state itself (`UserFavourites`), and the type for the function to update the state:
 
 ```tsx
+// context/userFavourites.tsx
+
 interface UserFavouritesContextType {
   userFavourites: UserFavourites;
   setUserFavourites: React.Dispatch<React.SetStateAction<UserFavourites>>;
@@ -230,7 +234,7 @@ For developers working on larger/complex applications that need to manage some s
 **Advantages:**
 
 - The first advantage is related to what we explored above — on the steps we took to provide a centralised state to a component. It doesn't require much setup (you don't have to deal with setting up actions & reducers to update the store), and it can become a cleaner way to manage state in smaller/medium sized applications.
-- On the topic of it being more of a 'cleaner' solution for state, imagine if we had to send down a prop to the _most-inner child component_ in a component tree of **5** different components. What if this most-inner child component was the only component that _needed_ this prop? It would be far less cumbersome to use the `useContext` hook to provide this information, rather than passing it down through the 4 other components that do not need it.
+- On the topic of it being more of a 'cleaner' solution for state, imagine if we had to send down a prop to the _most-inner child component_ in a component tree of **5** different components. What if this most-inner child component was the only component that _needed_ this prop? It would be far less cumbersome to use the `useContext` hook to provide this information, rather than passing it down through the other _4_ components that do not need it.
 - It could be used with Redux — But it'll probably be best to use it for providing more simple pieces of data to components, rather than for managing state.
 
 **Disadvantages:**
