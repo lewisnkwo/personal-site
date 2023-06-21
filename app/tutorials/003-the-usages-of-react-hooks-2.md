@@ -192,7 +192,7 @@ If you have an ESLint extension enabled in your IDE, you'll probably see this wa
 
 ![image](https://lewisnkwosite-assets.s3.eu-west-2.amazonaws.com/images/useEffectESLint.png)
 
-It's telling us to add `getLotteryPlayers` & `maxPlayers` as dependencies into the dependency array. But by adding `getLotteryPlayers` or the fetch as a dependency, we can actually get into infinite loop territory because we are updating the state once the fetch is finished. The state update causes the component to re-render, which in-turn, causes the `useEffect` to run again & again 😱
+It's telling us to add `getLotteryPlayers` & `maxPlayers` as dependencies into the dependency array. But by adding `getLotteryPlayers` or the fetch as a dependency, we can actually get into infinite loop territory because we are updating the state once the fetch is finished. The state update causes the component to re-render, which in-turn, causes the `useEffect` to run again & again... 😱
 
 Here is the warning I received when I did this:
 
@@ -235,4 +235,4 @@ useEffect(() => {
 // getLotteryPlayers will not trigger on a re-render unless we pass in a dependency to the useCallback. Since we have maxPlayers as a dependency here, getLotteryPlayers will trigger if maxPlayers changes.
 ```
 
-_(useContext, useReducer, & Custom Hooks sections coming soon!)_
+[Click here to view Part 3/3](https://lewisnkwo.com/posts/004-the-usages-of-react-hooks-3) of using React's Hooks.
