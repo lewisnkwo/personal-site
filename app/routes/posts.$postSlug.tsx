@@ -178,7 +178,7 @@ export function ErrorBoundary() {
 
   return (
     <SiteError>
-      <span>There was an error loading the post by the id {postId}</span>
+      <span>There was an error loading the post by the slug {postId}</span>
     </SiteError>
   );
 }

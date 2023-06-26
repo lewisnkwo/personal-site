@@ -25,8 +25,8 @@ Firstly, we need to create the context by importing the `createContext` function
 // context/userFavourites.tsx
 
 interface FavouritePost {
-  postId: string;
-  isFavourite: boolean;
+  id: string;
+  isFavourite?: boolean;
 }
 
 interface UserFavourites {
@@ -184,7 +184,7 @@ const Settings = () => {
             <li>
               {user.favourites.map((fav) => (
                 <>
-                  {fav.postId} {fav.isFavourite ? "⭐, " : "★, "}
+                  {fav.id} {fav.isFavourite ? "⭐, " : "★, "}
                 </>
               ))}
             </li>
@@ -216,7 +216,7 @@ Let's provide a way to update the state:
     setUserFavourites({
       ...userFavourites,
       johnDoe: {
-        posts: [{ postId: "1", isFavourite: true }],
+        posts: [{ id: "1", isFavourite: true }],
       },
     });
   }}
@@ -240,7 +240,202 @@ For developers working on larger/complex applications that need to manage some s
 **Disadvantages:**
 
 - Less debugging capability than Redux — With features such as 'time-travel debugging' (where the Redux DevTools provides access to your state updates or action usage at different times), debugging in Context at the moment may be less powerful for larger applications.
-- Increased complexity when using multiple providers together (i.e. nested providers) — It could become increasingly difficult to manage states or debug issues across various contexts in use (especially if a single component accesses multiple Contexts). This can also be a cause for performance, as updating multiple states across different Contexts could cause unnecessary re-renders, which may slow down your application.
+- Increased complexity when using multiple providers together (i.e. nested providers) — It could become increasingly difficult to manage states or debug issues across various contexts in use (especially if a single component accesses multiple Contexts). This can also be a cause for performance, as updating multiple states across different Context could cause unnecessary re-renders, which may slow down your application.
 - Reduced scalability solutions than Redux - With support for caching, code-splitting & middleware, you may be suited using an isolated state management library such as Redux if you need these features.
 
-_(useReducer, & Custom Hooks sections coming soon!)_
+### useReducer
+
+Earlier in [Part 1](https://lewisnkwo.com/posts/002-the-usages-of-react-hooks), we looked at ways to manage state in a functional component with `useState`. `useReducer` provides a way to do the same, but with a _reducer_ function instead. You may find that separating your state updates with different reducer _actions_ in `useReducer` may help your logic to become more readable & organised (over using `useState`) — This is if your state update logic is more on the complex side.
+
+#### Creating a Reducer function
+
+There are a few ways to create a reducer:
+
+1. With a `switch` statement (reminiscent to the style of Redux's reducers)
+
+In this example, I'll demonstrate how we can perform arithmetics on a value with actions:
+
+```tsx
+// reducers/arithmetics.tsx
+
+interface State {
+  value: number;
+}
+
+interface Action {
+  type: "addBy5" | "removeBy5" | "multiplyBy5";
+}
+
+const switchReducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "addBy5":
+      return {
+        value: state.value + 5,
+      };
+    case "removeBy5":
+      return {
+        value: state.value - 5,
+      };
+    case "multiplyBy5":
+      return {
+        value: state.value * 5,
+      };
+    default:
+      return state;
+  }
+};
+```
+
+2. Without a `switch` statement:
+
+Continuing on from the 'User Favourites' example in the `useContext` section above, here's an example of how I would update _the favourite posts of a user_. I've gone with a more functional approach towards updating the state without using a `switch` statement:
+
+```tsx
+// reducers/favourite-posts.tsx
+
+interface FavouritePost {
+  id: string;
+  isFavourite?: boolean;
+}
+
+interface User {
+  [userId: string]: {
+    posts: FavouritePost[];
+  };
+}
+
+type State = User[];
+
+interface Action {
+  type: "addPost" | "removePost";
+  user: {
+    id: string;
+    post: FavouritePost;
+  };
+}
+
+const favouritePostsReducer = (state: State, action: Action): State =>
+  state.map<User>((user) => {
+    const [id] = Object.keys(user);
+    const [favourites] = Object.values(user);
+
+    return id === action.user.id
+      ? {
+          [id]: {
+            posts:
+              action.type === "addPost"
+                ? [...favourites.posts, action.user.post]
+                : action.type === "removePost"
+                ? favourites.posts.filter(
+                    (p) =>
+                      // Remove by post ID
+                      p.id !== action.user.post.id
+                  )
+                : favourites.posts,
+          },
+        }
+      : user;
+  });
+```
+
+There's no 'structure law' on creating reducers, so feel free to do what suits your application the best. Personally, I would go with the `switch` approach in most cases as it provides a more clearer indication of what I intend to do inside a reducer. Although just one thing to consider:
+
+- They should be treated like pure functions - Your reducers should accept the previous state, and an action _but_ they should also return a _new_ state object (instead of mutating and returning the previous state). Do you remember how updating the state with `useState` will cause your component to re-render? The same principles will apply for `useReducer` too. React will detect state changes in your app to prevent unnecessary re-rendering in your application, so make sure to return a new state object across all scenarios in your reducers.
+
+#### using the useReducer hook
+
+Let's revisit our `favouritePostsReducer` above. In order to use it, we can pass it as the first argument for `useReducer`. The second argument will be for our initial state:
+
+```tsx
+// App.tsx
+import { useReducer } from "react";
+
+const defaultState: User[] = [
+  {
+    userOne: {
+      posts: [],
+    },
+  },
+  {
+    userTwo: {
+      posts: [
+        {
+          id: "1",
+          isFavourite: true,
+        },
+      ],
+    },
+  },
+];
+
+const [state, dispatch] = useReducer(favouritePostsReducer, defaultState);
+```
+
+After destructing the output from `useReducer`, we now have access to the current state, and our `dispatch` function. We will use this function to dispatch actions (that tell us how to update our state) in our reducer.
+
+Let's create two simple buttons that will 'Add' & 'Remove' a favourite post on a user. Once a user clicks on them, they will call `addFavouritePost` & `removeFavouritePost` that will dispatch our actions respectively:
+
+```tsx
+// App.tsx
+const addFavouritePost = () => {
+  dispatch({
+    type: "addPost",
+    user: {
+      id: "userOne",
+      post: {
+        id: "1",
+        isFavourite: true,
+      },
+    },
+  });
+};
+
+const removeFavouritePost = () => {
+  dispatch({
+    type: "removePost",
+    user: {
+      id: "userOne",
+      post: {
+        id: "1",
+      },
+    },
+  });
+};
+
+return (
+  <>
+    <button onClick={addFavouritePost}>Add Favourite Post</button>
+    <button onClick={removeFavouritePost}>Remove Favourite Post</button>
+  </>
+);
+```
+
+Here's a visual representation of our state changes when each button is clicked [an action is dispatched]:
+
+![image](https://lewisnkwosite-assets.s3.eu-west-2.amazonaws.com/images/useReducerState.gif)
+
+#### Using useReducer with useContext
+
+We can also 'plug in' the `useReducer` hook when defining `Context` in an application. This is even better for managing state, because it'll increase legibility inside the multiple Consumer components that will rely on data from a Provider.
+
+Here is an example taken from the `useContext` section above where I defined a Provider component. To use `useReducer` here, it'll just be an exercise of replacing `useState`, and passing in the `state` & `dispatch` function into `value` prop of the `UserFavouritesContext.Provider` element:
+
+```tsx
+// context/userFavourites.tsx
+import { useReducer } from "react";
+import { favouritePostsReducer } from "reducers/favourite-posts";
+
+const UserFavouritesProvider = ({ children }: Props) => {
+  const [state, dispatch] = useReducer(favouritePostsReducer, {});
+
+  return (
+    <UserFavouritesContext.Provider value={{ state, dispatch }}>
+      {children}
+    </UserFavouritesContext.Provider>
+  );
+};
+```
+
+...
+
+_(the last section, Custom Hooks will be coming soon!)_
