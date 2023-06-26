@@ -17,6 +17,7 @@ export const toPost = (post: PostModel): Post => ({
   createdAt: toDate(post.createdAt),
   updatedAt: toDate(post.updatedAt),
   category: post.category as PostCategory,
+  readTime: post.readTime ?? undefined,
   userId: post.userId ?? undefined,
 });
 
@@ -26,5 +27,6 @@ export const toPostPartial = (post: Partial<PostModel>): Partial<Post> => ({
   createdAt: post.createdAt ? toDate(post.createdAt) : undefined,
   updatedAt: post.updatedAt ? toDate(post.updatedAt) : undefined,
   category: post.category as PostCategory,
+  readTime: post.readTime ?? undefined,
   userId: post.userId ?? undefined,
 });

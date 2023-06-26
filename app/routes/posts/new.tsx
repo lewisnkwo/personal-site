@@ -4,7 +4,7 @@ import { json } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 import { badRequest } from "~/utils/request.server";
-import { validatePostBody, validatePostTitle } from "./validators";
+import { validatePostBody, validatePostString } from "./validators";
 import { getUserId, requireUserId } from "~/utils/session.server";
 import { Link, useCatch } from "@remix-run/react";
 
@@ -24,6 +24,7 @@ export const action = async ({ request }: ActionArgs) => {
   const subtitle = form.get("subtitle");
   const slug = form.get("slug");
   const body = form.get("body");
+  const readTime = form.get("readTime");
   const category = form.get("category");
 
   if (
@@ -31,6 +32,7 @@ export const action = async ({ request }: ActionArgs) => {
     typeof subtitle !== "string" ||
     typeof slug !== "string" ||
     typeof body !== "string" ||
+    typeof readTime !== "string" ||
     typeof category !== "string"
   ) {
     return badRequest({
@@ -41,9 +43,10 @@ export const action = async ({ request }: ActionArgs) => {
   }
 
   const fieldErrors = {
-    title: validatePostTitle(title, "title"),
-    subtitle: validatePostTitle(subtitle, "subtitle"),
-    slug: validatePostTitle(subtitle, "slug"),
+    title: validatePostString(title, "title"),
+    subtitle: validatePostString(subtitle, "subtitle"),
+    slug: validatePostString(slug, "slug"),
+    readTime: validatePostString(readTime, "readTime"),
     body: validatePostBody(body),
   };
 
@@ -51,6 +54,7 @@ export const action = async ({ request }: ActionArgs) => {
     title,
     subtitle,
     slug,
+    readTime,
     body,
     category,
   };

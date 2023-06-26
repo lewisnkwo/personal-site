@@ -418,7 +418,7 @@ Here's a visual representation of our state changes when each button is clicked 
 
 We can also 'plug in' the `useReducer` hook when defining `Context` in an application. This is even better for managing state, because it'll increase legibility inside the multiple Consumer components that will rely on data from a Provider.
 
-Here is an example taken from the `useContext` section above where I defined a Provider component. To use `useReducer` here, it'll just be an exercise of replacing `useState`, and passing in the `state` & `dispatch` function into `value` prop of the `UserFavouritesContext.Provider` element:
+Here is an example taken from the `useContext` section above where I defined a Provider component. To use `useReducer` here, it'll just be an exercise of replacing `useState`, and passing in the `state` & `dispatch` function into the `value` prop of the `UserFavouritesContext.Provider` element:
 
 ```tsx
 // context/userFavourites.tsx

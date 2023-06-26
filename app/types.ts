@@ -16,6 +16,7 @@ export interface Post {
   body: string | undefined;
   slug: string | undefined;
   category: PostCategory;
+  readTime: string | undefined;
   createdAt: string;
   updatedAt: string;
   userId: string | undefined;

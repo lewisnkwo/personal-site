@@ -44,7 +44,19 @@ const PostsNew = () => {
             actionData?.fieldErrors?.slug ? "slug-error" : undefined
           }
         />
-        <PostsNewFieldError actionData={actionData} fieldName="subtitle" />
+        <PostsNewFieldError actionData={actionData} fieldName="slug" />
+        <input
+          defaultValue={actionData?.fields?.readTime}
+          name="readTime"
+          type="text"
+          placeholder="Enter estimated reading time..."
+          aria-label="Enter reading time"
+          aria-invalid={Boolean(actionData?.fieldErrors?.readTime)}
+          aria-errormessage={
+            actionData?.fieldErrors?.slug ? "readTime-error" : undefined
+          }
+        />
+        <PostsNewFieldError actionData={actionData} fieldName="readTime" />
         <textarea
           defaultValue={actionData?.fields?.body}
           name="body"
@@ -64,7 +76,7 @@ const PostsNew = () => {
           <option value="Engineering">Engineering</option>
           <option value="Travel">Travel</option>
         </select>
-        <button type="submit">Add post</button>
+        <button type="submit">Create post</button>
       </Form>
     </>
   );

@@ -28,6 +28,7 @@ model PostModel {
   slug      String   @unique
   body      String?
   category  String
+  readTime  String?
   User      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String?
 }
