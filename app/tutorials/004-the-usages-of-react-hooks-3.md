@@ -460,8 +460,8 @@ In this hook, I've used the power of the classic `useState` & `useEffect` hooks 
 
 #### What are the requirements for creating your own hook?
 
-- The [React docs](https://react.dev/learn/reusing-logic-with-custom-hooks#hook-names-always-start-with-use) state that your custom hooks should be prefixed with the name **use** to keep with the naming convention of the other built-in hooks from the library.
-- Their docs also state that we should avoid creating hooks with the name '_use_' that do not call other hooks. These type of methods should be labelled as regular functions as they help to seperate React-specific functionality with other instances of JS logic.
+- The [React docs](https://react.dev/learn/reusing-logic-with-custom-hooks#hook-names-always-start-with-use) state that your custom hooks should be prefixed with the name **use** to keep in-sync with the naming convention of the other built-in hooks from the library.
+- Their docs also state that we should avoid creating hooks with the name '_use_' that do not call other hooks (in most cases). These type of methods should be labelled as regular functions as they help to seperate React-specific functionality with other instances of JS logic.
 
 ### Conclusion
 
