@@ -371,7 +371,7 @@ const defaultState: User[] = [
 const [state, dispatch] = useReducer(favouritePostsReducer, defaultState);
 ```
 
-After destructing the output from `useReducer`, we now have access to the current state, and our `dispatch` function. We will use this function to dispatch actions (that tell us how to update our state) in our reducer.
+After destructing the output from `useReducer`, we now have access to the current state, and our `dispatch` function. We will use this function to dispatch 'actions' (that tell us how to update our state) in our reducer.
 
 Let's create two simple buttons that will 'Add' & 'Remove' a favourite post on a user. Once a user clicks on them, they will call `addFavouritePost` & `removeFavouritePost` that will dispatch our actions respectively:
 
@@ -438,4 +438,31 @@ const UserFavouritesProvider = ({ children }: Props) => {
 
 ### Custom Hooks
 
-_(the last section, Custom Hooks will be coming soon!)_
+Wouldn't it be great if you had the ability to create your own functionality that can be reused & shared across your components? Thankfully, we have the freedom to do so easily. Here's an example of [a hook](https://github.com/lewisnkwo/personal-site/blob/main/app/hooks/useDeviceWidth.ts) that I created that returns a `boolean` based on the `innerWidth` of the `window` object:
+
+```tsx
+// app/hooks/useDeviceWidth.ts
+
+import { useEffect, useState } from "react";
+
+export const useDeviceWidth = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+  }, []);
+
+  return isMobile;
+};
+```
+
+In this hook, I've used the power of the classic `useState` & `useEffect` hooks to achieve my result. There's no limitation to what logic that could be provided in your custom hooks (as long as you're still following the principles of React!).
+
+#### What are the requirements for creating your own hook?
+
+- The [React docs](https://react.dev/learn/reusing-logic-with-custom-hooks#hook-names-always-start-with-use) state that your custom hooks should be prefixed with the name **use** to keep with the naming convention of the other built-in hooks from the library.
+- Their docs also state that we should avoid creating hooks with the name '_use_' that do not call other hooks. These type of methods should be labelled as regular functions as they help to seperate React-specific functionality with other instances of JS logic.
+
+### Conclusion
+
+I hope that the information I've shared on using hooks with React will prove helpful. If used correctly, we now know that they can be a powerful tool during development. If you have any queries or suggestions on these posts, feel free to drop me a message & I'll make sure to respond as soon as possible 🙂.
