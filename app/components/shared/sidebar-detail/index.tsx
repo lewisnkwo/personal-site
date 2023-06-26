@@ -27,8 +27,8 @@ const SidebarDetail = ({
       </section>
       <section className="SidebarDetail__items">
         <SidebarDetailItem label="Category" value={category} />
-        <SidebarDetailItem label="Date created" value={createdAt} />
         <SidebarDetailItem label="Last updated" value={updatedAt} />
+        <SidebarDetailItem label="Date created" value={createdAt} />
       </section>
     </div>
   );

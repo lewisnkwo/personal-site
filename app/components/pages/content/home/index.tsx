@@ -32,8 +32,10 @@ const Home = ({ posts }: Props) => {
       <main>
         <div>
           <section>
-            <h2>Latest posts</h2>
-            <span className="Home__description">What's new on my mind...</span>
+            <h2>What's new on my mind?</h2>
+            <span className="Home__description">
+              Latest posts from Lewis Nkwo
+            </span>
             <div className="Home__select-posts">
               Choice of posts:
               <select

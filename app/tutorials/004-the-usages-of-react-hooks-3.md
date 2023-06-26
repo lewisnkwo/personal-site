@@ -342,7 +342,7 @@ There's no 'structure law' on creating reducers, so feel free to do what suits y
 
 - They should be treated like pure functions - Your reducers should accept the previous state, and an action _but_ they should also return a _new_ state object (instead of mutating and returning the previous state). Do you remember how updating the state with `useState` will cause your component to re-render? The same principles will apply for `useReducer` too. React will detect state changes in your app to prevent unnecessary re-rendering in your application, so make sure to return a new state object across all scenarios in your reducers.
 
-#### using the useReducer hook
+#### Using the useReducer hook
 
 Let's revisit our `favouritePostsReducer` above. In order to use it, we can pass it as the first argument for `useReducer`. The second argument will be for our initial state:
 
@@ -436,6 +436,6 @@ const UserFavouritesProvider = ({ children }: Props) => {
 };
 ```
 
-...
+### Custom Hooks
 
 _(the last section, Custom Hooks will be coming soon!)_
