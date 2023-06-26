@@ -8,6 +8,7 @@ const SidebarDetail = ({
   title,
   subtitle,
   category,
+  readTime,
   createdAt,
   updatedAt,
 }: Props) => {
@@ -29,6 +30,9 @@ const SidebarDetail = ({
         <SidebarDetailItem label="Category" value={category} />
         <SidebarDetailItem label="Last updated" value={updatedAt} />
         <SidebarDetailItem label="Date created" value={createdAt} />
+        {readTime && (
+          <SidebarDetailItem label="Estimated reading time" value={readTime} />
+        )}
       </section>
     </div>
   );
