@@ -7,6 +7,8 @@ import {
   faQuestion,
   faBars,
   faTag,
+  faCopy,
+  faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedinIn,
@@ -27,7 +29,9 @@ library.add(
   faGithub,
   faBars,
   faTag,
-  fab
+  fab,
+  faCopy,
+  faCheckSquare
 );
 
 interface Props {

@@ -1,0 +1,16 @@
+.Pre {
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.3;
+    padding: 4px 8px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

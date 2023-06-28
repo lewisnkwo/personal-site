@@ -14,6 +14,7 @@ import { readMarkdown } from "~/utils/readMarkdown.server";
 import ViewSinglePost from "~/components/pages/content/posts-view-single";
 import viewSinglePostStyles from "~/components/pages/content/posts-view-single/index.css";
 import interactStyles from "~/components/shared/interact/index.css";
+import preStyles from "~/components/shared/markdown/pre.css";
 import { getUserId, requireUserId } from "~/utils/session.server";
 import SiteError from "~/components/shared/error";
 import type { Post } from "~/types";
@@ -37,6 +38,7 @@ export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: viewSinglePostStyles },
     { rel: "stylesheet", href: interactStyles },
+    { rel: "stylesheet", href: preStyles },
   ];
 };
 

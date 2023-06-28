@@ -183,9 +183,9 @@ const Settings = () => {
             <li>{user.userId}</li>
             <li>
               {user.favourites.map((fav) => (
-                <>
+                <span key={fav.id}>
                   {fav.id} {fav.isFavourite ? "⭐, " : "★, "}
-                </>
+                </span>
               ))}
             </li>
           </ul>

@@ -5,6 +5,7 @@ import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { useEffect, useState } from "react";
 import { useDeviceWidth } from "~/hooks/useDeviceWidth";
+import Pre from "./pre";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("md", md);
@@ -17,7 +18,7 @@ const Markdown = ({ content }: Props) => {
   const [isComponentMounted, setIsComponentMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    setIsComponentMounted(true); // Used as a fix to solve a hydration issue with the ReactMarkdown component.
+    setIsComponentMounted(true); // Used as a fix to solve a hydration issue with styled components & Remix
   }, []);
 
   const isMobile = useDeviceWidth();
@@ -28,6 +29,7 @@ const Markdown = ({ content }: Props) => {
         <ReactMarkdown
           children={content}
           components={{
+            pre: Pre,
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
               return !inline && match ? (
@@ -48,6 +50,7 @@ const Markdown = ({ content }: Props) => {
               );
             },
           }}
+          linkTarget="_blank"
         />
       )}
     </>
