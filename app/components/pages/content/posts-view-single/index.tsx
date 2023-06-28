@@ -14,16 +14,24 @@ const ViewSinglePost = ({ post }: Props) => {
   const data = useLoaderData<typeof loader>();
   const goTo = useNavigate();
   const [isComponentMounted, setIsComponentMounted] = useState<boolean>(false);
+  const [isProduction, setIsProduction] = useState<boolean>(false);
 
+  // Used as a fix to solve a hydration issue with styled components & Remix
   useEffect(() => {
     setIsComponentMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (window.ENV.TYPE === "production") {
+      setIsProduction(true);
+    }
   }, []);
 
   return (
     <>
       <h1>{post.title}</h1>
       <h2>{post.subtitle}</h2>
-      {isComponentMounted && ( // fixes CSS mismatch issue on hydration
+      {isComponentMounted && isProduction && (
         <div className="ViewSinglePost__clap">
           <ClapButton id={post.slug ?? post.id} namespace="post" />
         </div>

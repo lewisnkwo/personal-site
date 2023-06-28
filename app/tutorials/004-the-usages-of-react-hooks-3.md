@@ -442,7 +442,6 @@ Wouldn't it be great if you had the ability to create your own functionality tha
 
 ```tsx
 // app/hooks/useDeviceWidth.ts
-
 import { useEffect, useState } from "react";
 
 export const useDeviceWidth = () => {
