@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-
 export interface SidebarItem {
   icon: string;
   title: string;
@@ -28,10 +26,4 @@ export interface PostListItem {
   title: string;
   subtitle: string;
   updatedAt: string;
-}
-
-export interface ElementProps {
-  readonly children: string[];
-  readonly className: string;
-  readonly node: ReactNode;
 }

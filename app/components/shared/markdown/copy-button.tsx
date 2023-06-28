@@ -1,7 +1,11 @@
-import { useState } from "react";
-import React from "react";
+import React, { useState, type ReactNode } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { ElementProps } from "~/types";
+
+interface ElementProps {
+  readonly children: string[];
+  readonly className: string;
+  readonly node: ReactNode;
+}
 
 interface Props {
   children: React.ReactNode & React.ReactNode[];
