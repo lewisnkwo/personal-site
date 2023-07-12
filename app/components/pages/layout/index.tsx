@@ -73,7 +73,7 @@ const Layout = ({ children }: Props) => {
           {
             icon: "linkedin-in",
             title: "LinkedIn",
-            external: "https://www.linkedin.com/in/lewis-nkwo-18868ba1",
+            external: "https://www.linkedin.com/in/lewisnkwo",
           },
           {
             icon: "github",

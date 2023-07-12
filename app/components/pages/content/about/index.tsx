@@ -75,7 +75,7 @@ const About = () => {
                 aria-label="My LinkedIn Profile"
                 target="_blank"
                 rel="noreferrer"
-                to="https://www.linkedin.com/in/lewis-nkwo-18868ba1"
+                to="https://www.linkedin.com/in/lewisnkwo"
               >
                 LinkedIn
               </Link>
