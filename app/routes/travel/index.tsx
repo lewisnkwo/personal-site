@@ -1,6 +1,6 @@
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import ViewAllPosts from "~/components/pages/content/posts-engineering";
+import ViewAllPosts from "~/components/pages/content/posts-travel";
 import { db } from "~/utils/db.server";
 import { getUser } from "~/utils/session.server";
 import postItemStyles from "~/components/shared/post-item/index.css";
@@ -16,8 +16,8 @@ export const links: LinksFunction = () => {
 };
 
 export const meta: MetaFunction = () => ({
-  title: "Lewis Nkwo | All Engineering Posts",
-  description: "View all engineering posts from Lewis Nkwo.",
+  title: "Lewis Nkwo | All Travel Posts",
+  description: "View all travel posts from Lewis Nkwo.",
 });
 
 export const loader = async ({ request }: LoaderArgs) => {
@@ -25,7 +25,7 @@ export const loader = async ({ request }: LoaderArgs) => {
     orderBy: { createdAt: "desc" },
     select: { id: true, title: true, subtitle: true, slug: true },
     where: {
-      category: 'Engineering',
+      category: 'Travel',
     }
   });
   const user = await getUser(request);
@@ -44,7 +44,7 @@ export function CatchBoundary() {
   const caught = useCatch();
 
   if (caught.status === 404) {
-    return <div className="ErrorBoundary">There are no engineering posts to display.</div>;
+    return <div className="ErrorBoundary">There are no travel posts to display.</div>;
   }
   throw new Error(`Unexpected response with status: ${caught.status}`);
 }

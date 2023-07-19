@@ -1,14 +1,14 @@
 import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import PostList from "~/components/shared/post-list";
-import type { loader } from "~/routes/posts/";
+import type { loader } from "~/routes/travel/";
 
-const ViewAllEngineeringPosts = () => {
+const ViewAllTravelPosts = () => {
   const data = useLoaderData<typeof loader>();
   const goTo = useNavigate();
 
   return (
     <>
-      <h1>All software engineering posts from Lewis Nkwo</h1>
+      <h1>All travel posts from Lewis Nkwo</h1>
       <div className="ViewAllPosts__content">
         {data?.user && (
           <>
@@ -31,4 +31,4 @@ const ViewAllEngineeringPosts = () => {
   );
 };
 
-export default ViewAllEngineeringPosts;
+export default ViewAllTravelPosts;
