@@ -4,7 +4,7 @@ import ViewAllPosts from "~/components/pages/content/posts-engineering";
 import { db } from "~/utils/db.server";
 import { getUser } from "~/utils/session.server";
 import postItemStyles from "~/components/shared/post-item/index.css";
-import viewAllPostsStyles from "~/components/pages/content/posts-engineering/index.css";
+import viewAllPostsStyles from "~/styles/viewAllPosts.css";
 import { useCatch } from "@remix-run/react";
 import { toPostPartial } from "~/utils/index.server";
 
