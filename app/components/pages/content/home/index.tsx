@@ -40,13 +40,18 @@ const Home = ({ posts }: Props) => {
               Choice of posts:
               <select
                 name="postType"
-                defaultValue="Engineering"
+                defaultValue="All"
                 onChange={(e) => {
-                  setLatestPosts(
-                    filterPosts(posts, e.currentTarget.value as PostCategory)
-                  );
+                  if (e.currentTarget.value !== 'All') {
+                    setLatestPosts(
+                      filterPosts(posts, e.currentTarget.value as PostCategory)
+                    );
+                  } else {
+                    setLatestPosts(posts)
+                  }
                 }}
               >
+                <option value="All">Select a category</option>
                 <option value="Engineering">Engineering</option>
                 <option value="Travel">Travel</option>
               </select>
