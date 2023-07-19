@@ -1,10 +1,10 @@
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import ViewAllPosts from "~/components/pages/content/posts-view-all";
+import ViewAllPosts from "~/components/pages/content/posts-engineering";
 import { db } from "~/utils/db.server";
 import { getUser } from "~/utils/session.server";
 import postItemStyles from "~/components/shared/post-item/index.css";
-import viewAllPostsStyles from "~/components/pages/content/posts-view-all/index.css";
+import viewAllPostsStyles from "~/components/pages/content/posts-engineering/index.css";
 import { useCatch } from "@remix-run/react";
 import { toPostPartial } from "~/utils/index.server";
 
@@ -16,8 +16,8 @@ export const links: LinksFunction = () => {
 };
 
 export const meta: MetaFunction = () => ({
-  title: "Lewis Nkwo | All Posts",
-  description: "View all posts from Lewis Nkwo.",
+  title: "Lewis Nkwo | All Engineering Posts",
+  description: "View all engineering posts from Lewis Nkwo.",
 });
 
 export const loader = async ({ request }: LoaderArgs) => {

@@ -2,13 +2,13 @@ import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import PostList from "~/components/shared/post-list";
 import type { loader } from "~/routes/posts/";
 
-const ViewAllPosts = () => {
+const ViewAllEngineeringPosts = () => {
   const data = useLoaderData<typeof loader>();
   const goTo = useNavigate();
 
   return (
     <>
-      <h1>All posts</h1>
+      <h1>All engineering posts</h1>
       <div className="ViewAllPosts__content">
         {data?.user && (
           <>
@@ -31,4 +31,4 @@ const ViewAllPosts = () => {
   );
 };
 
-export default ViewAllPosts;
+export default ViewAllEngineeringPosts;

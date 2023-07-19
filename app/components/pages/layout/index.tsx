@@ -9,6 +9,7 @@ import {
   faTag,
   faCopy,
   faCheckSquare,
+  faPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedinIn,
@@ -29,6 +30,7 @@ library.add(
   faGithub,
   faBars,
   faTag,
+  faPlane,
   fab,
   faCopy,
   faCheckSquare
@@ -64,6 +66,11 @@ const Layout = ({ children }: Props) => {
             icon: "code",
             title: "Blog",
             slug: "posts",
+          },
+          {
+            icon: "plane",
+            title: "Travel",
+            slug: "travel",
           },
           {
             icon: "question",
